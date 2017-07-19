@@ -35,6 +35,7 @@ const commonConfig = {
       Config: path.resolve(__dirname, 'config/'),
       Utilities: path.resolve(__dirname, 'src/utilities/'),
       Static: path.resolve(__dirname, 'src/static/'),
+      Redux: path.resolve(__dirname, 'src/redux/')
     },
     extensions: ['.jsx', '.js', '.json', 'scss'],
   },
