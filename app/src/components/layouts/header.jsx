@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link, IndexLink, hashHistory} from 'react-router';
-import { nameOfAnimation as Menu } from 'react-burger-menu';
+import { Bubble as Menu } from 'react-burger-menu';
 
 class Header extends React.Component {
 	constructor(props) {
@@ -9,9 +9,7 @@ class Header extends React.Component {
 	}
   showSettings (event) {
     event.preventDefault();
-    .
-    .
-    .
+
   }
 
 	render() {
@@ -28,17 +26,17 @@ class Header extends React.Component {
 		return (
 			<div>
 
-     <Menu>
-       <a id="home" className="menu-item" href="/">Home</a>
-       <a id="about" className="menu-item" href="/about">About</a>
-       <a id="contact" className="menu-item" href="/contact">Contact</a>
-       <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
-     </Menu>
+        <Menu>
+          <a id="home" className="menu-item" href="/">Home</a>
+          <a id="about" className="menu-item" href="/about">About</a>
+          <a id="contact" className="menu-item" href="/contact">Contact</a>
+          <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+        </Menu>
 
         <div>{this.props.view}</div>
 
         <IndexLink to='/' activeClassName='active'><img className='logoHeader' src='../static/logo_octopus_footer.png'></img></IndexLink>
-        
+
 
 			</div>
 		);
