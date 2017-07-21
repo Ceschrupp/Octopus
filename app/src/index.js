@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 //import containers
 import App from 'Containers/App';
 import Main from 'Containers/Main';
+
 //import components
 
 
@@ -17,8 +18,8 @@ const router = (
 		<Provider store= {store}>
 			<Router history= {hashHistory}>
 				<Route path='/' component={App}>
-{/*					<IndexRoute component={ListaResultados}></IndexRoute>
-						<Route path='/view/:user' component={User}></Route>
+				<IndexRoute component={Home}></IndexRoute>
+			{/*		<Route path='/view/:user' component={User}></Route>
 						<Route path='/login' component={LogUsr}></Route>
 						<Route path='/register' component={RegUsr}></Route>
 						<Route path='/view/movie/:id' component={Peli}></Route>*/}

@@ -6,7 +6,20 @@ import Main from './Main';
 //guarda el store en los props
 function mapStateToProps(state) {
 	return {
-		user: state.user
+		userStuff: {
+			user: state.user,
+			isLoged: state.isLoged,
+			logErr: state.logErr
+			isLoging: state.isLoging
+		},
+		other: {
+			view: state.view,
+			news: state.news,
+			info: state.info,
+			isFetching: state.isFetching
+		},
+		amenities: state.amenities,
+		complaints: state.complaints
 	}
 };
 
