@@ -62,7 +62,16 @@ const commonConfig = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack Project',
+      title: 'Octopus',
+      inject: false,
+      template: require('html-webpack-template'),
+      appMountId: 'app',
+      mobile: true,
+      links: [
+        "https://fonts.googleapis.com/css?family=Exo+2:100,200,300",
+        "https://fonts.googleapis.com/css?family=Raleway:100,400",
+        "https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400",
+      ]
     }),
     new FriendlyErrorsWebpackPlugin(),
   ],
@@ -109,7 +118,7 @@ const developmentConfig = () => {
     test: /\.css$/,
     use: [
       'style-loader',
-      cssLoader,
+      'css-loader',
     ],
   }, {
     test: /\.styl$/,
@@ -124,6 +133,7 @@ const developmentConfig = () => {
     devServer: {
       historyApiFallback: true,
       quiet: true,
+      disableHostCheck: true,
       host: process.env.HOST || '0.0.0.0', // Defaults to `localhost`
       port: process.env.DEV_PORT || 8080, // Defaults to 8080
     },

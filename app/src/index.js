@@ -2,29 +2,43 @@ import React from 'react';
 import { render } from 'react-dom';
 
 //import containers
-import App from 'Containers/App';
-import Main from 'Containers/Main';
+import App from './containers/App';
+import Main from './containers/Main';
+import PaymentNotice from './containers/PaymentNotice';
+import Expenses from './containers/Expenses';
+import Account from './containers/Account';
+import News from './containers/News';
+import UsefulInfo from './containers/UsefulInfo';
+import AmenitiesContainer from './containers/AmenitiesContainer';
+import ComplaintsContainer from './containers/ComplaintsContainer';
+import MyAccount from './containers/MyAccount';
+
 //import components
 
 
 //import react router deps
 import { Router, Route, IndexRoute, hashHistory} from 'react-router';
 import { Provider } from 'react-redux';
-import store from 'Redux/store';
+import store, { history } from './redux/store.js';
 
 //routes
 const router = (
-		<Provider store= {store}>
-			<Router history= {hashHistory}>
-				<Route path='/' component={App}>
-{/*					<IndexRoute component={ListaResultados}></IndexRoute>
-						<Route path='/view/:user' component={User}></Route>
-						<Route path='/login' component={LogUsr}></Route>
-						<Route path='/register' component={RegUsr}></Route>
-						<Route path='/view/movie/:id' component={Peli}></Route>*/}
-				</Route>
-			</Router>
-		</Provider>
+			<Provider store ={store}>
+			 <Router history={hashHistory}>
+					 <Route path='/' component={App}>
+							<IndexRoute component={Main}></IndexRoute>
+							<Route path='/informar-pagos' component={PaymentNotice}></Route>
+							<Route path='/expensas' component={Expenses}></Route>
+							<Route path='/cuenta-corriente' component={Account}></Route>
+							<Route path='/novedades' component={News}></Route>
+							<Route path='/datos-utiles' component={UsefulInfo}></Route>
+							<Route path='/amenities' component={AmenitiesContainer}></Route>
+							<Route path='/reclamos' component={ComplaintsContainer}></Route>
+							<Route path='/:username' component={MyAccount}></Route>
+							<Route path='/' component={Main}></Route>
+						</Route>
+				</Router>
+			</Provider>
 	)
 
 render(router, document.getElementById('app'));
