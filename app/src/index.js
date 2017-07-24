@@ -2,10 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 
 //import containers
-<<<<<<< HEAD
-import App from 'Containers/App';
-import Main from 'Containers/Main';
-=======
+
 import App from './containers/App';
 import Main from './containers/Main';
 import PaymentNotice from './containers/PaymentNotice';
@@ -16,7 +13,7 @@ import UsefulInfo from './containers/UsefulInfo';
 import AmenitiesContainer from './containers/AmenitiesContainer';
 import ComplaintsContainer from './containers/ComplaintsContainer';
 import MyAccount from './containers/MyAccount';
->>>>>>> cecilia
+
 
 //import components
 
@@ -28,7 +25,6 @@ import store, { history } from './redux/store.js';
 
 //routes
 const router = (
-
 			<Provider store ={store}>
 			 <Router history={hashHistory}>
 					 <Route path='/' component={App}>
@@ -45,7 +41,6 @@ const router = (
 						</Route>
 				</Router>
 			</Provider>
->>>>>>> cecilia
 	)
 
 render(router, document.getElementById('app'));
