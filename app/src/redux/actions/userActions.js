@@ -95,3 +95,5 @@ export function fetchChangePass(newPass) {
 		}
 	};
 }
+
+///////////////////////////HACER ACCIONES PARA REGISTRARSE
