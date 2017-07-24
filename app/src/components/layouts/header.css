@@ -1,0 +1,92 @@
+
+
+body{
+  margin: 0;
+}
+.header{
+  height: 60 px;
+
+  background-color: #333;
+}
+.hr{
+  padding-top: 30%;
+}
+
+.menu-item{
+  padding-top: 15%;
+  margin-left: 15%;
+  padding-right: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 120%;
+  color: white;
+  text-decoration: none;
+
+
+}
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 26px;
+  height: 20px;
+  left: 36px;
+  top: 30px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+
+  border-radius: 2px;
+  background: #ffffff;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  opacity: 0;
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  width: 100%;
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+
+  position: absolute;
+  top: 0;
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+}
+
+
+
+/* Styling of overlay */
+.bm-overlay {
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Octopus Logo */
+
+.logoHeader {
+  padding: 10px;
+  height: 60px;
+  display: block;
+  margin: 0 auto;
+}
