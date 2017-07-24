@@ -6,12 +6,11 @@ import rootReducer from './reducers/rootReducer';
 const InitialState = {
 	userStuff: {
 		user: {},
-		isLoged: false,
-		logErr: false,
-		isLoging: false
+		isLogged: false,
+		logErr: false
 	},
 	other: {
-		view: "Menú",
+		view: "Home",
 		news: [],
 		info: [],
 		isFetching: false

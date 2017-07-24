@@ -8,9 +8,8 @@ function mapStateToProps(state) {
 	return {
 		userStuff: {
 			user: state.user,
-			isLoged: state.isLoged,
+			isLogged: state.isLogged,
 			logErr: state.logErr
-			isLoging: state.isLoging
 		},
 		other: {
 			view: state.view,

@@ -1,32 +1,12 @@
-import { GET_RESERVES, DELETE_RESERVE, EDIT_RESERVE } from '../actions/actionCreators';
+import { GET_BOOKINGS } from '../actions/actionCreators';
 
-function userStuffReducer(state = {
-		user: null,
-		isLoged: false,//WHATTT
-}, action) {
+function amenitiesReducer(state, action) {
 
 	switch (action.type) {
 
-		case GET_RESERVES:
+		case GET_BOOKINGS:
 			return Object.assign({}, state, {
-					user: {},
-					isLoged: false,	
-					isLoging: false,
-					logErr: false
-			});
-
-		case DELETE_RESERVE:
-			return Object.assign({}, state, {
-				isLoging: false,
-				user: action.user,
-				isLoged: true,
-				logErr: false	
-			});
-
-		case EDIT_RESERVE:
-			return Object.assign({}, state, {
-				isLoging: false,
-				logErr: true
+				amenities: action.bookings,
 			});
 
 		default:
@@ -34,4 +14,4 @@ function userStuffReducer(state = {
 	}
 }
 
-export default logingReducer;
+export default amenitiesReducer;

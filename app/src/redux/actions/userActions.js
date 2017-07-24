@@ -2,14 +2,6 @@ import fetch from 'isomorphic-fetch';
 
 
 //////////////////////////////////////////////////acciones para loguear user
-export const LOG_USER = 'LOG_USER';
-
-export function logUser() {
-	return {
-		type: LOG_USER
-	};
-}
-
 export const LOG_OUT = 'LOG_OUT';
 
 export function logOut() {
@@ -36,29 +28,70 @@ export function failedToLogin() {
 
 export function fetchLogUser(user) {
 	return (dispatch) => {
-		dispatch(logUser()); /////////el fetch lo mando con toda esta bola?
-		return fetch('./api/login', {
+		dispatch(isFetching(true))
+		return fetch('/login', {
 			headers: { "Content-Type" : "application/JSON" },
 			method: "POST",
 			credentials: "include",
 			body: JSON.stringify(user)
 		})
 			.then(response => response.json())
-			.then(data => data !== false? dispatch(loginOK(data)) : dispatch(failedToLogin()));
+			.then(function(data) {
+				dispatch(isFetching(false))
+				data !== false? dispatch(loginOK(data)) : dispatch(failedToLogin());
+		} 
 	};
 }
 
 //////////////////ver las rutas y acciones posteriormente recibidas por sebas
 export function fetchLogOutUser(user) {
 	return (dispatch) => {
+		dispatch(isFetching(true))
 		dispatch(logOut()); /////////el fetch lo mando con toda esta bola?
-		return fetch('./api/logOut', {
+		return fetch('/logout', {
 			headers: { "Content-Type" : "application/JSON" },
 			method: "GET",
 			credentials: "include",
 			body: JSON.stringify(user)
 		})
 			.then(response => response.json())
-			.then(data => data !== false? dispatch(loginOK(data)) : dispatch(failedToLogin()));
+			.then(function(data) {
+				dispatch(isFetching(false))
+				data !== false? dispatch(loginOK(data)) : dispatch(failedToLogin());
+		} 
+	};
+}
+
+//////////////////////////////////////ENVIAR EMAIL PARA OLVIDE MI CLAVE
+export function fetchForgotPass(email) {
+	return (dispatch) => {
+		dispatch(isFetching(true))
+		return fetch('/olvide-clave', {
+			headers: { "Content-Type" : "application/JSON" },
+			method: "POST",
+			credentials: "include",
+			body: JSON.stringify(user)
+		})
+			.then(response => response.json())
+			.then(dispatch(isFetching(false)));
+		} 
+	};
+}
+
+//////////////////////////////////////ENVIAR NUEVA CLAVE PARA CAMBIAR CLAVE
+export function fetchChangePass(newPass) {
+	return (dispatch) => {
+		dispatch(isFetching(true))
+		return fetch('/reiniciar-clave', {
+			headers: { "Content-Type" : "application/JSON" },
+			method: "GET",
+			credentials: "include",
+			body: JSON.stringify(user)
+		})
+			.then(response => response.json())
+			.then(function(data) {
+				dispatch(isFetching(false))
+				data !== false? dispatch(logOut()) : false);
+		}
 	};
 }

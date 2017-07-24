@@ -18,7 +18,7 @@ const router = (
 		<Provider store= {store}>
 			<Router history= {hashHistory}>
 				<Route path='/' component={App}>
-				<IndexRoute component={Home}></IndexRoute>
+				{/*<IndexRoute component={Home}></IndexRoute>*/}
 			{/*		<Route path='/view/:user' component={User}></Route>
 						<Route path='/login' component={LogUsr}></Route>
 						<Route path='/register' component={RegUsr}></Route>

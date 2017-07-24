@@ -12,9 +12,8 @@ import userStuff	from './userStuff';
 const InitialState = {
 	userStuff: {
 		user: {},
-		isLoged: false,	
-		logErr: false,
-		isLoging: false
+		isLogged: false,	
+		logErr: false
 	},
 	other: {
 		view: "Menú",
