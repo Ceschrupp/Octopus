@@ -4,7 +4,19 @@ import rootReducer from './reducers/rootReducer';
 
 //estado inicial
 const InitialState = {
-	user: {}
+	userStuff: {
+		user: {},
+		isLogged: false,
+		logErr: false
+	},
+	other: {
+		view: "Home",
+		news: [],
+		info: [],
+		isFetching: false
+	},
+	amenities: []
+	// complaints: []
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

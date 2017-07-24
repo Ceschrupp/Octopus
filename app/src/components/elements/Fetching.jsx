@@ -7,7 +7,11 @@ export default class Fetching extends React.Component {
 	render () {
 		return (
 			<div className='Fetching'>
+<<<<<<< HEAD
 				
+=======
+				<-- pulpito -->
+>>>>>>> b93baf6beef5bff73babd725103974caec7c6562
 			</div>
 			)
 	}
