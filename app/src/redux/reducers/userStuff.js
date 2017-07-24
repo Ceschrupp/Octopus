@@ -1,8 +1,9 @@
 import { LOG_OUT, LOGIN_OK, FAILED_TO_LOGIN } from '../actions/actionCreators';
 
 function userStuffReducer(state = {
-		user: null,
-		isLogged: false,//WHATTT
+	user: {},
+	isLogged: false,
+	logErr: false
 }, action) {
 
 	switch (action.type) {
@@ -10,7 +11,7 @@ function userStuffReducer(state = {
 		case LOG_OUT:
 			return Object.assign({}, state, {
 					user: {},
-					isLogged: false,	
+					isLogged: false,
 					logErr: false
 			});
 
@@ -18,7 +19,7 @@ function userStuffReducer(state = {
 			return Object.assign({}, state, {
 				user: action.user,
 				isLogged: true,
-				logErr: false	
+				logErr: false
 			});
 
 		case FAILED_TO_LOGIN:

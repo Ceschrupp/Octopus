@@ -8,6 +8,7 @@ import './header.css';
 class Header extends React.Component {
 	constructor(props) {
 		super(props);
+    console.log('props in header', props)
 
 	}
   showSettings (event) {
@@ -15,7 +16,7 @@ class Header extends React.Component {
 
   }
 	render() {
-    if (false) {
+    if (!this.props.userStuff.isLogged) {
       return (
   			<div>
 
