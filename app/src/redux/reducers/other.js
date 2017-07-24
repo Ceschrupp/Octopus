@@ -1,6 +1,10 @@
 import { IS_FETCHING } from '../actions/actionCreators';
 
-function otherReducer(state, action) {
+function otherReducer(state = {
+		view: "Menú",
+		news: [],
+		info: [],
+		isFetching: false } , action) {
 
 	switch (action.type) {
 
@@ -14,4 +18,4 @@ function otherReducer(state, action) {
 	}
 }
 
-export default amenitiesReducer;
+export default otherReducer;

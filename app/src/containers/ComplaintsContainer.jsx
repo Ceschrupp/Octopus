@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-import AllComplaints from './AllComplaints';
+// import AllComplaints from './AllComplaints';
 import UploadBox from '../components/elements/fileUploadBox';
 import SubmitButton from '../components/elements/SubmitButton';
 
@@ -8,7 +8,7 @@ export default class ComplaintsContainer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.props.initiateComplaint=this.props.initiateComplaint.bind(this);
-	},
+	}
 	initiateComplaint(e) {
 		e.preventDefault();
 		const {complaintId} = this.props.params;
@@ -18,12 +18,15 @@ export default class ComplaintsContainer extends React.Component {
 		this.refs.complaintForm.reset();
 	}
 	render() {
-		return() {
+
 			if (this.initiateComplaint) {
+				return (
 				<div className='complaintInitiated'>
 					<AllComplaints />
-				</div>	
-			}
+				</div>
+			)
+		}else{
+			return(
 			<div className='complaintsContainer'>
 				<Form className='complaintForm' ref='complaintForm'>
 					<input className='complaintInput' placeholder='Asunto' ref='complaintTitle'></input>
@@ -32,6 +35,7 @@ export default class ComplaintsContainer extends React.Component {
 					<SubmitButton onClick={this.initiateComplaint} />
 				</Form>
 			</div>
+			)
 		}
 	}
 };

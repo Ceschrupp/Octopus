@@ -4,7 +4,7 @@ import { routerReducer } from 'react-router-redux';
 
 //import reducers
 import other from './other';
-import complaints from './complaints';
+// import complaints from './complaints';
 import amenities from './amenities';
 import userStuff	from './userStuff';
 
@@ -12,7 +12,7 @@ import userStuff	from './userStuff';
 const InitialState = {
 	userStuff: {
 		user: {},
-		isLogged: false,	
+		isLogged: false,
 		logErr: false
 	},
 	other: {
@@ -22,10 +22,9 @@ const InitialState = {
 		isFetching: false
 	},
 	amenities: [],
-	complaints: []
+	// complaints: []
 };
-
-const appReducer = combineReducers({other, complaints, amenities, userStuff, routing: routerReducer});
+const appReducer = combineReducers({other, amenities, userStuff, routing: routerReducer});
 
 const rootReducer = (state, action) => {
 	if (action.type === 'LOG_OUT') {
