@@ -1,12 +1,13 @@
 import fetch from 'isomorphic-fetch';
-
+import { isFetching } from './otherActions';
 
 //////////////////////////////////////////////////acciones para las amenities
 export const GET_BOOKINGS = 'GET_BOOKINGS';
 
 export function getBookings(bookings) {
 	return {
-		type: GET_BOOKINGS
+		type: GET_BOOKINGS,
+		bookings
 	};
 }
 
@@ -41,7 +42,7 @@ export function fetchGetBookings() {
 			.then(response => response.json())
 			.then(function(data) {
 				dispatch(isFetching(false))
-				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed geting bookings'))
+				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed getting bookings'))
 		})
 	};
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 // import AllComplaints from './AllComplaints';
-import UploadBox from '../components/elements/fileUploadBox';
+import UploadBox from '../components/elements/FileUploadBox';
 import SubmitButton from '../components/elements/SubmitButton';
 
 export default class ComplaintsContainer extends React.Component {

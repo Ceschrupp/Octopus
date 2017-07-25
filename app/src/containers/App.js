@@ -18,7 +18,8 @@ function mapStateToProps(state) {
 			isFetching: state.isFetching
 		},
 		amenities: state.amenities,
-		complaints: state.complaints
+		complaints: state.complaints,
+		comments: state.comments
 	}
 };
 
