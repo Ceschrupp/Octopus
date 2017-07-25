@@ -16,9 +16,9 @@ class Header extends React.Component {
 
   }
 	render() {
-    if (!this.props.userStuff.isLogged) {
+    if (false) {
       return (
-  			<div>
+  			<div className="header">
 
           <img className="logoHeader" src={logo}/>
 
@@ -38,9 +38,8 @@ class Header extends React.Component {
           <Link id="amenities" className="menu-item" href="/amenities">Amenities</Link>
           <Link id="reclamos" className="menu-item" href="/reclamos">Reclamos</Link>
           <div className='hr'></div>
-          <Link  id="mi-cuenta" className="menu-item" href={this.props.user.username}>Mi Cuenta</Link>
+          <Link  id="mi-cuenta" className="menu-item" href={this.props.userStuff.user}>Mi Cuenta</Link>
           <Link id="cerrar-sesion" className="menu-item" href="/">Cerrar Sesión</Link>
-
         </Menu>
 
         <div>{this.props.view}</div>

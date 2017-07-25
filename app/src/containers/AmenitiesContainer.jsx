@@ -13,7 +13,14 @@ export default class Amenities extends React.Component {
 		if () {
 		return (
 			<div>
+<<<<<<< HEAD
 				<AmenitiesForm {...this.props}/>
+=======
+				
+				<AmenitiesForm/>
+				<SubmitButton onClick={this.initiateBooking}/>
+
+>>>>>>> a840be2e695592c09d9e9352112554b66414be32
 			</div>
 		)}
 		return (			
