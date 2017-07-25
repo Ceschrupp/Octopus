@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 
+
 //import containers
 
 import App from './containers/App';
@@ -11,7 +12,7 @@ import Main from './containers/Main';
 // import News from './containers/News';
 // import UsefulInfo from './containers/UsefulInfo';
 import AmenitiesContainer from './containers/AmenitiesContainer';
-import ComplaintsContainer from './containers/ComplaintsContainer';
+// import ComplaintsContainer from './containers/ComplaintsContainer';
 // import MyAccount from './containers/MyAccount';
 
 
@@ -29,15 +30,9 @@ const router = (
 			 <Router history={hashHistory}>
 					 <Route path='/' component={App}>
 						 	<IndexRoute component={AmenitiesContainer}/>
-							{/*<Route path='/informar-pagos' component={PaymentNotice}></Route>
-							<IndexRoute component={Main}></IndexRoute>
-							<Route path='/expensas' component={Expenses}></Route>
-							<Route path='/cuenta-corriente' component={Account}></Route>
-							<Route path='/novedades' component={News}></Route>
-							<Route path='/:username' component={MyAccount}></Route>
-							<Route path='/datos-utiles' component={UsefulInfo}></Route>*/}
+
 							<Route path='/amenities' component={AmenitiesContainer}></Route>
-							<Route path='/reclamos' component={ComplaintsContainer}></Route>
+
 
 							<Route path='/' component={Main}></Route>
 						</Route>

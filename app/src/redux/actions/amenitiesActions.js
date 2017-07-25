@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch';
-
+import { isFetching } from './otherActions';
+import thunkMiddleware from 'redux-thunk';
 
 //////////////////////////////////////////////////acciones para las amenities
 export const GET_BOOKINGS = 'GET_BOOKINGS';
@@ -12,18 +13,19 @@ export function getBookings(bookings) {
 
 //envia la reserva de la amenitie y devuelve todas las reservas + la que cree
 export function fetchSendBooking(booking) {
+	console.log('ESTE ES EL DISPATCH FUNCTION')
 	return (dispatch) => {
-		dispatch(isFetching(true))
+		dispatch(isFetching(true));
 		return fetch('/reservar', {
-			headers: { "Content-Type" : "application/JSON" },
-			method: "POST",
-			credentials: "include",
-			body: JSON.stringify(bookings)
+			"headers": { "Content-Type" : "application/JSON" },
+			"method": "POST",
+			"credentials": "include",
+			"body": JSON.stringify(booking)
 		})
 			.then(response => response.json())
 			.then(function(data) {
 				dispatch(isFetching(false))
-				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed sending booking'))
+				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed to send booking'))
 		})
 	};
 }
@@ -41,7 +43,7 @@ export function fetchGetBookings() {
 			.then(response => response.json())
 			.then(function(data) {
 				dispatch(isFetching(false))
-				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed geting bookings'))
+				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed to get bookings'))
 		})
 	};
 }

@@ -1,29 +1,26 @@
 import React from 'react';
-import SubmitButton from '../components/elements/SubmitButton.jsx';
-import AmenitiesForm from '../components/elements/AmenitiesForm.jsx';
+import AmenitiesList from '../components/elements/AmenitiesList';
+import AmenitiesForm from '../components/elements/AmenitiesForm';
 
-export default class AmenitiesContainer extends React.Component {
+export default class Amenities extends React.Component {
 	constructor(props) {
 		super(props);
-		this.initiateBooking=this.initiateBooking.bind(this);
-	}
-	initiateBooking(e) {
-		preventDefault(e);
-		const Amenities = this.refs.Amenities.value;
-		const date = this.refs.Date.value;
-		const Time = this.refs.Time.value;
-		const Comments= this.refs.Comments.value;
-		this.props.createBooking(Amenities, date, Time, Comments);
-		this.refs.AmenitiesForm.reset();
+		}
+	componentWillMount() {
+		this.props.fetchGetBookings();
 	}
 	render() {
+		if () {
 		return (
 			<div>
-
-				<AmenitiesForm/>
-				<SubmitButton onClick={this.initiateBooking}/>
-
+				<AmenitiesForm {...this.props}/>
 			</div>
-		);
-	}
+		)}
+		return (			
+			<div className='AmenitiesListDiv'>
+				{this.props.bookings.map((booking, i) => <AmenitiesList {...this.props}  amenities = {booking.amenities}
+					bookingDate = {booking.bookingDate} time = {booking.time} comments = {booking.comments} bookingName = {booking.bookingName} initiateBookingDate = {booking.initiateBookingDate} key={i} />)}
+			</div>
+	)}
 };
+import React from 'react';
