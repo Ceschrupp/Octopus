@@ -24,7 +24,7 @@ export function fetchSendBooking(booking) {
 			.then(function(data) {
 				dispatch(isFetching(false))
 				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed sending booking'))
-		}
+		})
 	};
 }
 
@@ -41,15 +41,15 @@ export function fetchGetBookings() {
 			.then(response => response.json())
 			.then(function(data) {
 				dispatch(isFetching(false))
-				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed geting bookings')
-		}
+				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed geting bookings'))
+		})
 	};
 }
 
 //envia la reserva a eliminar y devuelve todas las reservas
 export function fetchDeleteBooking(booking) {
 	return (dispatch) => {
-		dispatch(isFetching(true))	
+		dispatch(isFetching(true))
 		return fetch('/elminiar-reserva', {
 			headers: { "Content-Type" : "application/JSON" },
 			method: "POST",
@@ -59,8 +59,8 @@ export function fetchDeleteBooking(booking) {
 			.then(response => response.json())
 			.then(function(data) {
 				dispatch(isFetching(false))
-				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed deleting booking')
-		}
+				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed deleting booking'))
+		})
 	};
 }
 
@@ -77,7 +77,7 @@ export function fetchEditBooking(booking) {
 			.then(response => response.json())
 			.then(function(data) {
 				dispatch(isFetching(false))
-				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed editing booking')
-		}
+				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed editing booking'))
+		})
 	};
 }

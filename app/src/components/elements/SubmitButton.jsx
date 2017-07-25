@@ -7,7 +7,7 @@ export default class SubmitButton extends React.Component {
 	render() {
 		return (
 			<div>
-				<Button className= 'SubmitButton' ref='button' onClick=''>Enviar</Button>
+				<button className='SubmitButton' ref='button'>Enviar</button>
 			</div>
 		);
 	}

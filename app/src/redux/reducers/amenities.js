@@ -1,6 +1,6 @@
 import { GET_BOOKINGS } from '../actions/actionCreators';
 
-function amenitiesReducer(state, action) {
+function amenitiesReducer(state = [] , action) {
 
 	switch (action.type) {
 

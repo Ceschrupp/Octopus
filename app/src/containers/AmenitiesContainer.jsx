@@ -1,10 +1,12 @@
 import React from 'react';
-import SubmitButton from '../components/SubmitButton.jsx';
+import SubmitButton from '../components/elements/SubmitButton.jsx';
+import AmenitiesForm from '../components/elements/AmenitiesForm.jsx';
 
-export default class Form extends React.Component {
+export default class AmenitiesContainer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.initiateBooking=this.initiateBooking.bind(this);
+<<<<<<< HEAD
 		this.state = {
 		amenities:this.props.amenities,
 		date:this.props.date,
@@ -12,6 +14,9 @@ export default class Form extends React.Component {
 		comments:this.props.comments,
 		//isEditing: false
 	},
+=======
+	}
+>>>>>>> b93baf6beef5bff73babd725103974caec7c6562
 	initiateBooking(e) {
 		preventDefault(e);
 		const amenities = this.refs.amenities.value;
@@ -19,6 +24,7 @@ export default class Form extends React.Component {
 		const time = this.refs.time.value;
 		const comments= this.refs.comments.value;
 		this.refs.AmenitiesForm.reset();
+<<<<<<< HEAD
 		return this.setState({amenities, date, time, comments});
 	},
 	render() {
@@ -31,6 +37,16 @@ export default class Form extends React.Component {
 			        <textarea ref='comments' rows="4" cols="50" placeholder='Comentarios'></textarea>
 			        <SubmitButton onClick={this.initiateBooking}/>
 		        </Form>
+=======
+	}
+	render() {
+		return (
+			<div>
+
+				<AmenitiesForm/>
+				<SubmitButton onClick={this.initiateBooking}/>
+
+>>>>>>> b93baf6beef5bff73babd725103974caec7c6562
 			</div>
 		);
 	}

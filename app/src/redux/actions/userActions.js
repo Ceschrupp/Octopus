@@ -39,7 +39,7 @@ export function fetchLogUser(user) {
 			.then(function(data) {
 				dispatch(isFetching(false))
 				data !== false? dispatch(loginOK(data)) : dispatch(failedToLogin());
-		} 
+		})
 	};
 }
 
@@ -58,7 +58,7 @@ export function fetchLogOutUser(user) {
 			.then(function(data) {
 				dispatch(isFetching(false))
 				data !== false? dispatch(loginOK(data)) : dispatch(failedToLogin());
-		} 
+		})
 	};
 }
 
@@ -74,9 +74,9 @@ export function fetchForgotPass(email) {
 		})
 			.then(response => response.json())
 			.then(dispatch(isFetching(false)));
-		} 
+		}
 	};
-}
+
 
 //////////////////////////////////////ENVIAR NUEVA CLAVE PARA CAMBIAR CLAVE
 export function fetchChangePass(newPass) {
@@ -91,8 +91,8 @@ export function fetchChangePass(newPass) {
 			.then(response => response.json())
 			.then(function(data) {
 				dispatch(isFetching(false))
-				data !== false? dispatch(logOut()) : false);
-		}
+				data !== false? dispatch(logOut()) : false;
+		})
 	};
 }
 

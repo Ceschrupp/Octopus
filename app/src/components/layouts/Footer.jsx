@@ -4,6 +4,7 @@ import {Link} from 'react-router';
 export default class Footer extends React.Component {
 	constructor (props) {
 		super(props);
+		console.log('footer',props);
 	}
 	render () {
 		return (
