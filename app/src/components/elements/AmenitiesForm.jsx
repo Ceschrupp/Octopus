@@ -22,13 +22,13 @@ export default class AmenitiesForm extends React.Component {
 			<div className='AmenitiesFormDiv'>
 				<h3 className='AmenitiesFormTitle'>Inicia una reserva:</h3>
 				<form ref='AmenitiesForm' onSubmit={this.handleSubmit} className='AmenitiesForm'>
-	        <input ref='amenities' type='text' placeholder='Amenities'></input>
-	        <input ref='bookingDate' type='date' min="2017-07-01" placeholder='Fecha'></input>
-	        <input ref='time' type='time' placeholder='Horario'></input>
-	        <textarea ref='comments' rows="4" cols="50" placeholder='Comentarios'></textarea>
-	        <input ref='bookingName' type='text' placeholder='Nombre y Apellido'></input>
-	        <button type='submit'>Enviar</button>
-        </form>
+			        <input ref='amenities' type='text' placeholder='Amenities'></input>
+			        <input ref='bookingDate' type='date' min="2017-07-01" placeholder='Fecha'></input>
+			        <input ref='time' type='time' placeholder='Horario'></input>
+			        <textarea ref='comments' rows="4" cols="50" placeholder='Comentarios'></textarea>
+			        <input ref='bookingName' type='text' placeholder='Nombre y Apellido'></input>
+			        <button type='submit'>Enviar</button>
+        		</form>
 			</div>
 		);
 	}
