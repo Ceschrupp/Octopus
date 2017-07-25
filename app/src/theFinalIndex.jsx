@@ -1,5 +1,5 @@
-import React from 'react';
-import { render } from 'react-dom';
+// import React from 'react';
+// import { render } from 'react-dom';
 
 //import containers
 
@@ -12,7 +12,6 @@ import Main from './containers/Main';
 // import UsefulInfo from './containers/UsefulInfo';
 import AmenitiesContainer from './containers/AmenitiesContainer';
 import ComplaintsContainer from './containers/ComplaintsContainer';
-import MeanWhile from './components/elements/meanwhileLoginForm'
 // import MyAccount from './containers/MyAccount';
 
 
@@ -29,7 +28,7 @@ const router = (
 			<Provider store ={store}>
 			 <Router history={hashHistory}>
 					 <Route path='/' component={App}>
-						 	<IndexRoute component={MeanWhile}/>
+						 	<IndexRoute component={AmenitiesContainer}/>
 							{/*<Route path='/informar-pagos' component={PaymentNotice}></Route>
 							<IndexRoute component={Main}></IndexRoute>
 							<Route path='/expensas' component={Expenses}></Route>

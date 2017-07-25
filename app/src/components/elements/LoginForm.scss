@@ -1,0 +1,57 @@
+.LoginForm{
+
+  width:200px;
+  margin: 200px auto;
+
+
+}
+
+.loginButton {
+  margin:10px auto;
+  display: block;
+  width: 120%;
+  border-radius: 30px;
+  background-color: #0095C6;
+  font-size:13pt;
+  height:35px;
+  border: solid;
+  border-color: #0095C6;
+  color: white;
+}
+
+.loginPassword {
+  font-size:13pt;
+  height:30px;
+  text-align: center;
+  margin:10px auto;
+  width: 120%;
+  border-radius: 30px;
+}
+
+.loginPassword:focus {
+
+  outline-width: 0px;
+
+}
+
+
+.loginEmail {
+  font-size:13pt;
+  height:30px;
+  text-align: center;
+  margin:10px auto;
+  width: 120%;
+  border-radius: 30px;
+}
+
+.loginEmail:focus {
+
+  outline-width: 0px;
+
+}
+
+.loginForgot{
+  width: 120%;
+  text-align: center;
+  color: #0032a0;
+}

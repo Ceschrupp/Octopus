@@ -19,7 +19,7 @@ export default class AmenitiesContainer extends React.Component {
 	render() {
 		return (
 			<div>
-
+				
 				<AmenitiesForm/>
 				<SubmitButton onClick={this.initiateBooking}/>
 

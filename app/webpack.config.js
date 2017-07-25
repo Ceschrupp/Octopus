@@ -121,11 +121,10 @@ const developmentConfig = () => {
       'css-loader',
     ],
   }, {
-    test: /\.styl$/,
+    test: /\.scss$/,
     use: [
       'style-loader',
       cssLoader,
-      'stylus-loader',
     ],
   }];
   commonConfig.module.rules.push(...rules);
