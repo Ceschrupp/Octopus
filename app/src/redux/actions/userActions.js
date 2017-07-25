@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-
+import { isFetching } from './otherActions';
 
 //////////////////////////////////////////////////acciones para loguear user
 export const LOG_OUT = 'LOG_OUT';
@@ -14,7 +14,8 @@ export const LOGIN_OK = 'LOGIN_OK';
 
 export function loginOK(user) {
 	return {
-		type: LOGIN_OK
+		type: LOGIN_OK,
+		user
 	};
 }
 
@@ -47,17 +48,17 @@ export function fetchLogUser(user) {
 export function fetchLogOutUser(user) {
 	return (dispatch) => {
 		dispatch(isFetching(true))
-		dispatch(logOut()); /////////el fetch lo mando con toda esta bola?
+		; /////////el fetch lo mando con toda esta bola?
 		return fetch('/logout', {
 			headers: { "Content-Type" : "application/JSON" },
 			method: "GET",
 			credentials: "include",
 			body: JSON.stringify(user)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(loginOK(data)) : dispatch(failedToLogin());
+		.then(response => response.json())
+		.then(function(data) {
+			dispatch(isFetching(false))
+			data === true? dispatch(logOut()) : "ERROR?";
 		})
 	};
 }
@@ -72,10 +73,10 @@ export function fetchForgotPass(email) {
 			credentials: "include",
 			body: JSON.stringify(user)
 		})
-			.then(response => response.json())
-			.then(dispatch(isFetching(false)));
-		}
-	};
+		.then(response => response.json())
+		.then(dispatch(isFetching(false)));
+	}
+};
 
 
 //////////////////////////////////////ENVIAR NUEVA CLAVE PARA CAMBIAR CLAVE
@@ -91,7 +92,7 @@ export function fetchChangePass(newPass) {
 			.then(response => response.json())
 			.then(function(data) {
 				dispatch(isFetching(false))
-				data !== false? dispatch(logOut()) : false;
+				data === true? dispatch(logOut()) : false;
 		})
 	};
 }

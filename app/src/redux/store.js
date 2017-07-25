@@ -16,8 +16,9 @@ const InitialState = {
 		info: [],
 		isFetching: false
 	},
-	amenities: []
-	// complaints: []
+	amenities: [],
+	complaints: [],
+	comments: []
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
