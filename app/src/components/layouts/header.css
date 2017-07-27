@@ -26,7 +26,7 @@ body{
 }
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
+  position: absolute;;
   width: 26px;
   height: 20px;
   left: 36px;
@@ -139,4 +139,23 @@ a:link{
 a:visited{
   text-decoration: none;
   color: white;
+}
+
+@media(max-width: 600px){
+    .copyrightDiv, .termsAndPrivacy{
+        display:block;
+        color:black;
+        padding:0px;
+        margin: 0 auto;
+        text-align: center;
+        position: static;
+
+    }
+    .copyrightDiv>p, .termsAndPrivacy>p{
+      padding: 3px;
+      font-size: 94%;
+    }
+    .footerDiv{
+      height: auto;
+    }
 }

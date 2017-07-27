@@ -19,23 +19,38 @@ import ComplaintsContainer from './containers/ComplaintsContainer';
 // import Expenses from './containers/Expenses';
 // import Account from './containers/Account';
 // import News from './containers/News';
-// import UsefulInfo from './containers/UsefulInfo';
-// import MeanWhile from './components/elements/meanwhileLoginForm'
 
-// import MyAccount from './containers/MyAccount';
+
+import AmenitiesContainer from './containers/AmenitiesContainer';
+
+import ComplaintsContainer from './containers/ComplaintsContainer';
+
+
+import AmenitiesForm from './components/elements/AmenitiesForm';
+
+import AmenitiesList from './components/elements/AmenitiesList';
+
+import LoginForm from './components/elements/LoginForm'
+//import components
+
+
+//import react router deps
+import { Router, Route, IndexRoute, hashHistory} from 'react-router';
+import { Provider } from 'react-redux';
+import store, { history } from './redux/store.js';
 
 //routes
 const router = (
 			<Provider store ={store}>
-				<Router history={hashHistory}>
-					<Route path='/' component={App}>
-						<IndexRoute component={LoginForm}/>
-						<Route path='/' component={Main} />
-						<Route path='/amenities' component={LoginForm} />
-						<Route path='/olvide-clave' component={ForgotPassword} />
-						<Route path='/ver-reservas' component={AmenitiesList} />
-						<Route path='/detalle-reserva' component={Amenity} />
-					</Route>
+
+			 <Router history={hashHistory}>
+					 <Route path='/' component={App}>
+						 	<IndexRoute component={AmenitiesForm}/>
+							<Route path='/amenities' component={AmenitiesContainer}></Route>
+							<Route path='/' component={Main}></Route>
+						</Route>
+
+
 				</Router>
 			</Provider>
 	)

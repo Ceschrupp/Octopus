@@ -6,8 +6,13 @@ export const GET_BOOKINGS = 'GET_BOOKINGS';
 
 export function getBookings(bookings) {
 	return {
+<<<<<<< HEAD:app/src/redux/actions/.fuse_hidden000046b300000001
 		type: GET_BOOKINGS,
 		bookings
+=======
+		type: GET_BOOKINGS
+		
+>>>>>>> cecilia:app/src/redux/actions/amenitiesActions.js
 	};
 }
 
