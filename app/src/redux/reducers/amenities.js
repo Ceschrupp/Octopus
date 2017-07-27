@@ -1,4 +1,4 @@
-import { GET_BOOKINGS } from '../actions/actionCreators';
+import { GET_BOOKINGS } from '../actions/globalActions';
 
 function amenitiesReducer(state = [] , action) {
 

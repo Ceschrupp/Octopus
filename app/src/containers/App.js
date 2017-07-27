@@ -15,7 +15,9 @@ function mapStateToProps(state) {
 			view: state.view,
 			news: state.news,
 			info: state.info,
-			isFetching: state.isFetching
+			isFetching: state.isFetching,
+			failedToFetch: state.failedToFetch,
+			error: state.error
 		},
 		amenities: state.amenities,
 		complaints: state.complaints,

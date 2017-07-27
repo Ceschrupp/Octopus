@@ -1,10 +1,13 @@
-import { IS_FETCHING, CHANGE_VIEW, GET_NEWS, GET_INFO } from '../actions/actionCreators';
+import { IS_FETCHING, CHANGE_VIEW, GET_NEWS, GET_INFO, FAILED_TO_FETCH, ERROR } from '../actions/globalActions';
 
 function otherReducer(state = {
-		"view": "Menú",
-		"news": [],
-		"info": [],
-		"isFetching": false } , action) {
+		view: "Menú",
+		news: [],
+		info: [],
+		isFetching: false,
+		failedToFetch: false,
+		error: null
+	} , action) {
 
 	switch (action.type) {
 
@@ -26,6 +29,16 @@ function otherReducer(state = {
 		case GET_INFO:
 			return Object.assign({}, state, {
 					info: action.info
+			});
+
+			case FAILED_TO_FETCH:
+			return Object.assign({}, state, {
+				logErr: action.err
+			});
+
+			case ERROR:
+			return Object.assign({}, state, {
+				logErr: action.err
 			});
 
 		default:
