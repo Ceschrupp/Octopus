@@ -1,7 +1,7 @@
 import React from 'react';
 import AmenitiesList from '../components/elements/AmenitiesList';
 import AmenitiesForm from '../components/elements/AmenitiesForm';
-import AmenitieDetail from '../components/elements/AmenitieDetail';
+import AmenitieDetail from '../components/elements/Amenity';
 
 export default class Amenities extends React.Component {
 	constructor(props) {
@@ -17,10 +17,13 @@ export default class Amenities extends React.Component {
 			<div>
 				<AmenitiesForm {...this.props}/>
 			</div>
-		)} else if (this.props.location.pathname==='/ver-reservas') {
-		return (			
+		)
+	} else if (this.props.location.pathname==='/ver-reservas') {
+		return (
 			<div className='AmenitiesListDiv'>
-				{this.props.bookings.map((booking, i) => <AmenitiesList {...this.props} key={i} i={i} booking={booking}/>)}
+				{this.props.bookings.map((booking, i) => <AmenitiesList {...this.props} key={i} i={i} booking={booking} /> )}
 			</div>
-		)}
+		)
+	}
 };
+}

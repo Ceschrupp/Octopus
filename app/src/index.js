@@ -20,24 +20,10 @@ import ComplaintsContainer from './containers/ComplaintsContainer';
 // import Account from './containers/Account';
 // import News from './containers/News';
 
-
-import AmenitiesContainer from './containers/AmenitiesContainer';
-
-import ComplaintsContainer from './containers/ComplaintsContainer';
-
-
-import AmenitiesForm from './components/elements/AmenitiesForm';
-
-import AmenitiesList from './components/elements/AmenitiesList';
-
-import LoginForm from './components/elements/LoginForm'
 //import components
 
 
 //import react router deps
-import { Router, Route, IndexRoute, hashHistory} from 'react-router';
-import { Provider } from 'react-redux';
-import store, { history } from './redux/store.js';
 
 //routes
 const router = (

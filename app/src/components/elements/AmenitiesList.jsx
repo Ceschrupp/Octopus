@@ -25,7 +25,7 @@ export default class AmenitiesList extends React.Component {
 					<h3>Reservas</h3>
 					<ul className='AmenitiesListUl'>
 						<li className='AmenitiesListItem'>{booking.amenities} reservado por {booking.bookingName} para el {booking.bookingDate}. <button onClick={this.viewDetails}>Ver detalles.</button></li>
-						<input type="hidden" id={this.props.booking.id} value={this.state.} />
+						<input type="hidden" id={this.props.booking.id} value={this.state.ALGOOO} />
 					</ul>
 				</div>
 			)
