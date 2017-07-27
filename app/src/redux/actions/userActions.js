@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-
+import { isFetching, failedToFetch } from './globalActions';
 
 //////////////////////////////////////////////////acciones para loguear user
 export const LOG_OUT = 'LOG_OUT';
@@ -14,15 +14,17 @@ export const LOGIN_OK = 'LOGIN_OK';
 
 export function loginOK(user) {
 	return {
-		type: LOGIN_OK
+		type: LOGIN_OK,
+		user
 	};
 }
 
 export const FAILED_TO_LOGIN = 'FAILED_TO_LOGIN';
 
-export function failedToLogin() {
+export function failedToLogin(err) {
 	return {
-		type: FAILED_TO_LOGIN
+		type: FAILED_TO_LOGIN,
+		err
 	};
 }
 
@@ -35,30 +37,35 @@ export function fetchLogUser(user) {
 			credentials: "include",
 			body: JSON.stringify(user)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(loginOK(data)) : dispatch(failedToLogin());
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			if (data.error) {
+				dispatch(failedToLogin(data.messegeError))
+			} else {
+				dispatch(loginOK(data))
+			}
 		})
+			.catch(err => dispatch(failedToFetch(err)));
 	};
 }
 
 //////////////////ver las rutas y acciones posteriormente recibidas por sebas
 export function fetchLogOutUser(user) {
 	return (dispatch) => {
-		dispatch(isFetching(true))
-		dispatch(logOut()); /////////el fetch lo mando con toda esta bola?
+		dispatch(isFetching(true)) /////////el fetch lo mando con toda esta bola?
 		return fetch('/logout', {
 			headers: { "Content-Type" : "application/JSON" },
 			method: "GET",
 			credentials: "include",
 			body: JSON.stringify(user)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(loginOK(data)) : dispatch(failedToLogin());
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			dispatch(logOut())
 		})
+		.catch(err => dispatch(failedToFetch(err)));
 	};
 }
 
@@ -72,10 +79,12 @@ export function fetchForgotPass(email) {
 			credentials: "include",
 			body: JSON.stringify(user)
 		})
-			.then(response => response.json())
-			.then(dispatch(isFetching(false)));
-		}
-	};
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false));
+		})
+	}
+};
 
 
 //////////////////////////////////////ENVIAR NUEVA CLAVE PARA CAMBIAR CLAVE
@@ -88,11 +97,16 @@ export function fetchChangePass(newPass) {
 			credentials: "include",
 			body: JSON.stringify(user)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(logOut()) : false;
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			if (data.error) {
+				dispatch(failedToLogin(data.messegeError))
+			} else {
+				dispatch(dispatch(logOut()))
+			}
 		})
+		.catch(err => dispatch(failedToFetch(err)));
 	};
 }
 
