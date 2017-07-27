@@ -11,7 +11,7 @@ export default class Amenities extends React.Component {
 		this.props.fetchGetBookings();
 	}
 	render() {
-		if (this.props.location.pathname === '/reservar-amenities') {
+		if (this.props.location.pathname==='/reservar-amenities') {
 		return (
 			<div>
 				<AmenitiesForm {...this.props}/>
