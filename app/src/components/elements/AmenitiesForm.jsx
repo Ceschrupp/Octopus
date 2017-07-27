@@ -16,6 +16,7 @@ export default class AmenitiesForm extends React.Component {
 		};
 		this.refs.AmenitiesForm.reset();
 		this.props.fetchSendBooking(booking);
+		hashHistory.push('/ver-reservas');
 	}
 	render() {
 		return (
