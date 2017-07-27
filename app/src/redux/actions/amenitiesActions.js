@@ -8,6 +8,7 @@ export const GET_BOOKINGS = 'GET_BOOKINGS';
 export function getBookings(bookings) {
 	return {
 		type: GET_BOOKINGS
+		
 	};
 }
 
