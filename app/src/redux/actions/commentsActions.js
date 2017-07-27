@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
-import { isFetching } from './otherActions';
+import { isFetching, failedToFetch } from './otherActions';
 
-//////////////////////////////////////////////////acciones para las amenities
+//////////////////////////////////////////////////acciones para los comments
 export const GET_COMMENTS = 'GET_COMMENTS';
 
 export function getComments(comments) {
@@ -21,16 +21,17 @@ export function fetchSendComment(comments) {
 			credentials: "include",
 			body: JSON.stringify(comments)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(getComments(data)): dispatch(getComments('Failed sending comments'))
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			dispatch(getComments(data))
 		})
+		.catch(err => dispatch(getComments('Failed sending comments')));
 	};
 }
 
 //devuelve todos los comentarios
-export function fetchGetComments() {
+export function fetchGetComments(complaint_id) {
 	return (dispatch) => {
 		dispatch(isFetching(true))
 		return fetch('/traerComentarios', {
@@ -39,11 +40,12 @@ export function fetchGetComments() {
 			credentials: "include",
 			body: JSON.stringify(comments)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(getComments(data)): dispatch(getComments('Failed getting comments'))
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			dispatch(getComments(data))
 		})
+		.catch(err => dispatch(getComments('Failed getting comments')));
 	};
 }
 
@@ -57,10 +59,11 @@ export function fetchDeleteComment(comment) {
 			credentials: "include",
 			body: JSON.stringify(comments)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(getComments(data)): dispatch(getComments('Failed deleting comments'))
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			dispatch(getComments(data))
 		})
+		.catch(err => dispatch(getComments('Failed deleting comments')));
 	};
 }

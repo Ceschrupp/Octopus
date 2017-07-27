@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import { isFetching } from './otherActions';
+import { isFetching, failedToFetch } from './otherActions';
 
 //////////////////////////////////////////////////acciones para las amenities
 export const GET_BOOKINGS = 'GET_BOOKINGS';
@@ -21,16 +21,17 @@ export function fetchSendBooking(booking) {
 			credentials: "include",
 			body: JSON.stringify(bookings)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed sending booking'))
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			dispatch(getBookings(data))
 		})
+		.catch(err => dispatch(getBookings('Failed sending booking')));
 	};
 }
 
 //devuelve todas las reservas
-export function fetchGetBookings() {
+export function fetchGetBookings(user_id) {
 	return (dispatch) => {
 		dispatch(isFetching(true))
 		return fetch('/traer-reservas', {
@@ -39,14 +40,14 @@ export function fetchGetBookings() {
 			credentials: "include",
 			body: JSON.stringify(bookings)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed getting bookings'))
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			dispatch(getBookings(data))
 		})
+		.catch(err => dispatch(getBookings('Failed getting bookings')));
 	};
 }
-
 //envia la reserva a eliminar y devuelve todas las reservas
 export function fetchDeleteBooking(booking) {
 	return (dispatch) => {
@@ -57,11 +58,12 @@ export function fetchDeleteBooking(booking) {
 			credentials: "include",
 			body: JSON.stringify(bookings)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed deleting booking'))
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			dispatch(getBookings(data))
 		})
+		.catch(err => dispatch(getBookings('Failed deleting booking')));
 	};
 }
 
@@ -69,16 +71,17 @@ export function fetchDeleteBooking(booking) {
 export function fetchEditBooking(booking) {
 	return (dispatch) => {
 		isFetching(true)
-		return fetch('/editar reserva', {
+		return fetch('/editar-reserva', {
 			headers: { "Content-Type" : "application/JSON" },
 			method: "POST",
 			credentials: "include",
 			body: JSON.stringify(user)
 		})
 			.then(response => response.json())
-			.then(function(data) {
+			.then(data => {
 				dispatch(isFetching(false))
-				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed editing booking'))
+				dispatch(getBookings(data))
 		})
+		.catch(err => dispatch(getBookings('Failed editing booking')));
 	};
 }

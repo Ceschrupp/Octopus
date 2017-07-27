@@ -13,7 +13,9 @@ const InitialState = {
 		view: "Home",
 		news: [],
 		info: [],
-		isFetching: false
+		isFetching: false,
+		failedToFetch: false,
+		error: null
 	},
 	amenities: [],
 	complaints: [],

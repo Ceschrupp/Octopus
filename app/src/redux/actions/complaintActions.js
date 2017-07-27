@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import { isFetching } from './otherActions';
+import { isFetching, failedToFetch } from './otherActions';
 
 //////////////////////////////////////////////////acciones para las amenities
 export const GET_COMPLAINTS = 'GET_COMPLAINTS';
@@ -21,11 +21,12 @@ export function fetchSendComplaint(complaint) {
 			credentials: "include",
 			body: JSON.stringify(complaints)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(getComplaints(data)): dispatch(getComplaints('Failed creating complaint'))
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			dispatch(getComplaints(data))
 		})
+		.catch(err => dispatch(getComplaints('Failed creating complaint')));
 	};
 }
 
@@ -39,10 +40,11 @@ export function fetchGetComplaints() {
 			credentials: "include",
 			body: JSON.stringify(complaints)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(getComplaints(data)): dispatch(getComplaints('Failed getting complaints'))
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			dispatch(getComplaints(data))
 		})
+		.catch(err => dispatch(getComplaints('Failed getting complaint')));
 	};
 }

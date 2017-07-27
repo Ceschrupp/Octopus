@@ -20,7 +20,9 @@ const InitialState = {
 		view: "Menú",
 		news: [],
 		info: [],
-		isFetching: false
+		isFetching: false,
+		failedToFetch: false,
+		error: null
 	},
 	amenities: [],
 	complaints: [],

@@ -35,24 +35,46 @@ export function getInfo(info) {
 	};
 }
 
+export const FAILED_TO_FETCH = 'FAILED_TO_FETCH';
+
+export function failedToFetch(err) {
+	return {
+		type: FAILED_TO_FETCH,
+		err
+	};
+}
+
+export const ERROR = 'ERROR';
+
+export function error(err) {
+	return {
+		type: ERROR,
+		err
+	};
+}
+
 //devuelve las noticias
 export function fetchGetNews() {
 	return (dispatch) => {
+		dispatch(isFetching(true))
 		return fetch('/traerNoticias', {
 			headers: { "Content-Type" : "application/JSON" },
 			method: "GET",
 			credentials: "include",
 			body: JSON.stringify(news)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				data !== false? dispatch(getNews(data)): dispatch(getNews('Failed getting news'))
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			dispatch(getNews(data))
 		})
-	};
-}
+		.catch(err => dispatch(getNews('Failed getting news')));
+	}
+};
 
 //devuelve los datos útiles de cada consorcio
 export function fetchGetInfo() {
+	dispatch(isFetching(true))
 	return (dispatch) => {
 		return fetch('/traerInfo', {
 			headers: { "Content-Type" : "application/JSON" },
@@ -60,9 +82,11 @@ export function fetchGetInfo() {
 			credentials: "include",
 			body: JSON.stringify(info)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				data !== false? dispatch(getInfo(data)): dispatch(getInfo('Failed getting info'))
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			dispatch(getInfo(data))
 		})
-	};
-}
+		.catch(err => dispatch(getInfo('Failed getting info')));
+	}
+};

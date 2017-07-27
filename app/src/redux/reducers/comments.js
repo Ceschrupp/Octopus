@@ -1,4 +1,4 @@
-import { GET_COMMENTS } from '../actions/actionCreators';
+import { GET_COMMENTS } from '../actions/globalActions';
 
 function commentsReducer(state = [] , action) {
 

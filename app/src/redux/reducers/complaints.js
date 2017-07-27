@@ -1,4 +1,4 @@
-import { GET_COMPLAINTS } from '../actions/actionCreators';
+import { GET_COMPLAINTS } from '../actions/globalActions';
 
 function complaintsReducer(state = [] , action) {
 
