@@ -38,6 +38,7 @@ const router = (
 						 	<IndexRoute component={AmenitiesForm}/>
 								<Route path='/amenities' component={AmenitiesContainer}></Route>
 								<Route path='/reclamos' component={ComplaintsContainer}></Route>		
+
 								<Route path='/' component={Main}></Route>
 						</Route>
 				</Router>
