@@ -19,15 +19,14 @@ class Header extends React.Component {
     if (false) {
       return (
   			<div className="header">
-
           <img className="logoHeader" src={logo}/>
-
         </div>
-    )} else {
+      ) 
+    } else {
 
 		return (
-			<div className="header">
 
+			<div className="header">
         <Menu>
           <Link id="home" className="menu-item" href="/">Inicio</Link>
           <Link id="informar-pagos" className="menu-item" href="/informar-pagos" to='/informar-pagos'>Informar Pagos</Link>
@@ -35,18 +34,19 @@ class Header extends React.Component {
           <Link id="cuenta-corriente" className="menu-item" href="/cuenta-corriente">Cuenta Corriente</Link>
           <Link id="novedades" className="menu-item" href="/novedades">Novedades</Link>
           <Link id="datos-utiles" className="menu-item" href="/datos-utiles">Datos Útiles</Link>
+<<<<<<< HEAD
           <Link id="amenities" className="menu-item" href="/amenities" to='/amenities'>Amenities</Link>
           <Link id="reclamos" className="menu-item" href="/reclamos">Reclamos</Link>
+=======
+          <Link id="amenities" className="menu-item" href="/amenities">Amenities</Link>
+          <Link id="reclamos" className="menu-item" to="/reclamos">Reclamos</Link>
+>>>>>>> marcos
           <div className='hr'></div>
           <Link  id="mi-cuenta" className="menu-item" href={this.props.userStuff.user}>Mi Cuenta</Link>
           <Link id="cerrar-sesion" className="menu-item" href="/">Cerrar Sesión</Link>
         </Menu>
-
         <div>{this.props.view}</div>
-
         <Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link>
-
-
 			</div>
 		)
 

@@ -13,7 +13,7 @@ export default class Footer extends React.Component {
 			<Col md={3} lg={4}/>
 			<div className='footerDiv'>
 				<div className='copyrightDiv'>
-					<p className='copyright'>© 2017 Octopus - Todos los derechos reservados.</p>
+					<p className='copyright'>© 2017 Octopus - Todos los derechos reservados</p>
 				</div>
 				<div className='termsAndPrivacy'>
 					<Link to='/terminos-y-condiciones' className='termsAndConditions'>Términos y Condiciones</Link>
