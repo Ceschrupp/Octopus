@@ -1,0 +1,45 @@
+
+
+.panel {
+  background-color: red;
+  color: $fontColor;
+  margin-bottom: 20px;
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.title {
+  color: $fontColor;
+  text-align: left;
+  padding: 0px;
+}
+
+.heading {
+  cursor: pointer;
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.body {
+  text-align: left;
+  margin: 0;
+  color: $fontColor;
+  padding: 5px 15px;
+  font-size: 1.05em;
+}
+
+.collapse {
+  max-height: 0;
+  transition: max-height 0.3s linear;
+}
+
+.activo {
+  max-height: 2000px;
+}
+
+.hidden {
+  display: none;
+}
