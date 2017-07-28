@@ -31,7 +31,7 @@ const router = (
 
 			 <Router history={hashHistory}>
 					 <Route path='/' component={App}>
-						 	<IndexRoute component={AmenitiesForm}/>
+						 	<IndexRoute component={AmenitiesList}/>
 							<Route path='/amenities' component={AmenitiesContainer}></Route>
 							<Route path='/' component={Main}></Route>
 						</Route>
