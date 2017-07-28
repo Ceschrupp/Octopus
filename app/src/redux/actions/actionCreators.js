@@ -5,10 +5,14 @@ import * as globals from './globalActions.js'
 export * from './globalActions.js'
 
 const krakenCreator = function (route, method, actionSuccess) {
-	return function(contentName) {
+	return function(contentName, finalRoute) {
+		let middleRoute=route;
+		if (finalRoute) {
+			middleRoute=finalRoute;
+		};
 		return (dispatch) => {
 			dispatch(isFetching(true))
-			return fetch(`/${route}`, {
+			return fetch(`/${middleRoute}`, {
 				headers: { "Content-Type" : "application/JSON" },
 				method: method,
 				credentials: "include",
@@ -29,30 +33,30 @@ const krakenCreator = function (route, method, actionSuccess) {
 
 
 //// Amenities
-export const fetchSendBooking = krakenCreator('POST', 'reservar-amenitie', 'getBookings')
-export const fetchGetBookings = krakenCreator('GET', 'reservas-amenities', 'getBookings')
-export const fetchDeleteBooking = krakenCreator('POST', 'eliminar-reserva', 'getBookings')
-export const fetchEditBooking = krakenCreator('POST', 'editar-reserva','getBookings')
+export const fetchSendBooking = krakenCreator('POST', 'reservar-amenities', 'getBookings');
+export const fetchGetBookings = krakenCreator('GET', 'reservas-amenities', 'getBookings');
+export const fetchDeleteBooking = krakenCreator('POST', 'eliminar-reserva', 'getBookings');
+export const fetchEditBooking = krakenCreator('POST', 'editar-reserva','getBookings');
 
 //// Complaints
-export const fetchSendComplaint = krakenCreator('POST', 'crear-reclamo', 'getComplaints')
-export const fetchGetComplaints = krakenCreator('GET', 'complaints', 'getComplaints')
+export const fetchSendComplaint = krakenCreator('POST', 'crear-reclamo', 'getComplaints');
+export const fetchGetComplaints = krakenCreator('GET', 'complaints', 'getComplaints');
 
 //// Comments
-export const fetchSendComment = krakenCreator('POST', 'crear-comentario', 'getComments')
-export const fetchGetComments = krakenCreator('GET', 'comentarios', 'getComments')
-export const fetchDeleteComment = krakenCreator('POST', 'eliminar-comentario', 'getComments')
+export const fetchSendComment = krakenCreator('POST', 'crear-comentario', 'getComments');
+export const fetchGetComments = krakenCreator('GET', 'comentarios', 'getComments');
+export const fetchDeleteComment = krakenCreator('POST', 'eliminar-comentario', 'getComments');
 
 //// Other
-export const fetchGetNews = krakenCreator('POST', 'novedades', 'getNews')
-export const fetchGetInfo = krakenCreator('GET', 'datos-utiles', 'getInfo')
+export const fetchGetNews = krakenCreator('POST', 'novedades', 'getNews');
+export const fetchGetInfo = krakenCreator('GET', 'datos-utiles', 'getInfo');
 
 //// Expenses
+export const fetchGetExpenses = krakenCreator('GET', 'expensas', 'getExpenses');
 
 //// Documents
+export const fetchGetDocuments = krakenCreator('GET', 'ver-documentos', 'getDocuments');
 
 //// Send Payment
+export const fetchSendPayment = krakenCreator('POST', 'notificar-pago', 'sendPayment');
 
-//// Util Data
-
-////

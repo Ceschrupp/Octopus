@@ -71,6 +71,7 @@ const commonConfig = {
         "https://fonts.googleapis.com/css?family=Exo+2:100,200,300",
         "https://fonts.googleapis.com/css?family=Raleway:100,400",
         "https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400",
+        "https://use.fontawesome.com/ea0f82ab5e.js",
       ]
     }),
     new FriendlyErrorsWebpackPlugin(),

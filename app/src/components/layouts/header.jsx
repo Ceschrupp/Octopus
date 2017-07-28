@@ -29,7 +29,7 @@ class Header extends React.Component {
 			<div className="header">
         <Menu>
           <Link id="home" className="menu-item" href="/">Inicio</Link>
-          <Link id="informar-pagos" className="menu-item" href="/informar-pagos">Informar Pagos</Link>
+          <Link id="informar-pagos" className="menu-item" href="/informar-pagos" to='/informar-pagos'>Informar Pagos</Link>
           <Link id="expensas" className="menu-item" href="/expensas">Expensas</Link>
           <Link id="cuenta-corriente" className="menu-item" href="/cuenta-corriente">Cuenta Corriente</Link>
           <Link id="novedades" className="menu-item" href="/novedades">Novedades</Link>

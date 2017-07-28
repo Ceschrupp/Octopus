@@ -36,6 +36,8 @@ const router = (
 							<Route path='/novedades' component={News}></Route>
 							<Route path='/:username' component={MyAccount}></Route>
 							<Route path='/datos-utiles' component={UsefulInfo}></Route>*/}
+							<Route path='/reservar-amenities/new' component={AmenitiesForm}></Route>
+							<Route path='/reservar-amenities/edit/:bookingId' component={AmenitiesForm}></Route>
 							<Route path='/amenities' component={AmenitiesContainer}></Route>
 							<Route path='/reclamos' component={ComplaintsContainer}></Route>
 

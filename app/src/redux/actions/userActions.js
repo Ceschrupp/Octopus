@@ -2,28 +2,28 @@ import fetch from 'isomorphic-fetch';
 import { isFetching, failedToFetch } from './globalActions';
 
 //////////////////////////////////////////////////acciones para loguear user
-export const LOG_OUT = 'LOG_OUT';
+export const USER_LOGOUT = 'USER_LOGOUT';
 
 export function logOut() {
 	return {
-		type: LOG_OUT
+		type: USER_LOGOUT
 	};
 }
+/////USER OK y FAIL son utilizadas por login Y registro
+export const USER_SUCCESS = 'USER_SUCCESS';
 
-export const LOGIN_OK = 'LOGIN_OK';
-
-export function loginOK(user) {
+export function userSuccess(user) {
 	return {
-		type: LOGIN_OK,
+		type: USER_SUCCESS,
 		user
 	};
 }
 
-export const FAILED_TO_LOGIN = 'FAILED_TO_LOGIN';
+export const USER_FAIL = 'USER_FAIL';
 
-export function failedToLogin(err) {
+export function userFail(err) {
 	return {
-		type: FAILED_TO_LOGIN,
+		type: USER_FAIL,
 		err
 	};
 }
@@ -110,4 +110,25 @@ export function fetchChangePass(newPass) {
 	};
 }
 
-///////////////////////////HACER ACCIONES PARA REGISTRARSE
+///////////////////////////ACCIONES PARA REGISTRARSE
+export function fetchRegisterUser(newUser) {
+	return (dispatch) => {
+		dispatch(isFetching(true))
+		return fetch ('/registro', {
+			headers:{"Content-Type":"application/JSON"},
+			method: "POST",
+			credentials: "include",
+			body: JSON.stringify(user)
+		})
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			if (data.error) {
+				dispatch(failedToRegister(data.errorMessage))
+			} else {
+				dispatch(dispatch(userSuccess(data)));
+			}
+		})
+			.catch(err => dispatch(userFail(err)));
+	};
+}
