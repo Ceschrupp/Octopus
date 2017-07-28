@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router';
 const s = require('./AmenitiesForm.scss');
 import { Container, Row, Col } from 'react-grid-system';
 
@@ -18,9 +19,9 @@ export default class AmenitiesForm extends React.Component {
 		};
 		this.refs.AmenitiesForm.reset();
 		this.props.fetchSendBooking(booking);
-		hashHistory.push('/ver-reservas');
 
 	}
+
 	render() {
 		return (
 			<Row>
@@ -35,7 +36,7 @@ export default class AmenitiesForm extends React.Component {
 					        <input className={['timeInput',s.timeInput].join(' ')} ref='time' type='time' placeholder='Horario' required></input>
 					        <textarea  className={['textArea',s.textArea].join(' ')} ref='comments' rows="4" cols="50" placeholder='Comentarios'></textarea>
 
-					        <button className={['sendButton',s.sendButton].join(' ')}type='submit'>Enviar</button>
+					        <Link to='/ver-reservas'><button className={['sendButton',s.sendButton].join(' ')}type='submit'>Enviar</button></Link>
 		        		</form>
 					</div>
 				</Col>

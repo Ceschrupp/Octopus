@@ -33,6 +33,9 @@ const router = (
 							<Route path='/' component={Main} />
 							<Route path='/informar-pagos' component={PaymentNotice} />
 							<Route path='/'/>
+						 	<IndexRoute component={AmenitiesList}/>
+							<Route path='/amenities' component={AmenitiesContainer}></Route>
+							<Route path='/' component={Main}></Route>
 						</Route>
 
 
