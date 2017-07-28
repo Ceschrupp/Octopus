@@ -38,6 +38,15 @@ export function isFetching(boolean) {
 	};
 }
 
+export const FAILED_TO_FETCH = 'FAILED_TO_FETCH';
+
+export function failedToFetch(boolean) {
+	return {
+		type: FAILED_TO_FETCH,
+		boolean
+	}
+}
+
 export const CHANGE_VIEW = 'CHANGE_VIEW';
 
 export function changeView(view) {
@@ -62,15 +71,6 @@ export function getInfo(info) {
 	return {
 		type: GET_INFO,
 		info
-	};
-}
-
-export const FAILED_TO_FETCH = 'FAILED_TO_FETCH';
-
-export function failedToFetch(err) {
-	return {
-		type: FAILED_TO_FETCH,
-		err
 	};
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import AmenitiesList from '../components/elements/AmenitiesList';
 import AmenitiesForm from '../components/elements/AmenitiesForm';
-import AmenitieDetail from '../components/elements/AmenitieDetail';
+import AmenitieDetail from '../components/elements/Amenity';
 
 export default class Amenities extends React.Component {
 	constructor(props) {
@@ -24,3 +24,4 @@ export default class Amenities extends React.Component {
 			</div>
 		)}
 };
+}
