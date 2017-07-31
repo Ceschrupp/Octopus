@@ -26,7 +26,7 @@ body{
 }
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
+  position: absolute;;
   width: 26px;
   height: 20px;
   left: 36px;
@@ -89,4 +89,73 @@ body{
   height: 60px;
   display: block;
   margin: 0 auto;
+}
+
+.footerDiv{
+    height: 40px;
+    background-color: #333;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%
+
+}
+
+.copyright{
+  display: inline-block;
+  padding: 10px;
+  font-size: 90%;
+  margin: 0 auto;
+  color: white;
+}
+
+.termsAndPrivacy{
+  color: #71d5f7;
+  display: inline-block;
+  padding: 10px;
+  font-size: 90%;
+  margin: 0 auto;
+  position: absolute;
+  bottom: -14px;
+  right: 0;
+  z-index: 10;
+  text-decoration: none;
+}
+
+.termsAndPrivacy a, .termsAndPrivacy p {
+  display: inline-block;
+}
+
+.termsAndPrivacySeparator{
+  color: white;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+a:link{
+  text-decoration: none;
+  color: white;
+}
+a:visited{
+  text-decoration: none;
+  color: white;
+}
+
+@media(max-width: 600px){
+    .copyrightDiv, .termsAndPrivacy{
+        display:block;
+        color:black;
+        padding:0px;
+        margin: 0 auto;
+        text-align: center;
+        position: static;
+
+    }
+    .copyrightDiv>p, .termsAndPrivacy>p{
+      padding: 3px;
+      font-size: 94%;
+    }
+    .footerDiv{
+      height: auto;
+    }
 }

@@ -1,4 +1,4 @@
-import { LOG_OUT, LOGIN_OK, FAILED_TO_LOGIN } from '../actions/actionCreators';
+import { LOG_OUT, USER_SUCCESS, USER_FAIL } from '../actions/userActions';
 
 function userStuffReducer(state = {
 	user: {},
@@ -15,16 +15,16 @@ function userStuffReducer(state = {
 					logErr: false
 			});
 
-		case LOGIN_OK:
+		case USER_SUCCESS:
 			return Object.assign({}, state, {
 				user: action.user,
 				isLogged: true,
 				logErr: false
 			});
 
-		case FAILED_TO_LOGIN:
+		case USER_FAIL:
 			return Object.assign({}, state, {
-				logErr: true
+				logErr: action.err
 			});
 
 		default:

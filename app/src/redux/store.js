@@ -1,4 +1,5 @@
 import thunkMiddleware from 'redux-thunk';
+import {hashHistory} from 'react-router';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers/rootReducer';
 
@@ -13,10 +14,13 @@ const InitialState = {
 		view: "Home",
 		news: [],
 		info: [],
-		isFetching: false
+		isFetching: false,
+		failedToFetch: false,
+		error: null
 	},
-	amenities: []
-	// complaints: []
+	amenities: [],
+	complaints: [],
+	comments: []
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
