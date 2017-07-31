@@ -25,5 +25,6 @@ export default class Home extends React.Component {
 					{this.props.other.info.map((info, i) => <UsefulInfo {...this.props} key={i} i={i} usefulInfo={info} />)}
 				</div>
 			</div>
-			)}
+		);
+	}
 }
