@@ -7,8 +7,8 @@ export default class usefulInfo extends React.Component {
 	render () {
 		return (
 				<div className='usefulInfo'>
-					<h4 className='usefulInfoTitle' id={i}>{this.props.userStuff.user.usefulInfo.title}</h4>
-					<p className='usefulInfoBody'>{this.props.userStuff.user.usefulInfo.info}</p>
+					<h4 className='usefulInfoTitle' id={this.props.other.info.i}>{this.props.other.info}</h4>
+					<p className='usefulInfoBody'>{this.props.other.info}</p>
 				</div>
 			)
 	}
