@@ -36,7 +36,7 @@ deleteBooking(){
 								{this.props.amenities}
 								<p>piscina</p>
 							</h4>
-							<Link to={`reservar-amenities/edit/${this.props.booking.amenitie_id}`}>
+							<Link to={`/reservar-amenities/edit/${this.props.booking.amenitie_id}`}>
 								<button >editar</button>
 							</Link>
 						<button onClick={this.deleteBooking}>borrar</button>
