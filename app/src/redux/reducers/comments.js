@@ -1,4 +1,4 @@
-import { GET_COMMENTS } from '../actions/globalActions';
+import { GET_COMMENTS, ADD_COMMENTS } from '../actions/globalActions';
 
 function commentsReducer(state = [] , action) {
 
@@ -8,10 +8,13 @@ function commentsReducer(state = [] , action) {
 			return Object.assign({}, state, {
 				comments: action.comments,
 			});
+		case ADD_COMMENTS:
+			return Object.assign({}, state, {comment:action.comment, username:action.user})
 
 		default:
 			return state;
 	}
+	return state;
 }
 
 export default commentsReducer;
