@@ -7,36 +7,26 @@ export default class Login extends React.Component {
 		super(props);
 		this.login=this.login.bind(this);
 	},
-	login(e) {
+	handleSubmit(e) {
 		e.preventDefault();
 		this.props.fetchLogUser({email:e.target.loginEmail.value, password: e.target.loginPassword.value});
-		if (this.props.userStuff.isLogged) {
-			this.props.location.pathname = '/';
-			} else {
-				this.refs.errorField.value = '';
-//populate with whatever auth error
 			}
+
+	}
+	componentDidMount() {
+		if (this.props.userStuff.isLogged) {
+			this.props.location.pathname = '/dashboard'
+		} else {
+			this.refs.errorField.value = '';
+
 		}
 	}
 	render () {
-		if (this.login && (!e.target.loginEmail.value || !e.target.loginPassword.value)) {
-			return (
-				<div className='IncompleteInfoView'>
-					<p ref='errorField'>Por favor, completar E-Mail y clave.</p>
-					<Form ref='loginForm' className='loginForm'>
-						<input ref='loginEmail' className='loginEmail' name='loginEmail' placeholder='E-Mail' />
-						<input ref='loginPassword' className='loginPassword' name='loginPassword' placeholder='Clave' />
-						<Button className='loginButton' type='submit' onClick={this.login}>Iniciar Sesión</Button>
-						<Link to='/olvide-clave'><p className='loginForgot'>¿Olvidaste tu Clave?</p></Link>
-					</Form>
-				</div>
-				)
-		} else {
 			return (
 				<div className='LoginForm'>
-					<Form ref='loginForm' className='loginForm'>
-						<input ref='loginEmail' className='loginEmail' name='loginEmail' placeholder='E-Mail' />
-						<input ref='loginPassword' className='loginPassword' name='loginPassword' placeholder='Clave' />
+					<Form ref='loginForm' className='loginForm' >
+						<input ref='loginEmail' className='loginEmail' name='loginEmail' placeholder='E-Mail' required />
+						<input ref='loginPassword' className='loginPassword' name='loginPassword' placeholder='Clave' required />
 						<Button className='loginButton' type='submit' onClick={this.login}>Iniciar Sesión</Button>
 						<Link to='/olvide-clave'><p className='loginForgot'>¿Olvidaste tu Clave?</p></Link>
 					</Form>
