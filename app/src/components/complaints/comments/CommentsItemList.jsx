@@ -3,21 +3,21 @@ import React from 'react';
 export default class CommentsItemList extends React.Component {
 	constructor(props) {
 		super(props);
-		}
+	}
 
-	handleSubmit(e){
-		fetchDeleteComment(this.comment)
+	handleSubmit(){
+		this.props.fetchDeleteComment(this.comment);
 	}
 
 	render() {
 
 		const deleteCommentButton = function() {
-				if(this.props.comment.user_id === this.props.userStuff.user.user_id) {
-				return <button onClick={this.handleSubmit}>Eliminar</button>	
+			if(this.props.comment.user_id === this.props.userStuff.user.user_id) {
+				return <button onClick={this.handleSubmit}>Eliminar</button>;
 			} else { 
-				return ''
+				return '';
 			} 
-		}
+		};
 
 		return (
 			<div>
@@ -33,8 +33,8 @@ export default class CommentsItemList extends React.Component {
 				<div>
 					{this.props.comment.body}
 				</div>
-					{deleteCommentButton()}
+				{deleteCommentButton()}
 			</div>
-		)
+		);
 	}
-};
+}

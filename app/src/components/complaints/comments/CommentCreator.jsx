@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+const moment = require('moment');
 
 export default class CommentCreator extends React.Component {
 
@@ -9,11 +10,11 @@ export default class CommentCreator extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.fetchSendComment({
-			initiateCommentDate: moment().format("D, MMMM, YYYY, h, a"),//MOMENT CONFIGURAR,
+			initiateCommentDate: moment().format('D, MMMM, YYYY, h, a'),//MOMENT CONFIGURAR,
 			body: this.refs.comentario,
 			userName: this.props.userStuff.user.userName,
 			user_id: this.props.userStuff.user.user_id,
-		})
+		});
 	}
 	
 	render() {
@@ -21,8 +22,8 @@ export default class CommentCreator extends React.Component {
 			<div>
 				<form ref='CommentForm' onSubmit={this.handleSubmit} className='CommentForm'>
 					<input ref='comentario' type='text' placeholder='Escribe un comentario...' required></input>
-	        <button type='submit'>Enviar</button>
-    		</form>
+					<button type='submit'>Enviar</button>
+				</form>
 			</div>
 		);
 	}

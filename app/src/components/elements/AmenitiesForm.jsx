@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from 'react-router';
 const s = require('./AmenitiesForm.scss');
 import { Container, Row, Col } from 'react-grid-system';
+const moment = require('moment');
 
 export default class AmenitiesForm extends React.Component {
 	constructor(props) {
@@ -10,12 +11,12 @@ export default class AmenitiesForm extends React.Component {
 	}
 	handleSubmit() {
 		const booking = {
-		"initiateBookingDate": new Date(),
-		"amenities":this.refs.amenities.value,
-		"bookingDate":this.refs.bookingDate.value,
-		"time":this.refs.time.value,
-		"comments":this.refs.comments.value,
-		"bookingName":this.refs.bookingName.value,
+			'initiateBookingDate': moment().locale('es').format('D MMMM YYYY, ha'),
+			'amenities':this.refs.amenities.value,
+			'bookingDate':this.refs.bookingDate.value,
+			'time':this.refs.time.value,
+			'comments':this.refs.comments.value,
+			'bookingName':this.refs.bookingName.value,
 		};
 		this.refs.AmenitiesForm.reset();
 		this.props.fetchSendBooking(booking);
@@ -30,14 +31,13 @@ export default class AmenitiesForm extends React.Component {
 					<div className={s.AmenitiesFormDiv}>
 						<h3 className={['AmenitiesFormTitle',s.AmenitiesFormTitle].join(' ')}>Inicia una reserva:</h3>
 						<form ref='AmenitiesForm' onSubmit={this.handleSubmit} className='AmenitiesForm'>
-									<input className={['nameInput',s.nameInput].join(' ')} ref='bookingName' type='text' placeholder='Nombre y Apellido' required></input>
-					        <input className={['AmenitiesInput',s.AmenitiesInput].join(' ')} ref='amenities' type='text' placeholder='Amenities'required></input>
-					        <input className={['bookingDate',s.bookingDate].join(' ')} ref='bookingDate' type='date' min="2017-07-01" placeholder='Fecha' required ></input>
-					        <input className={['timeInput',s.timeInput].join(' ')} ref='time' type='time' placeholder='Horario' required></input>
-					        <textarea  className={['textArea',s.textArea].join(' ')} ref='comments' rows="4" cols="50" placeholder='Comentarios'></textarea>
-
-					        <Link to='/ver-reservas'><button className={['sendButton',s.sendButton].join(' ')}type='submit'>Enviar</button></Link>
-		        		</form>
+							<input className={['nameInput',s.nameInput].join(' ')} ref='bookingName' type='text' placeholder='Nombre y Apellido' required></input>
+							<input className={['AmenitiesInput',s.AmenitiesInput].join(' ')} ref='amenities' type='text' placeholder='Amenities'required></input>
+							<input className={['bookingDate',s.bookingDate].join(' ')} ref='bookingDate' type='date' min="2017-07-01" placeholder='Fecha' required ></input>
+							<input className={['timeInput',s.timeInput].join(' ')} ref='time' type='time' placeholder='Horario' required></input>
+							<textarea  className={['textArea',s.textArea].join(' ')} ref='comments' rows="4" cols="50" placeholder='Comentarios'></textarea>
+							<Link to='/ver-reservas'><button className={['sendButton',s.sendButton].join(' ')}type='submit'>Enviar</button></Link>
+						</form>
 					</div>
 				</Col>
 			</Row>
