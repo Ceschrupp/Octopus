@@ -31,27 +31,27 @@ import ForgotPassword from './components/elements/ForgotPassword';
 
 //routes
 const router = (
-			<Provider store ={store}>
-			 <Router history={hashHistory}>
-					 <Route path='/' component={App}>
-							<IndexRoute component={Main}></IndexRoute>
-							<Route path='/informar-pagos' component={PaymentNotice}></Route>
-							<Route path='/expensas' component={LatestExpenses}></Route>
-							<Route path='/cuenta-corriente' component={Balance}></Route>
-							<Route path='/novedades' component={LatestNews}></Route>
-							<Route path='/:username' component={MyAccount}></Route>
-							<Route path='/datos-utiles' component={UsefulInfo}></Route>
-							<Route path='/reservar-amenities/new' component={AmenitiesForm}></Route>
-							<Route path='/reservar-amenities/edit/:bookingId' component={AmenitiesEditContainer}></Route>
-							<Route path='/amenities' component={AmenitiesContainer}></Route>
-							<Route path='/reclamos' component={ComplaintsContainer}></Route>
-							<Route path='/login' component={LoginForm}></Route>
-							<Route path='/registro' component={SignupForm}></Route>
-							<Route path='/logout' component={Logout}></Route>
-							<Route path='/olvide-clave' component={Logout}></Route>
-						</Route>
-				</Router>
-			</Provider>
-	)
+	<Provider store ={store}>
+		<Router history={hashHistory}>
+			<Route path='/' component={App}>
+				<IndexRoute component={Main}></IndexRoute>
+				<Route path='/informar-pagos' component={PaymentNotice}></Route>
+				<Route path='/expensas' component={LatestExpenses}></Route>
+				<Route path='/cuenta-corriente' component={Balance}></Route>
+				<Route path='/novedades' component={LatestNews}></Route>
+				<Route path='/:username' component={MyAccount}></Route>
+				<Route path='/datos-utiles' component={UsefulInfo}></Route>
+				<Route path='/reservar-amenities/new' component={AmenitiesForm}></Route>
+				<Route path='/reservar-amenities/edit/:bookingId' component={AmenitiesEditContainer}></Route>
+				<Route path='/amenities' component={AmenitiesContainer}></Route>
+				<Route path='/reclamos' component={ComplaintsContainer}></Route>
+				<Route path='/login' component={LoginForm}></Route>
+				<Route path='/registro' component={SignupForm}></Route>
+				<Route path='/logout' component={Logout}></Route>
+				<Route path='/olvide-clave' component={Logout}></Route>
+			</Route>
+		</Router>
+	</Provider>
+);
 
 render(router, document.getElementById('app'));

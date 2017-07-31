@@ -7,9 +7,9 @@ export default class MyAccount extends React.Component {
 	}
 	render() {
 		return (
-				<div className='MyAccount'>
+			<div className='MyAccount'>
 
-				</div>
-			)
+			</div>
+		);
 	}
 }
