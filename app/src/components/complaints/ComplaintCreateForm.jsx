@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 import SubmitButton from '../elements/SubmitButton';
-import UploadBox from 'react-dropzone';
+import FileUploadBox from '../elements/FileUploadBox';
 const moment = require('moment');
 
 export default class ComplaintsContainer extends React.Component {
@@ -16,10 +16,10 @@ export default class ComplaintsContainer extends React.Component {
 		const newComplaint = {
 			title: this.refs.Title.value,
 			body: this.refs.textContent.value,
-			initiateComplaintDate: moment().format("D, MMMM, YYYY, h, a"),//MOMENT CONFIGURAR
-			files: "(sólo imágenes, en base 64)",
-			state: "Abierto",
-			building_id: "",
+			initiateComplaintDate: moment().locale('es').format('D MMMM YYYY, ha'),//MOMENT CONFIGURAR
+			files: '(sólo imágenes, en base 64)',
+			state: 'Abierto',
+			building_id: '',
 			user_id: this.props.userStuff.user.user_id
 		};
 		this.props.fetchSendComplaint(newComplaint);
@@ -34,10 +34,10 @@ export default class ComplaintsContainer extends React.Component {
 				<form className='complaintForm' ref='complaintForm'>
 					<input className='complaintInput' placeholder='Asunto' ref='Title'></input>
 					<textarea className='ComplaintTextArea' placeholder='Ingrese comentarios aquí' ref='textContent'></textarea>
-					<UploadBox />
+					<FileUploadBox />
 					<SubmitButton onClick={this.submitComplaint} />
 				</form>
 			</div>
-		)
+		);
 	}
-};
+}

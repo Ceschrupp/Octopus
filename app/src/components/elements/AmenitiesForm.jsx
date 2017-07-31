@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from 'react-router';
 const s = require('./AmenitiesForm.scss');
 import { Container, Row, Col } from 'react-grid-system';
+const moment = require('moment');
 
 export default class AmenitiesForm extends React.Component {
 	constructor(props) {
@@ -17,6 +18,7 @@ export default class AmenitiesForm extends React.Component {
 		this.handleSubmit=this.handleSubmit.bind(this);
 		this.onChange=this.onChange.bind(this);
 	}
+
 	onChange(e) {
 		this.setState({ [e.target.name]: e.target.value});
 	}

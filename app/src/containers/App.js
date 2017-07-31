@@ -13,8 +13,8 @@ function mapStateToProps(state) {
 		},
 		other: {
 			view: state.view,
-			news: state.news,
-			info: state.info,
+			news: [state.news],
+			info: [state.info],
 			expenses: state.expenses,
 			isFetching: state.isFetching,
 			failedToFetch: state.failedToFetch,
@@ -23,13 +23,13 @@ function mapStateToProps(state) {
 		amenities: state.amenities,
 		complaints: state.complaints,
 		comments: state.comments
-	}
-};
+	};
+}
 
 //le pasa la funcionalidad dispatch a los props
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators(actionCreators, dispatch);
-};
+}
 
 const App = connect(mapStateToProps, mapDispatchToProps)(Main);
 

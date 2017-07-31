@@ -1,35 +1,35 @@
 //IMPORT PARA EL MEGA CREATOR
-import fetch from 'isomorphic-fetch'
-export * from './userActions.js'
-import * as globals from './globalActions.js'
-export * from './globalActions.js'
+import fetch from 'isomorphic-fetch';
+export * from './userActions.js';
+import * as globals from './globalActions.js';
+export * from './globalActions.js';
 
 const krakenCreator = function (route, method, actionSuccess) {
 	return function(contentName, finalRoute) {
 		let middleRoute=route;
 		if (finalRoute) {
 			middleRoute=finalRoute;
-		};
+		}
 		return (dispatch) => {
-			dispatch(isFetching(true))
+			dispatch(globals.isFetching(true));
 			return fetch(`/${middleRoute}`, {
-				headers: { "Content-Type" : "application/JSON" },
+				headers: { 'Content-Type' : 'application/JSON' },
 				method: method,
-				credentials: "include",
+				credentials: 'include',
 				body: contentName? JSON.stringify(contentName) : undefined
 			})
 			.then(response => {
-				response.statusCode
-				response.json()
+				response.statusCode;
+				response.json();
 			})
 			.then(data => {
-				dispatch(isFetching(false))
-				dispatch(globals.actionSuccess(data))
+				dispatch(globals.isFetching(false));
+				dispatch(globals.actionSuccess(data));
 			})
-			.catch(err => dispatch(error(err)));
+			.catch(err => dispatch(globals.error(err)));
 		};
-	}
-}
+	};
+};
 
 
 //// Amenities
@@ -59,4 +59,3 @@ export const fetchGetDocuments = krakenCreator('GET', 'ver-documentos', 'getDocu
 
 //// Send Payment
 export const fetchSendPayment = krakenCreator('POST', 'notificar-pago', 'sendPayment');
-

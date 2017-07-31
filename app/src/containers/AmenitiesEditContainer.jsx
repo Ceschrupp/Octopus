@@ -27,13 +27,13 @@ export default class Amenities extends React.Component {
     componentWillMount(){
     //Busco los datos del amenity del this.props.params.amenityId
     // o sea, llamar a la accion fetchEditBooking(this.props.params.amenityId
-
     this.refs.bookingName.value = this.props.booking.bookingName,
     this.refs.amenities.value = this.props.booking.amenities,
     this.refs.bookingDate.value = this.props.booking.bookingDate,
     this.refs.time.value = this.props.booking.time,
-    this.refs.comments.value = this.props.booking.comments,
-  }
+    this.refs.comments.value = this.props.booking.comments
+	}
+
 	render() {
 		return (
   			<Row>

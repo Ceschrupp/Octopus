@@ -9,19 +9,19 @@ export default class Footer extends React.Component {
 	}
 	render () {
 		return (
-		<Row>
-			<Col md={3} lg={4}/>
-			<div className='footerDiv'>
-				<div className='copyrightDiv'>
-					<p className='copyright'>© 2017 Octopus - Todos los derechos reservados</p>
+			<Row>
+				<Col md={3} lg={4}/>
+				<div className='footerDiv'>
+					<div className='copyrightDiv'>
+						<p className='copyright'>© 2017 Octopus - Todos los derechos reservados</p>
+					</div>
+					<div className='termsAndPrivacy'>
+						<Link to='/terminos-y-condiciones' className='termsAndConditions'>Términos y Condiciones</Link>
+						<p className='termsAndPrivacySeparator'> | </p>
+						<Link to='/politicas-de-privacidad' className='privacyPolicy'>Políticas de Privacidad</Link>
+					</div>
 				</div>
-				<div className='termsAndPrivacy'>
-					<Link to='/terminos-y-condiciones' className='termsAndConditions'>Términos y Condiciones</Link>
-					<p className='termsAndPrivacySeparator'> | </p>
-					<Link to='/politicas-de-privacidad' className='privacyPolicy'>Políticas de Privacidad</Link>
-				</div>
-			</div>
-		</Row>
-			);
+			</Row>
+		);
 	}
 }
