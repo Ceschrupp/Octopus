@@ -14,7 +14,8 @@ export default class ForgotPassword extends React.Component {
 	render () {
 		if (this.handleSubmit) {
 			return(
-				<p className='ForgotPasswordMessage'>Recibirá un E-Mail a la brevedad.</p>
+				<p className='ForgotPasswordMessag
+				e'>Recibirá un E-Mail a la brevedad.</p>
 		)}
 		return(
 		<div className='ForgotPassword'>
