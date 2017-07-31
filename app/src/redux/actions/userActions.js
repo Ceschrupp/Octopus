@@ -1,28 +1,30 @@
 import fetch from 'isomorphic-fetch';
-
+import { isFetching, failedToFetch } from './globalActions';
 
 //////////////////////////////////////////////////acciones para loguear user
-export const LOG_OUT = 'LOG_OUT';
+export const USER_LOGOUT = 'USER_LOGOUT';
 
 export function logOut() {
 	return {
-		type: LOG_OUT
+		type: USER_LOGOUT
+	};
+}
+/////USER OK y FAIL son utilizadas por login Y registro
+export const USER_SUCCESS = 'USER_SUCCESS';
+
+export function userSuccess(user) {
+	return {
+		type: USER_SUCCESS,
+		user
 	};
 }
 
-export const LOGIN_OK = 'LOGIN_OK';
+export const USER_FAIL = 'USER_FAIL';
 
-export function loginOK(user) {
+export function userFail(err) {
 	return {
-		type: LOGIN_OK
-	};
-}
-
-export const FAILED_TO_LOGIN = 'FAILED_TO_LOGIN';
-
-export function failedToLogin() {
-	return {
-		type: FAILED_TO_LOGIN
+		type: USER_FAIL,
+		err
 	};
 }
 
@@ -35,30 +37,35 @@ export function fetchLogUser(user) {
 			credentials: "include",
 			body: JSON.stringify(user)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(loginOK(data)) : dispatch(failedToLogin());
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			if (data.error) {
+				dispatch(failedToLogin(data.messegeError))
+			} else {
+				dispatch(loginOK(data))
+			}
 		})
+			.catch(err => dispatch(failedToFetch(err)));
 	};
 }
 
 //////////////////ver las rutas y acciones posteriormente recibidas por sebas
 export function fetchLogOutUser(user) {
 	return (dispatch) => {
-		dispatch(isFetching(true))
-		dispatch(logOut()); /////////el fetch lo mando con toda esta bola?
+		dispatch(isFetching(true)) /////////el fetch lo mando con toda esta bola?
 		return fetch('/logout', {
 			headers: { "Content-Type" : "application/JSON" },
 			method: "GET",
 			credentials: "include",
 			body: JSON.stringify(user)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(loginOK(data)) : dispatch(failedToLogin());
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			dispatch(logOut())
 		})
+		.catch(err => dispatch(failedToFetch(err)));
 	};
 }
 
@@ -72,10 +79,12 @@ export function fetchForgotPass(email) {
 			credentials: "include",
 			body: JSON.stringify(user)
 		})
-			.then(response => response.json())
-			.then(dispatch(isFetching(false)));
-		}
-	};
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false));
+		})
+	}
+};
 
 
 //////////////////////////////////////ENVIAR NUEVA CLAVE PARA CAMBIAR CLAVE
@@ -88,12 +97,38 @@ export function fetchChangePass(newPass) {
 			credentials: "include",
 			body: JSON.stringify(user)
 		})
-			.then(response => response.json())
-			.then(function(data) {
-				dispatch(isFetching(false))
-				data !== false? dispatch(logOut()) : false;
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			if (data.error) {
+				dispatch(failedToLogin(data.messegeError))
+			} else {
+				dispatch(dispatch(logOut()))
+			}
 		})
+		.catch(err => dispatch(failedToFetch(err)));
 	};
 }
 
-///////////////////////////HACER ACCIONES PARA REGISTRARSE
+///////////////////////////ACCIONES PARA REGISTRARSE
+export function fetchRegisterUser(newUser) {
+	return (dispatch) => {
+		dispatch(isFetching(true))
+		return fetch ('/registro', {
+			headers:{"Content-Type":"application/JSON"},
+			method: "POST",
+			credentials: "include",
+			body: JSON.stringify(user)
+		})
+		.then(response => response.json())
+		.then(data => {
+			dispatch(isFetching(false))
+			if (data.error) {
+				dispatch(failedToRegister(data.errorMessage))
+			} else {
+				dispatch(dispatch(userSuccess(data)));
+			}
+		})
+			.catch(err => dispatch(userFail(err)));
+	};
+}

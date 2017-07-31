@@ -1,12 +1,18 @@
 import fetch from 'isomorphic-fetch';
-
+import { isFetching } from './otherActions';
 
 //////////////////////////////////////////////////acciones para las amenities
 export const GET_BOOKINGS = 'GET_BOOKINGS';
 
 export function getBookings(bookings) {
 	return {
+<<<<<<< HEAD:app/src/redux/actions/.fuse_hidden000046b300000001
+		type: GET_BOOKINGS,
+		bookings
+=======
 		type: GET_BOOKINGS
+		
+>>>>>>> cecilia:app/src/redux/actions/amenitiesActions.js
 	};
 }
 
@@ -41,7 +47,7 @@ export function fetchGetBookings() {
 			.then(response => response.json())
 			.then(function(data) {
 				dispatch(isFetching(false))
-				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed geting bookings'))
+				data !== false? dispatch(getBookings(data)): dispatch(getBookings('Failed getting bookings'))
 		})
 	};
 }

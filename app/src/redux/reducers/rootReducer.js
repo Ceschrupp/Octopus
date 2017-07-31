@@ -4,7 +4,8 @@ import { routerReducer } from 'react-router-redux';
 
 //import reducers
 import other from './other';
-// import complaints from './complaints';
+import complaints from './complaints';
+import comments from './comments';
 import amenities from './amenities';
 import userStuff	from './userStuff';
 
@@ -19,12 +20,15 @@ const InitialState = {
 		view: "Menú",
 		news: [],
 		info: [],
-		isFetching: false
+		isFetching: false,
+		failedToFetch: false,
+		error: null
 	},
 	amenities: [],
-	// complaints: []
+	complaints: [],
+	comments: []
 };
-const appReducer = combineReducers({other, amenities, userStuff, routing: routerReducer});
+const appReducer = combineReducers({other, amenities, complaints, comments, userStuff, routing: routerReducer});
 
 const rootReducer = (state, action) => {
 	if (action.type === 'LOG_OUT') {

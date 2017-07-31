@@ -1,29 +1,29 @@
 import React from 'react';
-import SubmitButton from '../components/elements/SubmitButton.jsx';
-import AmenitiesForm from '../components/elements/AmenitiesForm.jsx';
+import AmenitiesList from '../components/elements/AmenitiesList';
+import AmenitiesForm from '../components/elements/AmenitiesForm';
+import AmenitieDetail from '../components/elements/Amenity';
 
-export default class AmenitiesContainer extends React.Component {
+export default class Amenities extends React.Component {
 	constructor(props) {
 		super(props);
-		this.initiateBooking=this.initiateBooking.bind(this);
+
 	}
-	initiateBooking(e) {
-		preventDefault(e);
-		const Amenities = this.refs.Amenities.value;
-		const date = this.refs.Date.value;
-		const Time = this.refs.Time.value;
-		const Comments= this.refs.Comments.value;
-		this.props.createBooking(Amenities, date, Time, Comments);
-		this.refs.AmenitiesForm.reset();
+	componentWillMount() {
+		this.props.fetchGetBookings();
 	}
 	render() {
-		return (
-			<div>
-
-				<AmenitiesForm/>
-				<SubmitButton onClick={this.initiateBooking}/>
-
-			</div>
-		);
-	}
-};
+		if (this.props.location.pathname === '/reservar-amenities') {
+			return (
+				<div>
+					<AmenitiesForm {...this.props}/>
+				</div>
+			)
+		} else if (this.props.location.pathname==='/ver-reservas') {
+			return (
+				<div className='AmenitiesListDiv'>
+					{this.props.bookings.map((booking, i) => <AmenitiesList {...this.props} key={i} i={i} booking={booking} /> )}
+				</div>
+			)
+		}
+	};
+}
