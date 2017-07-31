@@ -9,6 +9,10 @@ export default class Home extends React.Component {
 	constructor(props) {
 		super(props);
 	}
+	componentWillMount() {
+		this.props.fetchGetNews();
+		this.props.fetchGetInfo();
+	}
 	render() {
 		return (
 			<div className='home'>
@@ -19,7 +23,7 @@ export default class Home extends React.Component {
 					<LastExpenses {...this.props} />
 				</div>
 				<div className='homelatestNewsDiv'>
-					{this.props.other.news.map((news, i) => <LatestNews {...this.props} key={i} i={i} news={news} />)} 
+					{this.props.other.news.map((news, i) => <LatestNews {...this.props} key={i} i={i} news={news} />)}
 				</div>
 				<div className='homeUsefulInfoDiv'>
 					{this.props.other.info.map((info, i) => <UsefulInfo {...this.props} key={i} i={i} usefulInfo={info} />)}

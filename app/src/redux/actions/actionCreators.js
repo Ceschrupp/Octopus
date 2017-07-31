@@ -11,7 +11,7 @@ const krakenCreator = function (route, method, actionSuccess) {
 			middleRoute=finalRoute;
 		};
 		return (dispatch) => {
-			dispatch(isFetching(true))
+			dispatch(globals.isFetching(true))
 			return fetch(`/${middleRoute}`, {
 				headers: { "Content-Type" : "application/JSON" },
 				method: method,
@@ -23,10 +23,10 @@ const krakenCreator = function (route, method, actionSuccess) {
 				response.json()
 			})
 			.then(data => {
-				dispatch(isFetching(false))
+				dispatch(globals.isFetching(false))
 				dispatch(globals.actionSuccess(data))
 			})
-			.catch(err => dispatch(error(err)));
+			.catch(err => dispatch(globals.error(err)));
 		};
 	}
 }
@@ -59,4 +59,3 @@ export const fetchGetDocuments = krakenCreator('GET', 'ver-documentos', 'getDocu
 
 //// Send Payment
 export const fetchSendPayment = krakenCreator('POST', 'notificar-pago', 'sendPayment');
-
