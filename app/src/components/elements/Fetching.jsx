@@ -10,7 +10,8 @@ export default class Fetching extends React.Component {
 		return (
 			<div className='Fetching'>
 				{/*<-- pulpito -->*/}
+				is FETCHING
 			</div>
-		)
+		);
 	}
 }

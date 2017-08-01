@@ -4,7 +4,7 @@ import SubmitButton from '../elements/SubmitButton';
 import FileUploadBox from '../elements/FileUploadBox';
 const moment = require('moment');
 
-export default class ComplaintsContainer extends React.Component {
+export default class ComplaintCreateForm extends React.Component {
 
 	constructor(props) {
 		super(props);

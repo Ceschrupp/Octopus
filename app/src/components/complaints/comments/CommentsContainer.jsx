@@ -1,8 +1,29 @@
 import React from 'react';
 import CommentsList from './CommentsList';
 import CommentCreator from './CommentCreator';
+import * as actionCreators from '../../redux/actions/actionCreators.js';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-export default class CommentsContainer extends React.Component {
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators(actionCreators, dispatch);
+}
+
+function mapStateToProps(state) {
+	return {
+		userStuff: {
+			user: state.user,
+			comments: state.comments
+		},
+		other: {
+			isFetching: state.isFetching,
+			failedToFetch: state.failedToFetch,
+			error: state.error
+		},
+	};
+}
+
+class CommentsContainer extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -20,3 +41,5 @@ export default class CommentsContainer extends React.Component {
 		);
 	}
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommentsContainer);

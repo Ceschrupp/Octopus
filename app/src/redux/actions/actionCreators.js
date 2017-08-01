@@ -11,18 +11,13 @@ const krakenCreator = function (route, method, actionSuccess) {
 			middleRoute=finalRoute;
 		}
 		return (dispatch) => {
-<<<<<<< HEAD
 			dispatch(globals.isFetching(true));
-=======
-			dispatch(globals.isFetching(true))
->>>>>>> 0575e69ba173e4d5a914e3ba374b3ec360eb7cf3
 			return fetch(`/${middleRoute}`, {
 				headers: { 'Content-Type' : 'application/JSON' },
 				method: method,
 				credentials: 'include',
 				body: contentName? JSON.stringify(contentName) : undefined
 			})
-<<<<<<< HEAD
 				.then(response => {
 					response.statusCode;
 					response.json();
@@ -32,17 +27,6 @@ const krakenCreator = function (route, method, actionSuccess) {
 					dispatch(globals.actionSuccess(data));
 				})
 				.catch(err => dispatch(globals.error(err)));
-=======
-			.then(response => {
-				response.statusCode
-				response.json()
-			})
-			.then(data => {
-				dispatch(globals.isFetching(false))
-				dispatch(globals.actionSuccess(data))
-			})
-			.catch(err => dispatch(globals.error(err)));
->>>>>>> 0575e69ba173e4d5a914e3ba374b3ec360eb7cf3
 		};
 	};
 };
