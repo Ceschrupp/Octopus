@@ -10,7 +10,7 @@ export default class latestExpenses extends React.Component {
 				<div className='latestExpenses'>
 					<Link to='file'>{this.props.file}</Link>
 					<Link to='file'></Link>
-					<Link to='/expensas'>Ver Todas</Link>
+					<Link to='/expensas'>Ver Todos</Link>
 				</div>
 			)
 	}

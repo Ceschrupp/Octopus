@@ -8,6 +8,7 @@ import store, { history } from './redux/store.js';
 
 import App from './containers/App';
 import Main from './containers/Main';
+import Home from './containers/Home';
 import PaymentNotice from './components/elements/paymentNotice';
 import LatestExpenses from './components/elements/latestExpenses';
 import MyAccount from './containers/MyAccount';
@@ -25,6 +26,7 @@ import LoginForm from './components/elements/LoginForm';
 import SignupForm from './components/elements/signupForm';
 import Logout from './components/elements/Logout';
 import ForgotPassword from './components/elements/ForgotPassword';
+import AmenitiesForm from './components/elements/AmenitiesForm';
 
 //import react router deps
 
@@ -34,7 +36,7 @@ const router = (
 	<Provider store ={store}>
 		<Router history={hashHistory}>
 			<Route path='/' component={App}>
-				<IndexRoute component={Main}></IndexRoute>
+				<IndexRoute component={Home}></IndexRoute>
 				<Route path='/informar-pagos' component={PaymentNotice}></Route>
 				<Route path='/expensas' component={LatestExpenses}></Route>
 				<Route path='/cuenta-corriente' component={Balance}></Route>

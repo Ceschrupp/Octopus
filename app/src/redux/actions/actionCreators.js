@@ -18,6 +18,7 @@ const krakenCreator = function (route, method, actionSuccess) {
 				credentials: 'include',
 				body: contentName? JSON.stringify(contentName) : undefined
 			})
+<<<<<<< HEAD
 				.then(response => {
 					response.statusCode;
 					response.json();
@@ -27,6 +28,17 @@ const krakenCreator = function (route, method, actionSuccess) {
 					dispatch(globals.actionSuccess(data));
 				})
 				.catch(err => dispatch(globals.error(err)));
+=======
+			.then(response => {
+				response.statusCode;
+				response.json();
+			})
+			.then(data => {
+				dispatch(globals.isFetching(false));
+				dispatch(globals.actionSuccess(data));
+			})
+			.catch(err => dispatch(globals.error(err)));
+>>>>>>> df647530becfbbeb1d7f868c4e3bdf4f4c70aa10
 		};
 	};
 };
