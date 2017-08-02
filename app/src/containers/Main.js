@@ -11,6 +11,7 @@ class Main extends React.Component {
 		console.log(this.props);
 		return(
 			<div>
+				<div className='background'></div>
 				<Header {...this.props}/>
 				<Container>
 					{React.cloneElement(this.props.children, this.props)}

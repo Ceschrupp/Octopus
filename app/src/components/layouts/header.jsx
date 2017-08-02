@@ -19,7 +19,9 @@ class Header extends React.Component {
     if (false) {
       return (
   			<div className="header">
+
           <img className="logoHeader" src={logo}/>
+
         </div>
       )
     } else {
@@ -42,7 +44,7 @@ class Header extends React.Component {
           <Link id="cerrar-sesion" className="menu-item" to="/logout">Cerrar Sesión</Link>
         </Menu>
         <div>{this.props.view}</div>
-        <Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link>
+        <div className="divdellink"><Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link></div>
 			</div>
 		)
 
