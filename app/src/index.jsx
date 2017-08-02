@@ -26,6 +26,7 @@ import LoginForm from './components/elements/LoginForm';
 import Logout from './components/elements/Logout';
 import ForgotPassword from './components/elements/ForgotPassword';
 import AmenitiesForm from './components/elements/AmenitiesForm';
+import SignupForm from './components/elements/SignupForm';
 
 //import react router deps
 
