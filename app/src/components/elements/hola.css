@@ -1,0 +1,10 @@
+.background{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.6;
+  background-image: url('~Static/building-1245986_1920.jpg');
+}

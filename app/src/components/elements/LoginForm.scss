@@ -1,15 +1,17 @@
 .LoginForm{
-
-  width:200px;
-  margin: 200px auto;
-
-
+  font-family: 'Lato', sans-serif;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  border-radius: 16px;
+  padding: 50px;
+  padding-top: 10px;
+  margin: 90px auto;
 }
 
 .loginButton {
   margin:10px auto;
   display: block;
-  width: 120%;
+  width: 100%;
   border-radius: 30px;
   background-color: #0095C6;
   font-size:13pt;
@@ -20,11 +22,11 @@
 }
 
 .loginPassword {
-  font-size:13pt;
+  font-size:10pt;
   height:30px;
   text-align: center;
   margin:10px auto;
-  width: 120%;
+  width: 100%;
   border-radius: 30px;
 }
 
@@ -36,11 +38,11 @@
 
 
 .loginEmail {
-  font-size:13pt;
+  font-size:10pt;
   height:30px;
   text-align: center;
   margin:10px auto;
-  width: 120%;
+  width: 100%;
   border-radius: 30px;
 }
 
@@ -51,9 +53,9 @@
 }
 
 .loginForgot{
-  width: 120%;
+  width: 100%;
   text-align: center;
-  color: #0032a0;
+  color: white;
 }
 
 .errorField{

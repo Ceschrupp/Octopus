@@ -41,16 +41,16 @@ const router = (
 				<Route path='/expensas' component={LatestExpenses}></Route>
 				<Route path='/cuenta-corriente' component={Balance}></Route>
 				<Route path='/novedades' component={LatestNews}></Route>
-				<Route path='/:username' component={MyAccount}></Route>
+				<Route path='/registro' component={SignupForm}></Route>
+				<Route path='/cuenta/:username' component={MyAccount}></Route>
 				<Route path='/datos-utiles' component={UsefulInfo}></Route>
 				<Route path='/reservar-amenities/new' component={AmenitiesForm}></Route>
 				<Route path='/reservar-amenities/edit/:bookingId' component={AmenitiesEditContainer}></Route>
 				<Route path='/amenities' component={AmenitiesContainer}></Route>
 				<Route path='/reclamos' component={ComplaintsContainer}></Route>
 				<Route path='/login' component={LoginForm}></Route>
-				<Route path='/registro' component={SignupForm}></Route>
 				<Route path='/logout' component={Logout}></Route>
-				<Route path='/olvide-clave' component={Logout}></Route>
+				<Route path='/olvide-clave' component={ForgotPassword}></Route>
 			</Route>
 		</Router>
 	</Provider>

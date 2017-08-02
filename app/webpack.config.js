@@ -54,7 +54,7 @@ const commonConfig = {
         },
       },
     }, {
-      test: /\.png$/,
+      test: /\.(jpg|png)$/,
       loaders: [
         'url-loader?limit=10000!?name=public/[hash].[ext]',
       ],
@@ -72,6 +72,7 @@ const commonConfig = {
         "https://fonts.googleapis.com/css?family=Raleway:100,400",
         "https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400",
         "https://use.fontawesome.com/ea0f82ab5e.js",
+        "https://fonts.googleapis.com/css?family=Lato",
       ]
     }),
     new FriendlyErrorsWebpackPlugin(),
