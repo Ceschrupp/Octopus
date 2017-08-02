@@ -23,7 +23,6 @@ import AmenitiesEditContainer from './containers/AmenitiesEditContainer';
 
 //import components
 import LoginForm from './components/elements/LoginForm';
-import SignupForm from './components/elements/signupForm';
 import Logout from './components/elements/Logout';
 import ForgotPassword from './components/elements/ForgotPassword';
 import AmenitiesForm from './components/elements/AmenitiesForm';
