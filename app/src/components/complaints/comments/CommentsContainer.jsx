@@ -1,7 +1,7 @@
 import React from 'react';
 import CommentsList from './CommentsList';
 import CommentCreator from './CommentCreator';
-import * as actionCreators from '../../redux/actions/actionCreators.js';
+import * as actionCreators from '../../../redux/actions/actionCreators.js';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
