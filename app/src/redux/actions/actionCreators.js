@@ -18,15 +18,15 @@ const krakenCreator = function (route, method, actionSuccess) {
 				credentials: 'include',
 				body: contentName? JSON.stringify(contentName) : undefined
 			})
-			.then(response => {
-				response.statusCode;
-				response.json();
-			})
-			.then(data => {
-				dispatch(globals.isFetching(false));
-				dispatch(globals.actionSuccess(data));
-			})
-			.catch(err => dispatch(globals.error(err)));
+				.then(response => {
+					response.statusCode;
+					response.json();
+				})
+				.then(data => {
+					dispatch(globals.isFetching(false));
+					dispatch(globals.actionSuccess(data));
+				})
+				.catch(err => dispatch(globals.error(err)));
 		};
 	};
 };
