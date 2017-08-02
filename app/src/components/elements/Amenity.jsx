@@ -1,4 +1,6 @@
 import React from 'react';
+const s = require('./Amenity.scss');
+import { Container, Row, Col } from 'react-grid-system';
 
 export default class AmenitieDetail extends React.Component {
 	constructor(props) {

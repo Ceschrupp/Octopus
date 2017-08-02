@@ -21,25 +21,25 @@ class Header extends React.Component {
   			<div className="header">
           <img className="logoHeader" src={logo}/>
         </div>
-      ) 
+      )
     } else {
 
 		return (
 
 			<div className="header">
         <Menu>
-          <Link id="home" className="menu-item" href="/">Inicio</Link>
-          <Link id="informar-pagos" className="menu-item" href="/informar-pagos" to='/informar-pagos'>Informar Pagos</Link>
-          <Link id="expensas" className="menu-item" href="/expensas">Expensas</Link>
-          <Link id="cuenta-corriente" className="menu-item" href="/cuenta-corriente">Cuenta Corriente</Link>
-          <Link id="novedades" className="menu-item" href="/novedades">Novedades</Link>
-          <Link id="datos-utiles" className="menu-item" href="/datos-utiles">Datos Útiles</Link>
+          <Link id="home" className="menu-item" to="/">Inicio</Link>
+          <Link id="informar-pagos" className="menu-item" to='/informar-pagos'>Informar Pagos</Link>
+          <Link id="expensas" className="menu-item" to="/expensas">Expensas</Link>
+          <Link id="cuenta-corriente" className="menu-item" to="/cuenta-corriente">Cuenta Corriente</Link>
+          <Link id="novedades" className="menu-item" to="/novedades">Novedades</Link>
+          <Link id="datos-utiles" className="menu-item" to="/datos-utiles">Datos Útiles</Link>
 
-          <Link id="amenities" className="menu-item" href="/amenities">Amenities</Link>
+          <Link id="amenities" className="menu-item" to="/amenities">Amenities</Link>
           <Link id="reclamos" className="menu-item" to="/reclamos">Reclamos</Link>
           <div className='hr'></div>
-          <Link  id="mi-cuenta" className="menu-item" href={this.props.userStuff.user}>Mi Cuenta</Link>
-          <Link id="cerrar-sesion" className="menu-item" href="/">Cerrar Sesión</Link>
+          <Link  id="mi-cuenta" className="menu-item" to={this.props.userStuff.user}>Mi Cuenta</Link>
+          <Link id="cerrar-sesion" className="menu-item" to="/logout">Cerrar Sesión</Link>
         </Menu>
         <div>{this.props.view}</div>
         <Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link>
