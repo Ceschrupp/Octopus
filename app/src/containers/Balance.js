@@ -7,9 +7,9 @@ export default class Balance extends React.Component {
 	}
 	render() {
 		return (
-				<div className='Balance'>
+			<div className='Balance'>
 
-				</div>
-			)
+			</div>
+		);
 	}
 }

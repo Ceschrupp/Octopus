@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 const s = require('./LoginForm.scss');
 import { Container, Row, Col } from 'react-grid-system';
 
@@ -8,6 +8,7 @@ export default class Login extends React.Component {
 		super(props);
 		this.handleSubmit=this.handleSubmit.bind(this);
 	}
+	
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.fetchLogUser({email:e.target.loginEmail.value, password: e.target.loginPassword.value});
@@ -22,6 +23,7 @@ export default class Login extends React.Component {
 		}
 		this.forceUpdate();
 	}
+
 	render () {
 		return (
 			<Row>
