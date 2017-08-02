@@ -1,10 +1,11 @@
-import { IS_FETCHING, CHANGE_VIEW, GET_NEWS, GET_INFO, FAILED_TO_FETCH, ERROR, GET_EXPENSES, PAYMENT_NOTICE } from '../actions/globalActions';
+import { IS_FETCHING, CHANGE_VIEW, GET_NEWS, GET_INFO, FAILED_TO_FETCH, ERROR, GET_EXPENSES, GET_PAYMENTS, PAYMENT_NOTICE } from '../actions/globalActions';
 
 function otherReducer(state = {
 		view: "Menú",
 		news: [],
 		info: [],
 		expenses: [],
+		payments: [],
 		paymentNotice: [],
 		isFetching: false,
 		failedToFetch: false,
@@ -31,6 +32,11 @@ function otherReducer(state = {
 		case GET_INFO:
 			return Object.assign({}, state, {
 					info: action.info
+			});
+
+		case GET_PAYMENTS:
+			return Object.assign({}, state, {
+					payments: action.payments
 			});
 
 		case FAILED_TO_FETCH:

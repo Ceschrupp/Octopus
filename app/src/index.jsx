@@ -23,7 +23,7 @@ import AmenitiesEditContainer from './containers/AmenitiesEditContainer';
 
 //import components
 import LoginForm from './components/elements/LoginForm';
-import SignupForm from './components/elements/signupForm';
+// import SignupForm from './components/elements/signupForm';
 import Logout from './components/elements/Logout';
 import ForgotPassword from './components/elements/ForgotPassword';
 import AmenitiesForm from './components/elements/AmenitiesForm';
@@ -48,7 +48,7 @@ const router = (
 				<Route path='/amenities' component={AmenitiesContainer}></Route>
 				<Route path='/reclamos' component={ComplaintsContainer}></Route>
 				<Route path='/login' component={LoginForm}></Route>
-				<Route path='/registro' component={SignupForm}></Route>
+
 				<Route path='/logout' component={Logout}></Route>
 				<Route path='/olvide-clave' component={Logout}></Route>
 			</Route>

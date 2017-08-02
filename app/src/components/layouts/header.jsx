@@ -8,13 +8,20 @@ import './header.css';
 class Header extends React.Component {
 	constructor(props) {
 		super(props);
-    console.log('props in header', props)
-
+    this.state={isOpen:false};
+    this.toggleMenu=this.toggleMenu.bind(this);
 	}
+
   showSettings (event) {
     event.preventDefault();
-
   }
+
+  toggleMenu() {
+    this.setState({
+      isOpen: false,
+    })
+  }
+
 	render() {
     if (false) {
       return (
@@ -27,19 +34,19 @@ class Header extends React.Component {
 		return (
 
 			<div className="header">
-        <Menu>
-          <Link id="home" className="menu-item" to="/">Inicio</Link>
-          <Link id="informar-pagos" className="menu-item" to='/informar-pagos'>Informar Pagos</Link>
-          <Link id="expensas" className="menu-item" to="/expensas">Expensas</Link>
-          <Link id="cuenta-corriente" className="menu-item" to="/cuenta-corriente">Cuenta Corriente</Link>
-          <Link id="novedades" className="menu-item" to="/novedades">Novedades</Link>
-          <Link id="datos-utiles" className="menu-item" to="/datos-utiles">Datos Útiles</Link>
+        <Menu isOpen={ this.state.isOpen }>
+          <Link onClick={this.toggleMenu } id="home" className="menu-item" to="/" >Inicio</Link>
+          <Link onClick={this.toggleMenu } id="informar-pagos" className="menu-item" to='/informar-pagos' >Informar Pagos</Link>
+          <Link onClick={this.toggleMenu } id="expensas" className="menu-item" to="/expensas" >Expensas</Link>
+          <Link onClick={this.toggleMenu } id="cuenta-corriente" className="menu-item" to="/cuenta-corriente" >Cuenta Corriente</Link>
+          <Link onClick={this.toggleMenu } id="novedades" className="menu-item" to="/novedades" >Novedades</Link>
+          <Link onClick={this.toggleMenu } id="datos-utiles" className="menu-item" to="/datos-utiles" >Datos Útiles</Link>
 
-          <Link id="amenities" className="menu-item" to="/amenities">Amenities</Link>
-          <Link id="reclamos" className="menu-item" to="/reclamos">Reclamos</Link>
+          <Link onClick={this.toggleMenu } id="amenities" className="menu-item" to="/amenities" >Amenities</Link>
+          <Link onClick={this.toggleMenu } id="reclamos" className="menu-item" to="/reclamos" >Reclamos</Link>
           <div className='hr'></div>
-          <Link  id="mi-cuenta" className="menu-item" to={this.props.userStuff.user}>Mi Cuenta</Link>
-          <Link id="cerrar-sesion" className="menu-item" to="/logout">Cerrar Sesión</Link>
+          <Link  onClick={this.toggleMenu } id="mi-cuenta" className="menu-item" to={this.props.userStuff.user} >Mi Cuenta</Link>
+          <Link onClick={this.toggleMenu } id="cerrar-sesion" className="menu-item" to="/logout">Cerrar Sesión</Link>
         </Menu>
         <div>{this.props.view}</div>
         <Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link>

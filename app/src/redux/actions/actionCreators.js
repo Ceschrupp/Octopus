@@ -57,5 +57,6 @@ export const fetchGetExpenses = krakenCreator('GET', 'expensas', 'getExpenses');
 //// Documents
 export const fetchGetDocuments = krakenCreator('GET', 'ver-documentos', 'getDocuments');
 
-//// Send Payment
+//// Payments
 export const fetchSendPayment = krakenCreator('POST', 'notificar-pago', 'sendPayment');
+export const fetchGetPayments = krakenCreator('GET', 'ver-pagos', 'getPayments');

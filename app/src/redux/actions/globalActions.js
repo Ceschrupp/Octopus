@@ -18,6 +18,16 @@ export function getComplaints(complaints) {
 	};
 }
 
+//////////////////////////////////////////////////////PAYMENTS ACTIONS
+export const GET_PAYMENTS = 'GET_PAYMENTS';
+
+export function getPayments(payments) {
+	return {
+		type: GET_PAYMENTS,
+		payments
+	};
+}
+
 //////////////////////////////////////////////////////COMMENTS ACTIONS
 export const GET_COMMENTS = 'GET_COMMENTS';
 
