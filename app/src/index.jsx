@@ -26,6 +26,7 @@ import LoginForm from './components/elements/LoginForm';
 import Logout from './components/elements/Logout';
 import ForgotPassword from './components/elements/ForgotPassword';
 import AmenitiesForm from './components/elements/AmenitiesForm';
+import SignupForm from './components/elements/SignupForm';
 
 //import react router deps
 
@@ -40,6 +41,8 @@ const router = (
 				<Route path='/expensas' component={LatestExpenses}></Route>
 				<Route path='/cuenta-corriente' component={Balance}></Route>
 				<Route path='/novedades' component={LatestNews}></Route>
+				<Route path='/registro' component={SignupForm}></Route>
+				<Route path='/cuenta/:username' component={MyAccount}></Route>
 				<Route path='/datos-utiles' component={UsefulInfo}></Route>
 				<Route path='/reservar-amenities/new' component={AmenitiesForm}></Route>
 				<Route path='/reservar-amenities/edit/:bookingId' component={AmenitiesEditContainer}></Route>
@@ -51,7 +54,7 @@ const router = (
 =======
 >>>>>>> 99a46c46fd7ff82f62bd39b7100236e56e811d6d
 				<Route path='/logout' component={Logout}></Route>
-				<Route path='/olvide-clave' component={Logout}></Route>
+				<Route path='/olvide-clave' component={ForgotPassword}></Route>
 			</Route>
 		</Router>
 	</Provider>
