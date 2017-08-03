@@ -51,10 +51,6 @@ const router = (
 				<Route path='/amenities' component={AmenitiesContainer}></Route>
 				<Route path='/reclamos' component={ComplaintsContainer}></Route>
 				<Route path='/login' component={LoginForm}></Route>
-<<<<<<< HEAD
-
-=======
->>>>>>> 99a46c46fd7ff82f62bd39b7100236e56e811d6d
 				<Route path='/logout' component={Logout}></Route>
 				<Route path='/olvide-clave' component={ForgotPassword}></Route>
 			</Route>
