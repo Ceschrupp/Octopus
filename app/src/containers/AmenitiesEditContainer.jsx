@@ -10,24 +10,6 @@ export default class Amenities extends React.Component {
 		super(props);
 		this.handleSubmit=this.handleSubmit.bind(this);
 	}
-
-	handleSubmit(){
-		const booking = {
-			'initiateBookingDate': new Date(),
-			'amenities':this.refs.amenities.value,
-			'bookingDate':this.refs.bookingDate.value,
-			'time':this.refs.time.value,
-			'comments':this.refs.comments.value,
-			'bookingName':this.refs.bookingName.value,
-		};
-		this.refs.AmenitiesForm.reset();
-		this.props.fetchEditBooking(booking);
-		hashHistory.push('/ver-reservas');
-	}
-	componentWillMount(){
-		//Busco los datos del amenity del this.props.params.amenityId
-		// o sea, llamar a la accion fetchEditBooking(this.props.params.amenityId
-	}
 	handleSubmit(){
 		const booking = {
 			"initiateBookingDate": new Date(),
