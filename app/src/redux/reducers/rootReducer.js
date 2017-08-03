@@ -35,9 +35,9 @@ const appReducer = combineReducers({other, amenities, complaints, comments, user
 
 const rootReducer = (state, action) => {
 	if (action.type === 'LOG_OUT') {
-		state = InitialState
+		state = InitialState;
 	}
-	return appReducer(state, action)
-}
+	return appReducer(state, action);
+};
 
 export default rootReducer;
