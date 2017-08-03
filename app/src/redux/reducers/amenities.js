@@ -4,13 +4,13 @@ function amenitiesReducer(state = [] , action) {
 
 	switch (action.type) {
 
-		case GET_BOOKINGS:
-			return Object.assign({}, state, {
-				amenities: action.bookings,
-			});
+	case GET_BOOKINGS:
+		return Object.assign({}, state, {
+			amenities: action.bookings,
+		});
 
-		default:
-			return state;
+	default:
+		return state;
 	}
 }
 

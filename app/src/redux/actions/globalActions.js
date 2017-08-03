@@ -18,12 +18,66 @@ export function getComplaints(complaints) {
 	};
 }
 
+export const CREATE_COMPLAINT = 'CREATE_COMPLAINT';
+
+export function createComplaint(complaint) {
+	return {
+		type: CREATE_COMPLAINT,
+		complaint
+	};
+}
+
+export const GET_MORE_COMPLAINTS = 'GET_MORE_COMPLAINTS';
+
+export function getMoreComplaints(complaints) {
+	return {
+		type: GET_MORE_COMPLAINTS,
+		complaints
+	};
+}
+
 //////////////////////////////////////////////////////COMMENTS ACTIONS
 export const GET_COMMENTS = 'GET_COMMENTS';
 
 export function getComments(comments) {
 	return {
 		type: GET_COMMENTS,
+		comments
+	};
+}
+
+export const CREATE_COMMENT = 'CREATE_COMMENT';
+
+export function createComment(comment) {
+	return {
+		type: CREATE_COMMENT,
+		comment
+	};
+}
+
+export const DELETE_COMMENT = 'DELETE_COMMENT';
+
+export function deleteComment(id) {
+	return {
+		type: DELETE_COMMENT,
+		id
+	};
+}
+
+export const EDIT_COMMENT = 'EDIT_COMMENT';
+
+export function editComment(comment) {
+	return {
+		type: EDIT_COMMENT,
+		comment
+	};
+}
+
+export const GET_MORE_COMMENTS = 'GET_MORE_COMMENTS';
+
+export function getMoreComments(comments) {
+	return {
+		type: GET_MORE_COMMENTS,
 		comments
 	};
 }
@@ -44,7 +98,7 @@ export function failedToFetch(boolean) {
 	return {
 		type: FAILED_TO_FETCH,
 		boolean
-	}
+	};
 }
 
 export const CHANGE_VIEW = 'CHANGE_VIEW';

@@ -39,13 +39,16 @@ export const fetchDeleteBooking = krakenCreator('POST', 'eliminar-reserva', 'get
 export const fetchEditBooking = krakenCreator('POST', 'editar-reserva','getBookings');
 
 //// Complaints
-export const fetchSendComplaint = krakenCreator('POST', 'crear-reclamo', 'getComplaints');
+export const fetchSendComplaint = krakenCreator('POST', 'crear-reclamo', 'createComplaint');
 export const fetchGetComplaints = krakenCreator('GET', 'complaints', 'getComplaints');
+export const fetchGetMoreComplaints = krakenCreator('GET', 'complaints', 'getMoreComplaints');
 
 //// Comments
-export const fetchSendComment = krakenCreator('POST', 'crear-comentario', 'getComments');
+export const fetchSendComment = krakenCreator('POST', 'crear-comentario', 'createComment');
+export const fetchDeleteComment = krakenCreator('POST', 'eliminar-comentario', 'deleteComment');
+export const fetchEditComment = krakenCreator('POST', 'editar-comentario','editComment');
 export const fetchGetComments = krakenCreator('GET', 'comentarios', 'getComments');
-export const fetchDeleteComment = krakenCreator('POST', 'eliminar-comentario', 'getComments');
+export const fetchGetMoreComments = krakenCreator('GET', 'comentarios', 'getMoreComments');
 
 //// Other
 export const fetchGetNews = krakenCreator('POST', 'novedades', 'getNews');

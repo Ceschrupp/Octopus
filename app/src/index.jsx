@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import store, { history } from './redux/store.js';
 
 //import containers
-
 import App from './containers/App';
 import Main from './containers/Main';
 import Home from './containers/Home';
@@ -19,14 +18,12 @@ import ComplaintsContainer from './components/complaints/ComplaintsContainer';
 import Balance from './containers/Balance';
 import AmenitiesEditContainer from './containers/AmenitiesEditContainer';
 
-
-
 //import components
 import LoginForm from './components/elements/LoginForm';
 import Logout from './components/elements/Logout';
 import ForgotPassword from './components/elements/ForgotPassword';
 import AmenitiesForm from './components/elements/AmenitiesForm';
-import SignupForm from './components/elements/SignupForm';
+import SignupForm from './components/elements/signupForm';
 
 //import react router deps
 
