@@ -33,10 +33,11 @@ const krakenCreator = function (route, method, actionSuccess) {
 
 
 //// Amenities
-export const fetchSendBooking = krakenCreator('POST', 'reservar-amenities', 'getBookings');
-export const fetchGetBookings = krakenCreator('GET', 'reservas-amenities', 'getBookings');
-export const fetchDeleteBooking = krakenCreator('POST', 'eliminar-reserva', 'getBookings');
-export const fetchEditBooking = krakenCreator('POST', 'editar-reserva','getBookings');
+export const fetchGetBookings = krakenCreator('GET', 'ver-reservas', 'getBookings');
+export const fetchGetMoreBookings = krakenCreator('GET', 'ver-reservas', 'getMoreBookings');
+export const fetchCreateBooking = krakenCreator('POST', 'reservar-amenities', 'createBooking');
+export const fetchDeleteBooking = krakenCreator('POST', 'eliminar-reserva','deleteBooking');
+export const fetchEditBooking = krakenCreator('POST', 'editar-reserva','editBooking');
 
 //// Complaints
 export const fetchSendComplaint = krakenCreator('POST', 'crear-reclamo', 'getComplaints');
@@ -48,15 +49,21 @@ export const fetchGetComments = krakenCreator('GET', 'comentarios', 'getComments
 export const fetchDeleteComment = krakenCreator('POST', 'eliminar-comentario', 'getComments');
 
 //// Other
-export const fetchGetNews = krakenCreator('POST', 'novedades', 'getNews');
+export const fetchGetNews = krakenCreator('GET', 'novedades', 'getNews');
+export const fetchGetMoreNews= krakenCreator('GET', 'novedades', 'getMoreNews');
+
 export const fetchGetInfo = krakenCreator('GET', 'datos-utiles', 'getInfo');
+export const fetchGetMoreInfo = krakenCreator('GET', 'datos-utiles', 'getMoreInfo');
 
 //// Expenses
 export const fetchGetExpenses = krakenCreator('GET', 'expensas', 'getExpenses');
+export const fetchGetMoreExpenses = krakenCreator('GET', 'expenses', 'getMoreExpenses');
 
 //// Documents
 export const fetchGetDocuments = krakenCreator('GET', 'ver-documentos', 'getDocuments');
+export const fetchGetMoreDocuments = krakenCreator('GET', 'ver-documentos', 'getMoreDocuments');
 
 //// Payments
-export const fetchSendPayment = krakenCreator('POST', 'notificar-pago', 'sendPayment');
+export const fetchPaymentNotice = krakenCreator('POST', 'notificar-pago', 'paymentNotice');
 export const fetchGetPayments = krakenCreator('GET', 'ver-pagos', 'getPayments');
+export const fetchGetMorePayments = krakenCreator('GET', 'ver-pagos', 'getMorePayments');

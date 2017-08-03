@@ -1,4 +1,4 @@
-import { IS_FETCHING, CHANGE_VIEW, GET_NEWS, GET_INFO, FAILED_TO_FETCH, ERROR, GET_EXPENSES, GET_PAYMENTS, PAYMENT_NOTICE } from '../actions/globalActions';
+import { IS_FETCHING, FAILED_TO_FETCH, ERROR, CHANGE_VIEW, GET_NEWS, GET_MORE_NEWS, GET_INFO, GET_MORE_INFO, GET_EXPENSES, GET_MORE_EXPENSES, GET_PAYMENTS, GET_MORE_PAYMENTS, PAYMENT_NOTICE } from '../actions/globalActions';
 
 function otherReducer(state = {
 		view: "Menú",
@@ -16,7 +16,16 @@ function otherReducer(state = {
 
 		case IS_FETCHING:
 			return Object.assign({}, state, {
-					"isFetching": action.boolean
+					isFetching: action.boolean
+			});
+		case FAILED_TO_FETCH:
+			return Object.assign({}, state, {
+				logErr: action.err
+			});
+
+		case ERROR:
+			return Object.assign({}, state, {
+				logErr: action.err
 			});
 
 		case CHANGE_VIEW:
@@ -28,8 +37,16 @@ function otherReducer(state = {
 			return Object.assign({}, state, {
 					news: action.news
 			});
+		case GET_MORE_NEWS:
+			return Object.assign({}, state, {
+					news: action.news
+			});
 
 		case GET_INFO:
+			return Object.assign({}, state, {
+					info: action.info
+			});
+		case GET_MORE_INFO:
 			return Object.assign({}, state, {
 					info: action.info
 			});
@@ -38,26 +55,25 @@ function otherReducer(state = {
 			return Object.assign({}, state, {
 					payments: action.payments
 			});
-
-		case FAILED_TO_FETCH:
+		case GET_MORE_PAYMENTS:
 			return Object.assign({}, state, {
-				logErr: action.err
+					payments:action.payments
+			});
+		case PAYMENT_NOTICE:
+			return Object.assign({}, state, {
+				paymentNotice: action.paymentNotice
 			});
 
 		case GET_EXPENSES:
 			return Object.assign({}, state, {
 				expenses: action.expenses
 			});
-
-		case ERROR:
+		case GET_MORE_EXPENSES:
 			return Object.assign({}, state, {
-				logErr: action.err
-			});
-
-		case PAYMENT_NOTICE:
-			return Object.assign({}, state, {
-				paymentNotice: action.paymentNotice
+				expenses:action.expenses
 			})
+			
+
 			
 		default:
 			return state;

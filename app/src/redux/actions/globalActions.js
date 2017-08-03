@@ -8,6 +8,42 @@ export function getBookings(bookings) {
 	};
 }
 
+export const GET_MORE_BOOKINGS = 'GET_MORE_BOOKINGS';
+
+export function getMoreBookings(bookings) {
+	return {
+		type: GET_MORE_BOOKINGS,
+		bookings
+	};
+}
+
+export const CREATE_BOOKING = 'CREATE_BOOKING';
+
+export function createBooking(booking) {
+	return {
+		type: CREATE_BOOKING,
+		booking
+	};
+}
+
+export const EDIT_BOOKING = 'EDIT_BOOKING';
+
+export function editBooking(booking) {
+	return {
+		type: EDIT_BOOKING,
+		booking
+	};
+}
+
+export const DELETE_BOOKING = 'DELETE_BOOKING';
+
+export function deleteBooking(booking) {
+	return {
+		type: DELETE_BOOKING,
+		booking
+	};
+}
+
 //////////////////////////////////////////////////////COMPLAINTS ACTIONS
 export const GET_COMPLAINTS = 'GET_COMPLAINTS';
 
