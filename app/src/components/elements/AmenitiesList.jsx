@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import { Container, Row, Col } from 'react-grid-system';
 // import AmenitiesList from '../components/elements/AmenitiesList';
 
 const s = require('./AmenitiesList.scss');
@@ -26,20 +27,24 @@ export default class AmenitiesList extends React.Component {
 
 	render () {
 		const {amenities, bookingDate, bookingName, i} = this.props
-		if (this.props.userStuff.user.username === booking.bookingName) {
+		if (true) {
 			return (
 				// renderiza boton de borrar y editar de cada usuario
+			<Row>
+				<Col md={3} lg={3}/>
+				<Col md={6} lg={6}>
 				<div className={s.panel}>
-					<div className={s.heading} onClick={this.toggle}>
+					<div className={s.heading} >
+						<div className={s.cross}><i className="fa fa-plus" ref='bookingAmenities' onClick={this.toggle} /></div>
+						<div className={s.trash} onClick={this.deleteBooking}><i className="fa fa-trash" aria-hidden="true"/></div>
 						<h4 className={s.title}>
-							<i className="fa fa-plus" ref='bookingAmenities' onClick={this.toggle} />
 							{this.props.amenities}
 							<p>piscina</p>
 						</h4>
-						<Link to={`/reservar-amenities/edit/${this.props.booking.amenitie_id}`}>
-							<button >editar</button>
-						</Link>
-						<button onClick={this.deleteBooking}>borrar</button>
+						{/*<Link to={`reservar-amenities/edit/${this.props.booking._id}`}>
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						</Link>*/}
+
 					</div>
 					<div ref='oculto' className={s.hidden}>
 						<p className={s.body}>
@@ -50,9 +55,10 @@ export default class AmenitiesList extends React.Component {
 							{this.props.amenities.bookingDate}
 							08/56/2567
 						</p>
-						<button onClick={this.deleteBooking}>borrar</button>
 					</div>
 				</div>
+			</Col>
+		</Row>
 			);
 		}
 		return (
@@ -63,10 +69,6 @@ export default class AmenitiesList extends React.Component {
 						<i className="fa fa-plus" ref='bookingAmenities' onClick={this.toggle} />
 						{this.props.amenities}
 					</h4>
-					<Link to={`reservar-amenities/edit/${this.props.booking.amenitie_id}`}>
-						<button >editar</button>
-					</Link>
-					<button onClick={this.deleteBooking}>borrar</button>
 				</div>
 				<div ref='oculto' className={s.hidden}>
 					<p className={s.body}>
@@ -75,10 +77,6 @@ export default class AmenitiesList extends React.Component {
 					<p className={s.body}>
 						{this.props.amenities.bookingDate}
 					</p>
-					<Link to={`reservar-amenities/edit/${this.props.booking.amenitie_id}`}>
-						<button >editar</button>
-					</Link>
-					<button onClick={this.deleteBooking}>borrar</button>
 				</div>
 			</div>
 		);
