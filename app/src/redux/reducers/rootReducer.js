@@ -20,6 +20,9 @@ const InitialState = {
 		view: "Menú",
 		news: [],
 		info: [],
+		expenses: [],
+		payments: [],
+		paymentNotice: [],
 		isFetching: false,
 		failedToFetch: false,
 		error: null

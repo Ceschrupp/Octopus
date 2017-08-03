@@ -1,60 +1,82 @@
-import { IS_FETCHING, CHANGE_VIEW, GET_NEWS, GET_INFO, FAILED_TO_FETCH, ERROR, GET_EXPENSES, PAYMENT_NOTICE } from '../actions/globalActions';
+import { IS_FETCHING, FAILED_TO_FETCH, ERROR, CHANGE_VIEW, GET_NEWS, GET_MORE_NEWS, GET_INFO, GET_MORE_INFO, GET_EXPENSES, GET_MORE_EXPENSES, GET_PAYMENTS, GET_MORE_PAYMENTS, PAYMENT_NOTICE } from '../actions/globalActions';
 
 function otherReducer(state = {
-	view: "Menú",
-	news: [],
-	info: [],
-	expenses: [],
-	paymentNotice: [],
-	isFetching: false,
-	failedToFetch: false,
-	error: null
-} , action) {
+		view: "Menú",
+		news: [],
+		info: [],
+		expenses: [],
+		payments: [],
+		paymentNotice: [],
+		isFetching: false,
+		failedToFetch: false,
+		error: null
+	} , action) {
 
 	switch (action.type) {
 
-	case IS_FETCHING:
-		return Object.assign({}, state, {
-			isFetching: action.boolean
-		});
+		case IS_FETCHING:
+			return Object.assign({}, state, {
+					isFetching: action.boolean
+			});
+		case FAILED_TO_FETCH:
+			return Object.assign({}, state, {
+				logErr: action.err
+			});
 
-	case CHANGE_VIEW:
-		return Object.assign({}, state, {
-			view: action.view
-		});
+		case ERROR:
+			return Object.assign({}, state, {
+				logErr: action.err
+			});
 
-	case GET_NEWS:
-		return Object.assign({}, state, {
-			news: action.news
-		});
+		case CHANGE_VIEW:
+			return Object.assign({}, state, {
+					view: action.view
+			});
 
-	case GET_INFO:
-		return Object.assign({}, state, {
-			info: action.info
-		});
+		case GET_NEWS:
+			return Object.assign({}, state, {
+					news: action.news
+			});
+		case GET_MORE_NEWS:
+			return Object.assign({}, state, {
+					news: action.news
+			});
 
-	case FAILED_TO_FETCH:
-		return Object.assign({}, state, {
-			logErr: action.err
-		});
+		case GET_INFO:
+			return Object.assign({}, state, {
+					info: action.info
+			});
+		case GET_MORE_INFO:
+			return Object.assign({}, state, {
+					info: action.info
+			});
 
-	case GET_EXPENSES:
-		return Object.assign({}, state, {
-			expenses: action.expenses
-		});
+		case GET_PAYMENTS:
+			return Object.assign({}, state, {
+					payments: action.payments
+			});
+		case GET_MORE_PAYMENTS:
+			return Object.assign({}, state, {
+					payments:action.payments
+			});
+		case PAYMENT_NOTICE:
+			return Object.assign({}, state, {
+				paymentNotice: action.paymentNotice
+			});
 
-	case ERROR:
-		return Object.assign({}, state, {
-			logErr: action.err
-		});
+		case GET_EXPENSES:
+			return Object.assign({}, state, {
+				expenses: action.expenses
+			});
+		case GET_MORE_EXPENSES:
+			return Object.assign({}, state, {
+				expenses:action.expenses
+			})
+			
 
-	case PAYMENT_NOTICE:
-		return Object.assign({}, state, {
-			paymentNotice: action.paymentNotice
-		});
-		
-	default:
-		return state;
+			
+		default:
+			return state;
 	}
 }
 
