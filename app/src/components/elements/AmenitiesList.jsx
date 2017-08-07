@@ -62,7 +62,10 @@ export default class AmenitiesList extends React.Component {
 			);
 		}
 		return (
-			// renderiza boton de borrar y editar de cada usuario
+
+		<Row>
+			<Col md={3} lg={3}/>
+			<Col md={6} lg={6}>
 			<div className={s.panel}>
 				<div className={s.heading} onClick={toggle}>
 					<h4 className={s.title}>
@@ -79,6 +82,8 @@ export default class AmenitiesList extends React.Component {
 					</p>
 				</div>
 			</div>
+		</Col>
+	</Row>
 		);
 	}
 }

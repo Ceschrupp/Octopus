@@ -1,15 +1,18 @@
 import React from 'react';
 import {Link, IndexLink, hashHistory} from 'react-router';
 import { bubble as Menu } from 'react-burger-menu';
-
+import Dropdown from 'react-dropdown'
 const logo = require('Static/logo_octopus_footer.png');
 import './header.css';
+var Select = require('react-select');
+import 'react-select/dist/react-select.css';
 
 class Header extends React.Component {
 	constructor(props) {
 		super(props);
     this.state={isOpen:false};
     this.toggleMenu=this.toggleMenu.bind(this);
+		this.logChange = this.logChange.bind(this);
 	}
 
   showSettings (event) {
@@ -21,6 +24,10 @@ class Header extends React.Component {
       isOpen: false,
     })
   }
+	logChange(val) {
+		console.log("Selected: " + JSON.stringify(val));
+	}
+
 
 	render() {
     if (false) {
@@ -33,9 +40,15 @@ class Header extends React.Component {
       )
     } else {
 
+			var options = [
+			  { value: 'one', label: 'Ceci' },
+			  { value: 'two', label: 'Sol' }
+			];
+
 		return (
 
 			<div className="header">
+
         <Menu isOpen={ this.state.isOpen }>
           <Link onClick={this.toggleMenu } id="home" className="menu-item" to="/" >Inicio</Link>
           <Link onClick={this.toggleMenu } id="informar-pagos" className="menu-item" to='/informar-pagos' >Informar Pagos</Link>
@@ -51,7 +64,16 @@ class Header extends React.Component {
           <Link onClick={this.toggleMenu } id="cerrar-sesion" className="menu-item" to="/logout">Cerrar Sesión</Link>
         </Menu>
         <div>{this.props.view}</div>
-        <div className="divdellink"><Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link></div>
+        <div className="divdellink"><Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link>
+
+        </div>
+
+				<Select
+					name="form-field-name"
+					options={this.props.userStuff.building.building_id}
+					onChange={this.logChange}
+				/>
+
 			</div>
 		)
 

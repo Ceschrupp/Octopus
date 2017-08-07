@@ -8,7 +8,8 @@ const InitialState = {
 	userStuff: {
 		user: {},
 		isLogged: false,
-		logErr: false
+		logErr: false,
+		building: {},
 	},
 	other: {
 		view: "Home",
@@ -21,6 +22,7 @@ const InitialState = {
 	amenities: [],
 	complaints: [],
 	comments: []
+	//agregar edificios
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

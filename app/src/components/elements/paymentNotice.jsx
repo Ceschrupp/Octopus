@@ -1,4 +1,6 @@
 import React from 'react';
+const s = require('./paymentNotice.scss');
+import { Container, Row, Col } from 'react-grid-system';
 
 export default class paymentNotice extends React.Component {
 	constructor(props) {
@@ -16,13 +18,23 @@ export default class paymentNotice extends React.Component {
 	}
 	render () {
 		return (
-				<div className='paymentNotice'>
+			<Row>
+				<Col md={3} lg={3}/>
+				<Col md={6} lg={6}>
+				<div className={s.paymentNotice}>
 					<form className='paymentNoticeForm' onSubmit={(ref) => this.handleSubmit = ref}>
 						<h3>Informar un pago:</h3>
-						<input type='text' ref='paymentNoticeMessage' />
-						<input type="file" id="paymentNoticeFile" accept=".jpg, .jpeg, .png" multiple ref='paymentNoticeFile' />
-						<button type='submit'>Enviar</button>
+							<label className={s.fileContainer}>
+							Elige un archivo
+							<input className={s.chooseFile}type="file" id="paymentNoticeFile" accept=".jpg, .jpeg, .png" multiple ref='paymentNoticeFile' />
+							</label>
+
+						{/*<input className={s.chooseFile}type="file" id="paymentNoticeFile" accept=".jpg, .jpeg, .png" multiple ref='paymentNoticeFile' />*/}
+						<input className= {s.fileInput} placeholder='Mensaje de aviso' type='text' ref='paymentNoticeMessage' />
+						<button className={s.sendButton}type='submit'>Enviar</button>
 					</form>
 				</div>
+			</Col>
+		</Row>
 			)}
 }

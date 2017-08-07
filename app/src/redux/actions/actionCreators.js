@@ -3,6 +3,7 @@ import fetch from 'isomorphic-fetch';
 export * from './userActions.js';
 import * as globals from './globalActions.js';
 export * from './globalActions.js';
+import Store from '../store.js';
 
 const krakenCreator = function (route, method, actionSuccess) {
 	return function(contentName, finalRoute) {
@@ -10,9 +11,10 @@ const krakenCreator = function (route, method, actionSuccess) {
 		if (finalRoute) {
 			middleRoute=finalRoute;
 		}
+		console.log('STORE', Store.getState())
 		return (dispatch) => {
 			dispatch(globals.isFetching(true));
-			return fetch(`/${middleRoute}`, {
+			return fetch(`/api/${middleRoute}/:${Store.InitialState.building.building_id}`, {
 				headers: { 'Content-Type' : 'application/JSON' },
 				method: method,
 				credentials: 'include',
@@ -36,8 +38,9 @@ const krakenCreator = function (route, method, actionSuccess) {
 export const fetchGetBookings = krakenCreator('GET', 'ver-reservas', 'getBookings');
 export const fetchGetMoreBookings = krakenCreator('GET', 'ver-reservas', 'getMoreBookings');
 export const fetchCreateBooking = krakenCreator('POST', 'reservar-amenities', 'createBooking');
-export const fetchDeleteBooking = krakenCreator('POST', 'eliminar-reserva','deleteBooking');
-export const fetchEditBooking = krakenCreator('POST', 'editar-reserva','editBooking');
+//export const fetchGetBuilding = krakenCreator('GET', 'reservar-amenities', 'createBooking');
+export const fetchDeleteBooking = krakenCreator('DELETE', 'eliminar-reserva','deleteBooking');//cambie por delete
+export const fetchEditBooking = krakenCreator('PUT', 'editar-reserva','editBooking'); //cambie por put
 
 //// Complaints
 export const fetchSendComplaint = krakenCreator('POST', 'crear-reclamo', 'createComplaint');
