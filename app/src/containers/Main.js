@@ -8,7 +8,6 @@ class Main extends React.Component {
 		super(props);
 	}
 	render() {
-		console.log(this.props);
 		return(
 			<div>
 				<div className='background'></div>

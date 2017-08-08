@@ -1,10 +1,59 @@
 //IMPORT PARA EL MEGA CREATOR
-import fetch from 'isomorphic-fetch';
 export * from './userActions.js';
 import * as globals from './globalActions.js';
 export * from './globalActions.js';
+import * as  $ from 'jquery';
+const url = 'http://api.octopus.dev/api';
+
+const ifError = (status, dispatch) => {
+	dispatch(globals.failedToFetch(false));
+	dispatch(globals.userFail(false));
+	status === '400' || status === '401' ?
+		dispatch(globals.userFail('Error de Autenticación')) 
+		: status === '500' || status === '404' ?
+			dispatch(globals.failedToFetch('Error del servidor'))
+			: dispatch(globals.failedToFetch('Error del servidor'));
+};
 
 const krakenCreator = function (route, method, actionSuccess) {
+	return function(contentName, finalRoute) {
+		let middleRoute=route;
+		if (finalRoute) {
+			middleRoute=finalRoute;
+		}
+		return (dispatch) => {
+			dispatch(globals.isFetching(true));
+			return $.ajax({
+				type: method, 
+				url: `${url}/${middleRoute}`,
+				xhrFields: {
+					withCredentials: true
+				},
+				dataType: 'jsonp',
+				data: contentName? JSON.stringify(contentName) : undefined
+			})
+				.done( res => {
+					res.json();
+					console.log('SUCCESS:', res);
+					dispatch(globals.actionSuccess(res));
+				})
+				.fail( (jqXHR, textStatus, errorThrown) => {
+					console.log('ERROR:',jqXHR.status, ': ',textStatus);
+					ifError(jqXHR.status, dispatch);
+				})
+				.always( f => {
+					dispatch(globals.isFetching(false));
+				});
+		};
+	};
+};
+
+/*
+400 (bad request) : error de validación (mail escrito el email, o algún campo no enviado, p.ej)
+401 (unauthorized): email/ pass incorrecto
+500 (internal server error): ocurrió un error del lado del server
+*/
+/*const krakenCreator = function (route, method, actionSuccess) {
 	return function(contentName, finalRoute) {
 		let middleRoute=route;
 		if (finalRoute) {
@@ -15,7 +64,7 @@ const krakenCreator = function (route, method, actionSuccess) {
 			return fetch(`/${middleRoute}`, {
 				headers: { 'Content-Type' : 'application/JSON' },
 				method: method,
-				credentials: 'include',
+				credentials: 'include',s
 				body: contentName? JSON.stringify(contentName) : undefined
 			})
 				.then(response => {
@@ -29,7 +78,7 @@ const krakenCreator = function (route, method, actionSuccess) {
 				.catch(err => dispatch(globals.error(err)));
 		};
 	};
-};
+};*/
 
 
 //// Amenities
@@ -41,8 +90,8 @@ export const fetchEditBooking = krakenCreator('POST', 'editar-reserva','editBook
 
 //// Complaints
 export const fetchSendComplaint = krakenCreator('POST', 'crear-reclamo', 'createComplaint');
-export const fetchGetComplaints = krakenCreator('GET', 'complaints', 'getComplaints');
-export const fetchGetMoreComplaints = krakenCreator('GET', 'complaints', 'getMoreComplaints');
+export const fetchGetComplaints = krakenCreator('GET', 'reclamos', 'getComplaints');
+export const fetchGetMoreComplaints = krakenCreator('GET', 'reclamos', 'getMoreComplaints');
 
 //// Comments
 export const fetchSendComment = krakenCreator('POST', 'crear-comentario', 'createComment');

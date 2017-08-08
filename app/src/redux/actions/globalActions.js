@@ -30,7 +30,7 @@ export const EDIT_BOOKING = 'EDIT_BOOKING';
 
 export function editBooking(booking) {
 	return {
-		type: EDIT_BOOKING,
+		type: 'EDIT_BOOKING',
 		booking
 	};
 }
@@ -69,7 +69,9 @@ export function getMoreComplaints(complaints) {
 	return {
 		type: GET_MORE_COMPLAINTS,
 		complaints
-		
+	};
+}
+
 //////////////////////////////////////////////////////PAYMENTS ACTIONS
 export const GET_PAYMENTS = 'GET_PAYMENTS';
 
@@ -138,10 +140,10 @@ export function isFetching(boolean) {
 
 export const FAILED_TO_FETCH = 'FAILED_TO_FETCH';
 
-export function failedToFetch(boolean) {
+export function failedToFetch(err) {
 	return {
 		type: FAILED_TO_FETCH,
-		boolean
+		err
 	};
 }
 
@@ -172,12 +174,4 @@ export function getInfo(info) {
 	};
 }
 
-export const ERROR = 'ERROR';
-
-export function error(err) {
-	return {
-		type: ERROR,
-		err
-	};
-}
 

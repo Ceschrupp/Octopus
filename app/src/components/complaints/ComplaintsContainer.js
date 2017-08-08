@@ -39,7 +39,6 @@ class ComplaintsContainer extends React.Component {
 	render() {
 		if(this.props.other.isFetching) {
 			return (
-
 				<div id={s.container}>
 					<div>
 						<Fetching />

@@ -1,5 +1,5 @@
 import thunkMiddleware from 'redux-thunk';
-import {hashHistory} from 'react-router';
+import { hashHistory } from 'react-router';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers/rootReducer';
 
@@ -11,12 +11,11 @@ const InitialState = {
 		logErr: false
 	},
 	other: {
-		view: "Home",
+		view: 'Home',
 		news: [],
 		info: [],
 		isFetching: false,
-		failedToFetch: false,
-		error: null
+		failedToFetch: false
 	},
 	amenities: [],
 	complaints: [],

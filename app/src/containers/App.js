@@ -7,18 +7,17 @@ import Main from './Main';
 function mapStateToProps(state) {
 	return {
 		userStuff: {
-			user: state.user,
-			isLogged: state.isLogged,
-			logErr: state.logErr
+			user: state.userStuff.user,
+			isLogged: state.userStuff.isLogged,
+			logErr: state.userStuff.logErr
 		},
 		other: {
-			view: state.view,
-			news: [state.news],
-			info: [state.info],
-			expenses: state.expenses,
-			isFetching: state.isFetching,
-			failedToFetch: state.failedToFetch,
-			error: state.error
+			view: state.other.view,
+			news: [state.other.news],
+			info: [state.other.info],
+			expenses: state.other.expenses,
+			isFetching: state.other.isFetching,
+			failedToFetch: state.other.failedToFetch
 		},
 		amenities: state.amenities,
 		complaints: state.complaints,

@@ -7,9 +7,9 @@ export default class Logout extends React.Component {
 	}
 	render() {
 		return (
-				<div className='Logout'>
-					<p>Te has deslogueado exitosamente.</p>
-				</div>
-			)
+			<div className='Logout'>
+				<p>Te has deslogueado exitosamente.</p>
+			</div>
+		);
 	}
 }

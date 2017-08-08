@@ -8,27 +8,27 @@ function userStuffReducer(state = {
 
 	switch (action.type) {
 
-		case LOG_OUT:
-			return Object.assign({}, state, {
-					user: {},
-					isLogged: false,
-					logErr: false
-			});
+	case LOG_OUT:
+		return Object.assign({}, state, {
+			user: {},
+			isLogged: false,
+			logErr: false
+		});
 
-		case USER_SUCCESS:
-			return Object.assign({}, state, {
-				user: action.user,
-				isLogged: true,
-				logErr: false
-			});
+	case USER_SUCCESS:
+		return Object.assign({}, state, {
+			user: action.user,
+			isLogged: true,
+			logErr: false
+		});
 
-		case USER_FAIL:
-			return Object.assign({}, state, {
-				logErr: action.err
-			});
+	case USER_FAIL:
+		return Object.assign({}, state, {
+			logErr: action.err
+		});
 
-		default:
-			return state;
+	default:
+		return state;
 	}
 }
 

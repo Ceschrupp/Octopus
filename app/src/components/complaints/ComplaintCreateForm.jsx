@@ -40,8 +40,6 @@ export default class ComplaintCreateForm extends React.Component {
 		e.preventDefault();
 	}
 
-	//https://github.com/okonet/react-dropzone/blob/master/src/index.js#L98
-	//HACERLO CHIQUItO Y CUANDO APRETAS SALE EL FORM
 	render() {
 		return (
 			<div id={s.container}>
