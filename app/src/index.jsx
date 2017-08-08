@@ -25,6 +25,7 @@ import ForgotPassword from './components/elements/ForgotPassword';
 import AmenitiesForm from './components/elements/AmenitiesForm';
 import SignupForm from './components/elements/signupForm';
 import AmenitiesList from './components/elements/AmenitiesList';
+import ComplaintCreateForm from './components/complaints/ComplaintCreateForm';
 
 //import react router deps
 
@@ -47,6 +48,7 @@ const router = (
 				<Route path='/ver-reservas' component={AmenitiesList}></Route>
 				<Route path='/amenities' component={AmenitiesContainer}></Route>
 				<Route path='/reclamos' component={ComplaintsContainer}></Route>
+				<Route path='/crear-reclamo' component={ComplaintCreateForm}></Route>
 				<Route path='/login' component={LoginForm}></Route>
 				<Route path='/logout' component={Logout}></Route>
 				<Route path='/olvide-clave' component={ForgotPassword}></Route>

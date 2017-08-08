@@ -46,7 +46,7 @@ export const fetchGetMoreComplaints = krakenCreator('GET', 'complaints', 'getMor
 
 //// Comments
 export const fetchSendComment = krakenCreator('POST', 'crear-comentario', 'createComment');
-export const fetchDeleteComment = krakenCreator('POST', 'eliminar-comentario', 'deleteComment');
+export const fetchDeleteComment = krakenCreator('DELETE', 'eliminar-comentario', 'deleteComment');
 export const fetchEditComment = krakenCreator('POST', 'editar-comentario','editComment');
 export const fetchGetComments = krakenCreator('GET', 'comentarios', 'getComments');
 export const fetchGetMoreComments = krakenCreator('GET', 'comentarios', 'getMoreComments');
