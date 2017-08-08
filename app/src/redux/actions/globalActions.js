@@ -69,6 +69,16 @@ export function getMoreComplaints(complaints) {
 	return {
 		type: GET_MORE_COMPLAINTS,
 		complaints
+
+	};
+}
+//////////////////////////////////////////////////////PAYMENTS ACTIONS
+export const GET_PAYMENTS = 'GET_PAYMENTS';
+
+export function getPayments(payments) {
+	return {
+		type: GET_PAYMENTS,
+		payments
 	};
 }
 
@@ -172,4 +182,3 @@ export function error(err) {
 		err
 	};
 }
-

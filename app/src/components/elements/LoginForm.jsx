@@ -8,7 +8,7 @@ export default class Login extends React.Component {
 		super(props);
 		this.handleSubmit=this.handleSubmit.bind(this);
 	}
-	
+
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.fetchLogUser({email:e.target.loginEmail.value, password: e.target.loginPassword.value});
