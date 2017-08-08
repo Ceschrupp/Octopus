@@ -6,7 +6,17 @@ import rootReducer from './reducers/rootReducer';
 //estado inicial
 const InitialState = {
 	userStuff: {
-		user: {},
+		user: {
+			buildings:[
+				{
+					building_id: 2,
+					buildingName: 'unalinea'
+				}, {
+					building_id: 5,
+					buildingName: 'ceci'
+				}
+			]
+		},
 		isLogged: false,
 		logErr: false
 	},
@@ -15,11 +25,18 @@ const InitialState = {
 		news: [],
 		info: [],
 		isFetching: false,
+<<<<<<< HEAD
 		failedToFetch: false
+=======
+		failedToFetch: false,
+		error: null,
+		buildingNow: null
+>>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4
 	},
 	amenities: [],
 	complaints: [],
 	comments: []
+	//agregar edificios
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

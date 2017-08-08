@@ -2,6 +2,7 @@
 export * from './userActions.js';
 import * as globals from './globalActions.js';
 export * from './globalActions.js';
+<<<<<<< HEAD
 import * as  $ from 'jquery';
 const url = 'http://api.octopus.dev/api';
 
@@ -14,15 +15,21 @@ const ifError = (status, dispatch) => {
 			dispatch(globals.failedToFetch('Error del servidor'))
 			: dispatch(globals.failedToFetch('Error del servidor'));
 };
+=======
+import Store from '../store.js';
+>>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4
 
 const krakenCreator = function (route, method, actionSuccess) {
 	return function(contentName, finalRoute) {
+		console.log('Stores', Store.getState());
+		let building_id= Store.getState().other.buildingNow;
 		let middleRoute=route;
 		if (finalRoute) {
 			middleRoute=finalRoute;
 		}
 		return (dispatch) => {
 			dispatch(globals.isFetching(true));
+<<<<<<< HEAD
 			return $.ajax({
 				type: method, 
 				url: `${url}/${middleRoute}`,
@@ -62,6 +69,9 @@ const krakenCreator = function (route, method, actionSuccess) {
 		return (dispatch) => {
 			dispatch(globals.isFetching(true));
 			return fetch(`/${middleRoute}`, {
+=======
+			return fetch(`/api/${middleRoute}/${building_id}`, {
+>>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4
 				headers: { 'Content-Type' : 'application/JSON' },
 				method: method,
 				credentials: 'include',s
@@ -85,8 +95,9 @@ const krakenCreator = function (route, method, actionSuccess) {
 export const fetchGetBookings = krakenCreator('GET', 'ver-reservas', 'getBookings');
 export const fetchGetMoreBookings = krakenCreator('GET', 'ver-reservas', 'getMoreBookings');
 export const fetchCreateBooking = krakenCreator('POST', 'reservar-amenities', 'createBooking');
-export const fetchDeleteBooking = krakenCreator('POST', 'eliminar-reserva','deleteBooking');
-export const fetchEditBooking = krakenCreator('POST', 'editar-reserva','editBooking');
+//export const fetchGetBuilding = krakenCreator('GET', 'reservar-amenities', 'createBooking');
+export const fetchDeleteBooking = krakenCreator('DELETE', 'eliminar-reserva','deleteBooking');//cambie por delete
+export const fetchEditBooking = krakenCreator('PUT', 'editar-reserva','editBooking'); //cambie por put
 
 //// Complaints
 export const fetchSendComplaint = krakenCreator('POST', 'crear-reclamo', 'createComplaint');
@@ -95,7 +106,7 @@ export const fetchGetMoreComplaints = krakenCreator('GET', 'reclamos', 'getMoreC
 
 //// Comments
 export const fetchSendComment = krakenCreator('POST', 'crear-comentario', 'createComment');
-export const fetchDeleteComment = krakenCreator('POST', 'eliminar-comentario', 'deleteComment');
+export const fetchDeleteComment = krakenCreator('DELETE', 'eliminar-comentario', 'deleteComment');
 export const fetchEditComment = krakenCreator('POST', 'editar-comentario','editComment');
 export const fetchGetComments = krakenCreator('GET', 'comentarios', 'getComments');
 export const fetchGetMoreComments = krakenCreator('GET', 'comentarios', 'getMoreComments');

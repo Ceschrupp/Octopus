@@ -69,9 +69,15 @@ export function getMoreComplaints(complaints) {
 	return {
 		type: GET_MORE_COMPLAINTS,
 		complaints
+<<<<<<< HEAD
 	};
 }
 
+=======
+
+	};
+}
+>>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4
 //////////////////////////////////////////////////////PAYMENTS ACTIONS
 export const GET_PAYMENTS = 'GET_PAYMENTS';
 
@@ -129,6 +135,15 @@ export function getMoreComments(comments) {
 }
 
 //////////////////////////////////////////////////////OTHER ACTIONS
+export const BUILDING_NOW = 'BUILDING_NOW';
+
+export function buildingNow(id){
+	return{
+	type: BUILDING_NOW,
+	id
+	}
+}
+
 export const IS_FETCHING = 'IS_FETCHING';
 
 export function isFetching(boolean) {
@@ -174,4 +189,15 @@ export function getInfo(info) {
 	};
 }
 
+<<<<<<< HEAD
 
+=======
+export const ERROR = 'ERROR';
+
+export function error(err) {
+	return {
+		type: ERROR,
+		err
+	};
+}
+>>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4

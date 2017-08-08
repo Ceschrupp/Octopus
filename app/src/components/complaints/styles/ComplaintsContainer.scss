@@ -1,7 +1,66 @@
-#container {
-	min-height: 100vh;
+.complaintsContainer {	
+ 	font-family: 'Lato', sans-serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  min-height: 70vh;
+  border-radius: 16px;
   margin-top: 5%;
-  margin-bottom: 5%;
+  margin-bottom: 12%;
   margin-left: 10%;
   margin-right: 10%;
+  padding: 15px;
+  padding-top: 10px;
+  display: inline-block; 	
+}
+
+.complaintsViewsDiv {
+  background-color: transparent;
+	width: 100%;	
+}
+
+.linkButton {
+  font-size:13pt;
+  color: white;
+  background-color: #0095C6;
+  border: solid;
+  border-color: #0095C6;
+  border-radius: 30px;
+  width: 48%;
+  height:35px;
+  margin:10px auto;
+  display: inline-block;
+  float: left;
+}
+
+.titleButton {
+  font-size: 15pt;
+  font-weight: bolder;
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-radius: 30px;
+  width: 48%;
+  height: 35px;
+  margin:10px auto;
+  display: inline-block;
+  float: left;
+}
+
+.titleButton:active, .titleButton:focus, .linkButton:active, .linkButton:focus {
+  outline: 0;
+}
+
+.message {
+  width: 100%;
+  padding: 25px;
+	display: inline-block;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+	display: block;
 }

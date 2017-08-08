@@ -9,7 +9,7 @@ export default class Login extends React.Component {
 		super(props);
 		this.handleSubmit=this.handleSubmit.bind(this);
 	}
-	
+
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.fetchLogUser({
