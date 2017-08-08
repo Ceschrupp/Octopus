@@ -15,65 +15,57 @@ class Header extends React.Component {
 		this.logChange = this.logChange.bind(this);
 	}
 
+
   showSettings (event) {
     event.preventDefault();
   }
-
   toggleMenu() {
     this.setState({
       isOpen: false,
     })
   }
 	logChange(val) {
-		console.log("Selected: " + JSON.stringify(val));
+		this.props.buildingNow(val.value)
 	}
 
 
 	render() {
+		console.log('ceci', this.props.userStuff.user.buildings);
+		const options = this.props.userStuff.user.buildings.map((building, i) =>  {
+				return {
+					value: building.building_id,
+					label: building.buildingName,
+				}
+			});
+
     if (false) {
       return (
   			<div className="header">
-
           <img className="logoHeader" src={logo}/>
-
         </div>
       )
     } else {
 
-			var options = [
-			  { value: 'one', label: 'Ceci' },
-			  { value: 'two', label: 'Sol' }
-			];
-
 		return (
 
 			<div className="header">
-
-        <Menu isOpen={ this.state.isOpen }>
-          <Link onClick={this.toggleMenu } id="home" className="menu-item" to="/" >Inicio</Link>
-          <Link onClick={this.toggleMenu } id="informar-pagos" className="menu-item" to='/informar-pagos' >Informar Pagos</Link>
-          <Link onClick={this.toggleMenu } id="expensas" className="menu-item" to="/expensas" >Expensas</Link>
-          <Link onClick={this.toggleMenu } id="cuenta-corriente" className="menu-item" to="/cuenta-corriente" >Cuenta Corriente</Link>
-          <Link onClick={this.toggleMenu } id="novedades" className="menu-item" to="/novedades" >Novedades</Link>
-          <Link onClick={this.toggleMenu } id="datos-utiles" className="menu-item" to="/datos-utiles" >Datos Útiles</Link>
-
-          <Link onClick={this.toggleMenu } id="amenities" className="menu-item" to="/amenities" >Amenities</Link>
-          <Link onClick={this.toggleMenu } id="reclamos" className="menu-item" to="/reclamos" >Reclamos</Link>
-          <div className='hr'></div>
-          <Link  onClick={this.toggleMenu } id="mi-cuenta" className="menu-item" to={this.props.userStuff.user} >Mi Cuenta</Link>
-          <Link onClick={this.toggleMenu } id="cerrar-sesion" className="menu-item" to="/logout">Cerrar Sesión</Link>
-        </Menu>
-        <div>{this.props.view}</div>
-        <div className="divdellink"><Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link>
-
-        </div>
-
-				<Select
-					name="form-field-name"
-					options={this.props.userStuff.building.building_id}
-					onChange={this.logChange}
-				/>
-
+	        <Menu isOpen={ this.state.isOpen }>
+	          <Link onClick={this.toggleMenu } id="home" className="menu-item" to="/" >Inicio</Link>
+	          <Link onClick={this.toggleMenu } id="informar-pagos" className="menu-item" to='/informar-pagos' >Informar Pagos</Link>
+	          <Link onClick={this.toggleMenu } id="expensas" className="menu-item" to="/expensas" >Expensas</Link>
+	          <Link onClick={this.toggleMenu } id="cuenta-corriente" className="menu-item" to="/cuenta-corriente" >Cuenta Corriente</Link>
+	          <Link onClick={this.toggleMenu } id="novedades" className="menu-item" to="/novedades" >Novedades</Link>
+	          <Link onClick={this.toggleMenu } id="datos-utiles" className="menu-item" to="/datos-utiles" >Datos Útiles</Link>
+	          <Link onClick={this.toggleMenu } id="amenities" className="menu-item" to="/amenities" >Amenities</Link>
+	          <Link onClick={this.toggleMenu } id="reclamos" className="menu-item" to="/reclamos" >Reclamos</Link>
+	          <div className='hr'></div>
+	          <Link  onClick={this.toggleMenu } id="mi-cuenta" className="menu-item" to={this.props.userStuff.user} >Mi Cuenta</Link>
+	          <Link onClick={this.toggleMenu } id="cerrar-sesion" className="menu-item" to="/logout">Cerrar Sesión</Link>
+	        </Menu>
+	        <div>{this.props.view}</div>
+	        <div className="divdellink"><Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link>
+	        </div>
+					<Select className="select" name="form-field-name" options={options} onChange={this.logChange} />
 			</div>
 		)
 

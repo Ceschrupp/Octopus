@@ -7,9 +7,10 @@ import Main from './Main';
 function mapStateToProps(state) {
 	return {
 		userStuff: {
-			user: state.user,
-			isLogged: state.isLogged,
-			logErr: state.logErr
+			user: state.userStuff.user,
+			isLogged: state.userStuff.isLogged,
+			logErr: state.userStuff.logErr,
+			buildingNow: state.userStuff.buildingNow,
 		},
 		other: {
 			view: state.view,

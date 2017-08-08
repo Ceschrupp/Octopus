@@ -1,4 +1,4 @@
-import { IS_FETCHING, FAILED_TO_FETCH, ERROR, CHANGE_VIEW, GET_NEWS, GET_MORE_NEWS, GET_INFO, GET_MORE_INFO, GET_EXPENSES, GET_MORE_EXPENSES, GET_PAYMENTS, GET_MORE_PAYMENTS, PAYMENT_NOTICE } from '../actions/globalActions';
+import { BUILDING_NOW, IS_FETCHING, FAILED_TO_FETCH, ERROR, CHANGE_VIEW, GET_NEWS, GET_MORE_NEWS, GET_INFO, GET_MORE_INFO, GET_EXPENSES, GET_MORE_EXPENSES, GET_PAYMENTS, GET_MORE_PAYMENTS, PAYMENT_NOTICE } from '../actions/globalActions';
 
 function otherReducer(state = {
 		view: "Menú",
@@ -9,10 +9,16 @@ function otherReducer(state = {
 		paymentNotice: [],
 		isFetching: false,
 		failedToFetch: false,
-		error: null
+		error: null,
+		buildingNow: null
 	} , action) {
 
 	switch (action.type) {
+
+		case BUILDING_NOW:
+			return Object.assign({}, state, {
+					buildingNow: action.id
+			});
 
 		case IS_FETCHING:
 			return Object.assign({}, state, {
@@ -72,9 +78,9 @@ function otherReducer(state = {
 			return Object.assign({}, state, {
 				expenses:action.expenses
 			})
-			
 
-			
+
+
 		default:
 			return state;
 	}

@@ -128,6 +128,15 @@ export function getMoreComments(comments) {
 }
 
 //////////////////////////////////////////////////////OTHER ACTIONS
+export const BUILDING_NOW = 'BUILDING_NOW';
+
+export function buildingNow(id){
+	return{
+	type: BUILDING_NOW,
+	id
+	}
+}
+
 export const IS_FETCHING = 'IS_FETCHING';
 
 export function isFetching(boolean) {

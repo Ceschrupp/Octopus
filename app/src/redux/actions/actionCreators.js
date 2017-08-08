@@ -7,14 +7,15 @@ import Store from '../store.js';
 
 const krakenCreator = function (route, method, actionSuccess) {
 	return function(contentName, finalRoute) {
+		console.log('Stores', Store.getState());
+		let building_id= Store.getState().other.buildingNow;
 		let middleRoute=route;
 		if (finalRoute) {
 			middleRoute=finalRoute;
 		}
-		console.log('STORE', Store.getState())
 		return (dispatch) => {
 			dispatch(globals.isFetching(true));
-			return fetch(`/api/${middleRoute}/:${Store.InitialState.building.building_id}`, {
+			return fetch(`/api/${middleRoute}/${building_id}`, {
 				headers: { 'Content-Type' : 'application/JSON' },
 				method: method,
 				credentials: 'include',
