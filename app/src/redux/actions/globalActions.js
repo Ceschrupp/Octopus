@@ -69,6 +69,7 @@ export function getMoreComplaints(complaints) {
 	return {
 		type: GET_MORE_COMPLAINTS,
 		complaints
+
 	};
 }
 //////////////////////////////////////////////////////PAYMENTS ACTIONS
