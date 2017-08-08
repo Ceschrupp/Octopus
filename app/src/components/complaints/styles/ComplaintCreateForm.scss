@@ -1,7 +1,96 @@
-#container {
-	
+.ComplaintsFormDiv {
+
+  font-family: 'Lato', sans-serif;
+  /*background-color: rgba(0, 0, 0, 0.75);*/
+  color: white;
+  border-radius: 16px;
+  padding: 15px;
+  padding-top: 10px;
+  margin: 0px auto;
+  margin-right: 0px;
+  width: 100%;
+  display: inline-block;
+
 }
 
-#form {
-	
+.ComplaintForm{
+
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+
+}
+
+.ComplaintSubject{
+
+  font-size:10pt;
+  height:30px;
+  text-align: center;
+  margin:10px auto;
+  width: 100%;
+  border-radius: 30px;
+
+}
+/*label*/
+.CreateComplaintTitle{
+
+  width: 100%;	
+  text-align: center;
+
+}
+
+.dropzone{
+
+	width: 100%;
+
+}
+
+.ComplaintTextArea{
+
+	font-size:10pt;
+  height:90px;
+  text-align: center;
+  margin:10px auto;
+  width: 100%;
+  border-radius: 30px;
+  border-style: inset;
+  border-width: 2px;
+
+}
+
+.DropzoneSection{
+
+	border-style: none;
+	width: 100%;
+
+}
+
+.SelectedFilesAside{
+
+	border-style: none;
+	font-weight:lighter;
+  color: #0095c6;
+	height: 50%;
+	width: 40px;
+
+}
+
+h4 {
+	font-size: 12px;
+	font-weight: lighter;
+}
+
+.SendButton{
+
+  margin:10px auto;
+  display: block;
+  width: 100%;
+  border-radius: 30px;
+  background-color: #0095C6;
+  font-size:13pt;
+  height:35px;
+  border: solid;
+  border-color: #0095C6;
+  color: white;
+
 }
