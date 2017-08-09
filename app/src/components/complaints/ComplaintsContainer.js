@@ -76,11 +76,6 @@ class ComplaintsContainer extends React.Component {
 	render() {
 		if(this.props.other.isFetching) {
 			return (
-<<<<<<< HEAD
-				<div id={s.container}>
-					<div>
-						<Fetching />
-=======
 				<Row>
 					<Col md={2} lg={2}/>
 					<Col md={6} lg={6}>
@@ -129,7 +124,6 @@ class ComplaintsContainer extends React.Component {
 							<ComplaintsList {...this.props} className={s.listView} ref='listView' />
 							<ComplaintCreateForm {...this.props} ref='formView'/>
 						</div>
->>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4
 					</div>
 				</Col>
 			</Row>

@@ -4,7 +4,6 @@ function amenitiesReducer(state = [] , action) {
 
 	switch (action.type) {
 
-<<<<<<< HEAD
 	case GET_BOOKINGS: {
 		return Object.assign({}, state, {
 			bookings:action.bookings
@@ -37,40 +36,6 @@ function amenitiesReducer(state = [] , action) {
 	}
 	default:
 		return state;
-=======
-		case GET_BOOKINGS: {
-			return Object.assign({}, state, {
-				bookings:action.bookings
-			});
-		}
-		case GET_MORE_BOOKINGS: {
-			return Object.assign({}, state, {
-				bookings:action.bookings
-			});
-		}
-		case CREATE_BOOKING: {
-			return Object.assign({}, state, {
-				bookings: action.booking
-			});
-		}
-		case DELETE_BOOKING: {
-			return Object.assign({}, state, {
-				bookings: [
-				...state.slice(0,state.map(ob=>ob.booking_id).indexOf(action.bookings.id)),
-				...state.slice(state.map(ob=>ob.booking_id).indexOf(action.bookings.id)+1)
-			]});
-		}
-		case EDIT_BOOKING: {
-			return Object.assign({}, state, {
-				bookings: [
-					...state.slice(0,state.map(ob=>ob.booking_id).indexOf(action.booking.id)),
-						action.booking,
-					...state.slice(state.map(ob=>ob.booking_id).indexOf(action.booking.id)+1)
-				]});
-		}
-		default:
-			return state;
->>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4
 	}
 }
 

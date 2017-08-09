@@ -2,9 +2,9 @@
 export * from './userActions.js';
 import * as globals from './globalActions.js';
 export * from './globalActions.js';
-<<<<<<< HEAD
 import * as  $ from 'jquery';
 const url = 'http://api.octopus.dev/api';
+import Store from '../store.js';
 
 const ifError = (status, dispatch) => {
 	dispatch(globals.failedToFetch(false));
@@ -15,9 +15,6 @@ const ifError = (status, dispatch) => {
 			dispatch(globals.failedToFetch('Error del servidor'))
 			: dispatch(globals.failedToFetch('Error del servidor'));
 };
-=======
-import Store from '../store.js';
->>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4
 
 const krakenCreator = function (route, method, actionSuccess) {
 	return function(contentName, finalRoute) {
@@ -29,7 +26,6 @@ const krakenCreator = function (route, method, actionSuccess) {
 		}
 		return (dispatch) => {
 			dispatch(globals.isFetching(true));
-<<<<<<< HEAD
 			return $.ajax({
 				type: method, 
 				url: `${url}/${middleRoute}`,

@@ -59,12 +59,6 @@ export default class ComplaintCreateForm extends React.Component {
 		console.log(this.state)
 	}
 
-<<<<<<< HEAD
-=======
-	//https://github.com/okonet/react-dropzone/blob/master/src/index.js#L98
-						// <h3 className={s.CreateComplaintTitle}>Crear reclamo</h3>
-	//HACERLO CHIQUItO Y CUANDO APRETAS SALE EL FORM
->>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4
 	render() {
 		return (
 			<Row>
