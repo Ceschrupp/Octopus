@@ -22,23 +22,28 @@ export default class ComplaintCreateForm extends React.Component {
 			// building_id: this.state.userStuff.building.building_id,
 		};
 		this.handleChange = this.handleChange.bind(this);
-		this.onDrop = this.onDrop.bind(this);
+		// this.onDrop = this.onDrop.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	componentWillMount() {
-		DropzoneJs.options.dropzone={
+		DropzoneJs.options.dropzoneId={
 			paramName: 'files',
 			maxFileSize: 4,
-			url: '',
+			url: '/crear-reclamo',
 			withCredentials: true,
 			parallelUploads: 2,
 			uploadMultiple: true,
-			maxFiles: null,
-			acceptedFiles: 'image/.jpg',
+			maxFiles: 3,
+			acceptedFiles: 'image/jpeg, image/jpg, image/png',
 			dictDefaultMessage: 'Arrastre archivos aquí o haga click para elegir uno.',
 			dictFileTooBig: 'Ël archivo es demasiado grande ({{filesize}}MiB), el máximo permitido es:{{maxFilesize}}MiB.',
 			dictInvalidFileType: 'El archivo debe tener extensión JPG o PNG.'
+			// init: function() {
+			// 	const thisDropzone = this;
+			// 	thisDropzone.files.push(ex)
+			// 	thisDropzone.options.thumbnail.call(thisDropzone, ex, 'back dir'+value.name)
+			// }
 		}
 	}
 	handleChange(e) {
@@ -47,11 +52,11 @@ export default class ComplaintCreateForm extends React.Component {
 		});
 	}
 
-	onDrop(files) {
-		this.setState({
-			files
-		});
-	}
+	// onDrop(files) {
+	// 	this.setState({
+	// 		files
+	// 	});
+	// }
 
 	handleSubmit(e) {
 		e.preventDefault();
@@ -69,24 +74,26 @@ export default class ComplaintCreateForm extends React.Component {
 				<Col md={6} lg={6}>
 					<div className={s.ComplaintsFormDiv}>
 	
-						<form id='complaintForm' className={s.ComplaintForm, 'dropzone'} onSubmit={this.handleSubmit} id='dropzoneId' action='/file-upload'>
+						<form className={s.ComplaintForm, 'dropzone'} onSubmit={this.handleSubmit} id='dropzoneId' >
 							<label htmlFor="title"></label>
 							<input 
 								onChange={this.handleChange} 
 								name='title'
 								className={s.ComplaintSubject}
 								value={this.state.title}
-								placeholder='Asunto'
+								placeholder='Asunto *'
+								required
 							/>
 							<textarea 
 								name='body'
-								placeholder='Comentarios'
+								placeholder='Comentarios *'
 								onChange={this.handleChange}
 								value={this.state.body}
 								id='complaintTextArea'
 								className={s.ComplaintTextArea}
+								required 
 							/>
-
+							<div className='fallback'></div>
 
 						</form>
 							<input className={s.SendButton} disabled={!this.state.title || !this.state.body} type='submit' />

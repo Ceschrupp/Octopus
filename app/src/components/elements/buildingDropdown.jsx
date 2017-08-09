@@ -9,7 +9,7 @@ export default class SubmitButton extends React.Component {
 	}
   componentWillMount(){
 
-    {this.props.userStuff.user.building_id.map((booking, i) => <AmenitiesList {...this.props} key={i} i={i} booking={booking} /> )}
+    // {this.props.userStuff.user.building_id.map((booking, i) => <AmenitiesList {...this.props} key={i} i={i} booking={booking} /> )}
 
   }
 	render() {

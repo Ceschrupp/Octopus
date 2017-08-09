@@ -4,6 +4,7 @@ export * from './userActions.js';
 import * as globals from './globalActions.js';
 export * from './globalActions.js';
 import Store from '../store.js';
+// :${Store.InitialState.building.building_id}
 
 const krakenCreator = function (route, method, actionSuccess) {
 	return function(contentName, finalRoute) {
@@ -14,7 +15,7 @@ const krakenCreator = function (route, method, actionSuccess) {
 		console.log('STORE', Store.getState())
 		return (dispatch) => {
 			dispatch(globals.isFetching(true));
-			return fetch(`/api/${middleRoute}/:${Store.InitialState.building.building_id}`, {
+			return fetch(`/api/${middleRoute}/`, {
 				headers: { 'Content-Type' : 'application/JSON' },
 				method: method,
 				credentials: 'include',

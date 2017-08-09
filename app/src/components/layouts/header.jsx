@@ -70,7 +70,7 @@ class Header extends React.Component {
 
 				<Select
 					name="form-field-name"
-					options={this.props.userStuff.building.building_id}
+					// options={this.props.userStuff.building.building_id}
 					onChange={this.logChange}
 				/>
 
