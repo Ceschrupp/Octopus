@@ -2,7 +2,7 @@
 export * from './userActions.js';
 import * as globals from './globalActions.js';
 export * from './globalActions.js';
-<<<<<<< HEAD
+import Store from '../store.js';
 import * as  $ from 'jquery';
 const url = 'http://api.octopus.dev/api';
 
@@ -10,14 +10,14 @@ const ifError = (status, dispatch) => {
 	dispatch(globals.failedToFetch(false));
 	dispatch(globals.userFail(false));
 	status === '400' || status === '401' ?
-		dispatch(globals.userFail('Error de Autenticación')) 
+		dispatch(globals.userFail('Error de Autenticación'))
 		: status === '500' || status === '404' ?
 			dispatch(globals.failedToFetch('Error del servidor'))
 			: dispatch(globals.failedToFetch('Error del servidor'));
 };
-=======
-import Store from '../store.js';
->>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4
+
+
+
 
 const krakenCreator = function (route, method, actionSuccess) {
 	return function(contentName, finalRoute) {
@@ -29,10 +29,9 @@ const krakenCreator = function (route, method, actionSuccess) {
 		}
 		return (dispatch) => {
 			dispatch(globals.isFetching(true));
-<<<<<<< HEAD
 			return $.ajax({
-				type: method, 
-				url: `${url}/${middleRoute}`,
+				type: method,
+				url: `${url}/${middleRoute}/${building_id}`,
 				xhrFields: {
 					withCredentials: true
 				},
@@ -60,7 +59,9 @@ const krakenCreator = function (route, method, actionSuccess) {
 401 (unauthorized): email/ pass incorrecto
 500 (internal server error): ocurrió un error del lado del server
 */
-/*const krakenCreator = function (route, method, actionSuccess) {
+
+/*
+const krakenCreator = function (route, method, actionSuccess) {
 	return function(contentName, finalRoute) {
 		let middleRoute=route;
 		if (finalRoute) {
@@ -95,7 +96,6 @@ const krakenCreator = function (route, method, actionSuccess) {
 export const fetchGetBookings = krakenCreator('GET', 'ver-reservas', 'getBookings');
 export const fetchGetMoreBookings = krakenCreator('GET', 'ver-reservas', 'getMoreBookings');
 export const fetchCreateBooking = krakenCreator('POST', 'reservar-amenities', 'createBooking');
-//export const fetchGetBuilding = krakenCreator('GET', 'reservar-amenities', 'createBooking');
 export const fetchDeleteBooking = krakenCreator('DELETE', 'eliminar-reserva','deleteBooking');//cambie por delete
 export const fetchEditBooking = krakenCreator('PUT', 'editar-reserva','editBooking'); //cambie por put
 

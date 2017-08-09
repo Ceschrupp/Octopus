@@ -54,7 +54,7 @@ class ComplaintsContainer extends React.Component {
 			ReactDOM.findDOMNode(this.refs.listButton).classList.toggle(s.titleButton, true);
 			ReactDOM.findDOMNode(this.refs.listButton).classList.toggle(s.linkButton, false);
 		};
-		ReactDOM.findDOMNode(this.refs.message).style.display='none';		
+		ReactDOM.findDOMNode(this.refs.message).style.display='none';
 		ReactDOM.findDOMNode(this.refs.formView).style.display='none';
 		ReactDOM.findDOMNode(this.refs.listView).style.display='inline-block';
 		ReactDOM.findDOMNode(this.refs.formButton).classList.toggle(s.linkButton, true);
@@ -76,22 +76,17 @@ class ComplaintsContainer extends React.Component {
 	render() {
 		if(this.props.other.isFetching) {
 			return (
-<<<<<<< HEAD
-				<div id={s.container}>
-					<div>
-						<Fetching />
-=======
 				<Row>
 					<Col md={2} lg={2}/>
 					<Col md={6} lg={6}>
 						<div className={s.complaintsContainer}>
-							<div className={s.complaintsViewButtons}>	
+							<div className={s.complaintsViewButtons}>
 								<button className={s.linkButton} ref='listButton'>Ver Todos</button>
 								<button className={s.linkButton} onClick={this.viewForm} ref='formButton'>Crear Reclamo</button>
 							</div>
 							<div>
 								<Fetching />
-							</div> 
+							</div>
 						</div>
 					</Col>
 				</Row>
@@ -102,7 +97,7 @@ class ComplaintsContainer extends React.Component {
 					<Col md={2} lg={2}/>
 					<Col md={6} lg={6}>
 						<div className={s.complaintsContainer}>
-							<div className={s.complaintsViewButtons}>	
+							<div className={s.complaintsViewButtons}>
 								<button className={s.titleButton} onClick={this.viewList} ref='listButton'>Ver Todos</button>
 								<button className={s.linkButton} onClick={this.viewForm} ref='formButton'>Crear Reclamo</button>
 							</div>
@@ -114,14 +109,14 @@ class ComplaintsContainer extends React.Component {
 						</div>
 					</Col>
 				</Row>
-		)} 
+		)}
 		return (
-			
+
 			<Row>
 				<Col md={2} lg={2}/>
 				<Col md={6} lg={6}>
 					<div className={s.complaintsContainer}>
-						<div className={s.complaintsViewButtons}>	
+						<div className={s.complaintsViewButtons}>
 							<button className={s.titleButton} onClick={this.viewList} ref='listButton'>Ver Todos</button>
 							<button className={s.linkButton} onClick={this.viewForm} ref='formButton'>Crear Reclamo</button>
 						</div>
@@ -129,7 +124,6 @@ class ComplaintsContainer extends React.Component {
 							<ComplaintsList {...this.props} className={s.listView} ref='listView' />
 							<ComplaintCreateForm {...this.props} ref='formView'/>
 						</div>
->>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4
 					</div>
 				</Col>
 			</Row>

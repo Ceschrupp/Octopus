@@ -9,12 +9,8 @@ function mapStateToProps(state) {
 		userStuff: {
 			user: state.userStuff.user,
 			isLogged: state.userStuff.isLogged,
-<<<<<<< HEAD
-			logErr: state.userStuff.logErr
-=======
 			logErr: state.userStuff.logErr,
 			buildingNow: state.userStuff.buildingNow,
->>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4
 		},
 		other: {
 			view: state.other.view,
