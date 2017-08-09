@@ -1,5 +1,7 @@
-import fetch from 'isomorphic-fetch';
 import { isFetching, failedToFetch } from './globalActions';
+import * as  $ from 'jquery';
+const url = 'http://api.octopus.dev/api';
+const url1 = 'http://localhost:3000/login';
 
 //////////////////////////////////////////////////acciones para loguear user
 export const USER_LOGOUT = 'USER_LOGOUT';
@@ -28,30 +30,112 @@ export function userFail(err) {
 	};
 }
 
+const ifError = (status, dispatch) => {
+	dispatch(failedToFetch(false));
+	dispatch(userFail(false));
+	status === '400' || status === '401' ?
+		dispatch(userFail('Email y/o password incorrectos')) 
+		: status === '500' || status === '404' ?
+			dispatch(failedToFetch('Error del servidor'))
+			: dispatch(failedToFetch('Error del servidor'));
+};
+
 export function fetchLogUser(user) {
+
 	return (dispatch) => {
-		dispatch(isFetching(true))
-		return fetch('/login', {
-			headers: { "Content-Type" : "application/JSON" },
-			method: "POST",
-			credentials: "include",
-			body: JSON.stringify(user)
+		dispatch(isFetching(true));
+		return $.ajax({
+			type: 'GET',
+			url: `${url1}`,
+			xhrFields: {
+				withCredentials: true
+			},
+			dataType: 'jsonp',
+			data: user
 		})
-		.then(response => response.json())
-		.then(data => {
-			dispatch(isFetching(false))
-			if (data.error) {
-				dispatch(failedToLogin(data.messegeError))
-			} else {
-				dispatch(loginOK(data))
-			}
-		})
-			.catch(err => dispatch(failedToFetch(err)));
+			.done( res => {
+				res.json();
+				console.log('SUCCESS:', res);
+				dispatch(userSuccess(res));
+				dispatch(failedToFetch(false));
+			})
+			.fail( (jqXHR, textStatus, errorThrown) => {
+				console.log('ERROR:',jqXHR.status, ': ',textStatus);
+				ifError(jqXHR.status, dispatch);
+			})
+			.always( f => {
+				dispatch(isFetching(false));
+			});
 	};
 }
 
-//////////////////ver las rutas y acciones posteriormente recibidas por sebas
+/*
+400 (bad request) : error de validación (mal escrito el email, o algún campo no enviado, p.ej)
+401 (unauthorized):ocurrió un error del lado del server email/ pass incorrecto
+500 (internal server error): ocurrió un error del lado del server
+*/
+
+/*return (dispatch) => {
+		dispatch(isFetching(true))
+		return fetch(`${url}/authenticate`, {
+			method: "POST",
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'aplication/json'
+			},
+			mode: 'no-cors',
+			body:JSON.stringify({
+				'email': 'hola',
+				'pas': 'holas'
+			})
+		})
+			.then(response => {
+				response.json()
+				console.log(response)
+		})
+			.then(data => {
+				console.log(data)
+				dispatch(isFetching(false));
+				if (data.error) {
+					dispatch(failedToLogin(data.messegeError));
+				} else {
+					dispatch(loginOK(data));
+				}
+			})
+			.catch(err => dispatch(failedToFetch(err)));
+	};
+}
+*/
+
+
 export function fetchLogOutUser(user) {
+
+	return (dispatch) => {	
+		dispatch(isFetching(true));
+		return $.ajax({
+			type: 'GET', 
+			url: `${url}/logout`, 
+			dataType: 'jsonp',
+			xhrFields: {
+				withCredentials: true
+			},
+			data: user
+		})
+			.done( res => {
+				res.json();
+				console.log(res);
+				dispatch(logOut());
+			})
+			.fail( data => {
+				console.log(data);
+				dispatch(failedToFetch(data.error));
+			})
+			.always( f => {
+				dispatch(isFetching(false));
+			});
+	};
+}
+/*
 	return (dispatch) => {
 		dispatch(isFetching(true)) /////////el fetch lo mando con toda esta bola?
 		return fetch('/logout', {
@@ -67,10 +151,39 @@ export function fetchLogOutUser(user) {
 		})
 		.catch(err => dispatch(failedToFetch(err)));
 	};
-}
+}*/
+
 
 //////////////////////////////////////ENVIAR EMAIL PARA OLVIDE MI CLAVE
+
 export function fetchForgotPass(email) {
+
+	return (dispatch) => {	
+		dispatch(isFetching(true));
+		return $.ajax({
+			type: 'POST', 
+			url: `${url}/olvide-clave`,
+			dataType: 'jsonp',
+			xhrFields: {
+				withCredentials: true
+			},
+			data: email
+		})
+			.done( res => {
+				res.json();
+				console.log(res);
+			})
+			.fail( data => {
+				console.log(data);
+				dispatch(failedToFetch(data.error));
+			})
+			.always( f => {
+				dispatch(isFetching(false));
+			});
+	};
+}
+
+/*export function fetchForgotPass(email) {
 	return (dispatch) => {
 		dispatch(isFetching(true))
 		return fetch('/olvide-clave', {
@@ -85,9 +198,37 @@ export function fetchForgotPass(email) {
 		})
 	}
 };
-
+*/
 
 //////////////////////////////////////ENVIAR NUEVA CLAVE PARA CAMBIAR CLAVE
+export function fetchChangePass(newPass) {
+
+	return (dispatch) => {	
+		dispatch(isFetching(true));
+		return $.ajax({
+			type: 'GET', 
+			url: `${url}/reiniciar-clave`, 
+			dataType: 'jsonp',
+			xhrFields: {
+				withCredentials: true
+			},
+			data: newPass
+		})
+			.done( res => {
+				res.json();
+				console.log(res);
+				dispatch(dispatch(logOut()));
+			})
+			.fail( data => {
+				console.log(data);
+				dispatch(userFail(data.messegeError));
+			})
+			.always( f => {
+				dispatch(isFetching(false));
+			});
+	};
+}
+/*
 export function fetchChangePass(newPass) {
 	return (dispatch) => {
 		dispatch(isFetching(true))
@@ -110,8 +251,39 @@ export function fetchChangePass(newPass) {
 	};
 }
 
+*/
+
 ///////////////////////////ACCIONES PARA REGISTRARSE
+
 export function fetchRegisterUser(newUser) {
+
+	return (dispatch) => {	
+		dispatch(isFetching(true));
+		return $.ajax({
+			type: 'POST', 
+			url: `${url}/registro`,
+			dataType: 'jsonp',
+			xhrFields: {
+				withCredentials: true
+			},
+			data: newUser
+		})
+			.done( res => {
+				res.json();
+				console.log(res);
+				dispatch(userSuccess(data));
+			})
+			.fail( data => {
+				console.log(data);
+				dispatch(failedToLogin(data.messegeError));
+			})
+			.always( f => {
+				dispatch(userFail(err));
+			});
+	};
+}
+
+/*export function fetchRegisterUser(newUser) {
 	return (dispatch) => {
 		dispatch(isFetching(true))
 		return fetch ('/registro', {
@@ -120,15 +292,15 @@ export function fetchRegisterUser(newUser) {
 			credentials: "include",
 			body: JSON.stringify(user)
 		})
-		.then(response => response.json())
-		.then(data => {
-			dispatch(isFetching(false))
-			if (data.error) {
-				dispatch(failedToRegister(data.errorMessage))
-			} else {
-				dispatch(dispatch(userSuccess(data)));
-			}
-		})
+			.then(response => response.json())
+			.then(data => {
+				dispatch(isFetching(false))
+				if (data.error) {
+					dispatch(failedToRegister(data.errorMessage))
+				} else {
+					dispatch(userSuccess(data));
+				}
+			})
 			.catch(err => dispatch(userFail(err)));
 	};
-}
+}*/

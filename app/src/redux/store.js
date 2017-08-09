@@ -1,23 +1,33 @@
 import thunkMiddleware from 'redux-thunk';
-import {hashHistory} from 'react-router';
+import { hashHistory } from 'react-router';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers/rootReducer';
 
 //estado inicial
 const InitialState = {
 	userStuff: {
-		user: {},
+		user: {
+			buildings:[
+				{
+					building_id: 2,
+					buildingName: 'unalinea'
+				}, {
+					building_id: 5,
+					buildingName: 'ceci'
+				}
+			]
+		},
 		isLogged: false,
-		logErr: false,
-		building: {},
+		logErr: false
 	},
 	other: {
-		view: "Home",
+		view: 'Home',
 		news: [],
 		info: [],
 		isFetching: false,
 		failedToFetch: false,
-		error: null
+		error: null,
+		buildingNow: null
 	},
 	amenities: [],
 	complaints: [],

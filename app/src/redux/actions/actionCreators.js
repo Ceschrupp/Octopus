@@ -1,24 +1,85 @@
 //IMPORT PARA EL MEGA CREATOR
-import fetch from 'isomorphic-fetch';
 export * from './userActions.js';
 import * as globals from './globalActions.js';
 export * from './globalActions.js';
 import Store from '../store.js';
+
 // :${Store.InitialState.building.building_id}
 
+import * as  $ from 'jquery';
+const url = 'http://api.octopus.dev/api';
+
+const ifError = (status, dispatch) => {
+	dispatch(globals.failedToFetch(false));
+	dispatch(globals.userFail(false));
+	status === '400' || status === '401' ?
+		dispatch(globals.userFail('Error de Autenticación'))
+		: status === '500' || status === '404' ?
+			dispatch(globals.failedToFetch('Error del servidor'))
+			: dispatch(globals.failedToFetch('Error del servidor'));
+};
+
+
+
+const krakenCreator = function (route, method, actionSuccess) {
+	return function(contentName, finalRoute) {
+		console.log('Stores', Store.getState());
+		let building_id= Store.getState().other.buildingNow;
+		let middleRoute=route;
+		if (finalRoute) {
+			middleRoute=finalRoute;
+		}
+		return (dispatch) => {
+			dispatch(globals.isFetching(true));
+
+			return $.ajax({
+				type: method,
+				url: `${url}/${middleRoute}/${building_id}`,
+				xhrFields: {
+					withCredentials: true
+				},
+				dataType: 'jsonp',
+				data: contentName? JSON.stringify(contentName) : undefined
+			})
+				.done( res => {
+					res.json();
+					console.log('SUCCESS:', res);
+					dispatch(globals.actionSuccess(res));
+				})
+				.fail( (jqXHR, textStatus, errorThrown) => {
+					console.log('ERROR:',jqXHR.status, ': ',textStatus);
+					ifError(jqXHR.status, dispatch);
+				})
+				.always( f => {
+					dispatch(globals.isFetching(false));
+				});
+		};
+	};
+};
+
+/*
+400 (bad request) : error de validación (mail escrito el email, o algún campo no enviado, p.ej)
+401 (unauthorized): email/ pass incorrecto
+500 (internal server error): ocurrió un error del lado del server
+*/
+
+/*
 const krakenCreator = function (route, method, actionSuccess) {
 	return function(contentName, finalRoute) {
 		let middleRoute=route;
 		if (finalRoute) {
 			middleRoute=finalRoute;
 		}
-		console.log('STORE', Store.getState())
 		return (dispatch) => {
 			dispatch(globals.isFetching(true));
-			return fetch(`/api/${middleRoute}/`, {
+			return fetch(`/${middleRoute}`, {
+=======
+			return fetch(`/api/${middleRoute}/${building_id}`, {
+>>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4
+>>>>>>> 08ed928178747a512c0aed79b3cd86fd2d3548c7
 				headers: { 'Content-Type' : 'application/JSON' },
 				method: method,
-				credentials: 'include',
+				credentials: 'include',s
 				body: contentName? JSON.stringify(contentName) : undefined
 			})
 				.then(response => {
@@ -32,21 +93,20 @@ const krakenCreator = function (route, method, actionSuccess) {
 				.catch(err => dispatch(globals.error(err)));
 		};
 	};
-};
+};*/
 
 
 //// Amenities
 export const fetchGetBookings = krakenCreator('GET', 'ver-reservas', 'getBookings');
 export const fetchGetMoreBookings = krakenCreator('GET', 'ver-reservas', 'getMoreBookings');
 export const fetchCreateBooking = krakenCreator('POST', 'reservar-amenities', 'createBooking');
-//export const fetchGetBuilding = krakenCreator('GET', 'reservar-amenities', 'createBooking');
 export const fetchDeleteBooking = krakenCreator('DELETE', 'eliminar-reserva','deleteBooking');//cambie por delete
 export const fetchEditBooking = krakenCreator('PUT', 'editar-reserva','editBooking'); //cambie por put
 
 //// Complaints
 export const fetchSendComplaint = krakenCreator('POST', 'crear-reclamo', 'createComplaint');
-export const fetchGetComplaints = krakenCreator('GET', 'complaints', 'getComplaints');
-export const fetchGetMoreComplaints = krakenCreator('GET', 'complaints', 'getMoreComplaints');
+export const fetchGetComplaints = krakenCreator('GET', 'reclamos', 'getComplaints');
+export const fetchGetMoreComplaints = krakenCreator('GET', 'reclamos', 'getMoreComplaints');
 
 //// Comments
 export const fetchSendComment = krakenCreator('POST', 'crear-comentario', 'createComment');

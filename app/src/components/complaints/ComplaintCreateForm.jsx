@@ -63,28 +63,31 @@ export default class ComplaintCreateForm extends React.Component {
 		this.props.fetchSendComplaint(this.state);
 		console.log(this.state)
 	}
-
+	
 	//https://github.com/okonet/react-dropzone/blob/master/src/index.js#L98
 						// <h3 className={s.CreateComplaintTitle}>Crear reclamo</h3>
 	//HACERLO CHIQUItO Y CUANDO APRETAS SALE EL FORM
+
 	render() {
 		return (
 			<Row>
 				<Col md={3} lg={3}/>
 				<Col md={6} lg={6}>
 					<div className={s.ComplaintsFormDiv}>
+
 	
 						<form className={s.ComplaintForm, 'dropzone'} onSubmit={this.handleSubmit} id='dropzoneId' >
+
 							<label htmlFor="title"></label>
-							<input 
-								onChange={this.handleChange} 
+							<input
+								onChange={this.handleChange}
 								name='title'
 								className={s.ComplaintSubject}
 								value={this.state.title}
 								placeholder='Asunto *'
 								required
 							/>
-							<textarea 
+							<textarea
 								name='body'
 								placeholder='Comentarios *'
 								onChange={this.handleChange}

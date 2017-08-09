@@ -17,15 +17,14 @@ const InitialState = {
 		logErr: false
 	},
 	other: {
-		view: "Menú",
+		view: 'Menú',
 		news: [],
 		info: [],
 		expenses: [],
 		payments: [],
 		paymentNotice: [],
 		isFetching: false,
-		failedToFetch: false,
-		error: null
+		failedToFetch: false
 	},
 	amenities: [],
 	complaints: [],

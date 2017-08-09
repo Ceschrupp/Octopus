@@ -36,6 +36,7 @@ function amenitiesReducer(state = [] , action) {
 		}
 		default:
 			return state;
+
 	}
 }
 
