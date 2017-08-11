@@ -30,7 +30,8 @@
   margin:10px auto;
   width: 100%;
   border-radius: 30px;
-
+  outline: 0;
+  
 }
 /*label*/
 .CreateComplaintTitle{
@@ -56,6 +57,8 @@
   border-radius: 30px;
   border-style: inset;
   border-width: 2px;
+  resize: none;
+  outline: 0;
 
 }
 
@@ -74,6 +77,11 @@
 	height: 50%;
 	width: 40px;
 
+}
+
+.privateComplaint {
+
+  margin-bottom: 10px;
 }
 
 h4 {

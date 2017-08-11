@@ -36,6 +36,7 @@ const router = (
 		<Router history={hashHistory}>
 			<Route path='/' component={App}>
 				<IndexRoute component={Home}></IndexRoute>
+
 				<Route path='/informar-pagos' component={PaymentNotice}></Route>
 				<Route path='/expensas' component={LatestExpenses}></Route>
 				<Route path='/cuenta-corriente' component={Balance}></Route>
@@ -47,6 +48,7 @@ const router = (
 				<Route path='/reservar-amenities/edit/:bookingId' component={AmenitiesEditContainer}></Route>
 				<Route path='/ver-reservas' component={AmenitiesList}></Route>
 				<Route path='/amenities' component={AmenitiesContainer}></Route>
+
 				<Route path='/reclamos' component={ComplaintsContainer}></Route>
 				<Route path='/crear-reclamo' component={ComplaintCreateForm}></Route>
 				<Route path='/login' component={LoginForm}></Route>

@@ -1,35 +1,24 @@
 import React from 'react';
-import ComplaintsItemList from './ComplaintsItemList';
-import * as actionCreators from '../../redux/actions/actionCreators.js';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { Container, Row, Col } from 'react-grid-system';
+import Complaint from './SingleComplaintWithComments';
 
-function mapDispatchToProps(dispatch) {
-	return bindActionCreators(actionCreators, dispatch);
-}
-
-function mapStateToProps(state) {
-	return {
-		complaints: state.complaints
-	};
-}
-
-class ComplaintsList extends React.Component {
+export default class ComplaintsList extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-	//HACER LA ACCION DE SCROLL
-	render() {
+	render () {
+		const i = this.props.complaints.findIndex((complaint)=> complaint.complaintId === this.props.params.complaintId);
+		const complaint = this.props.complaint[i];
+		const comments = this.props.comments[this.props.params] || [];
+		 
 		return (
-			<div className="lista-complaints">
-				{this.props.complaints.map((complaint, i) => {
-					return( 
-						<ComplaintsItemList {...this.props} key={i} i={i} complaint={complaint} /> 
-					); } 
-				)}
-			</div>
-		);
+			<Row>
+				<Col md={3} lg={3}/>
+				<Col md={6} lg={6}>
+					<Complaint i = {i} complaint = { complaint } comments = { comments } { ...this.props } />
+				</Col>
+			</Row>
+
+		)
 	}
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(ComplaintsList);
