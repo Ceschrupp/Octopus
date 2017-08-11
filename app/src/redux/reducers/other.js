@@ -79,7 +79,7 @@ function otherReducer(state = {
 		return Object.assign({}, state, {
 			expenses:action.expenses
 		});
-		
+
 	default:
 		return state;
 	}
