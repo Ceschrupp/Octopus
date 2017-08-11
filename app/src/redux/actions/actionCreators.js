@@ -1,16 +1,17 @@
 //IMPORT PARA EL MEGA CREATOR
-export * from './userActions.js';
 import * as globals from './globalActions.js';
 export * from './globalActions.js';
 import Store from '../store.js';
 import * as  $ from 'jquery';
+import * as userActions from './userActions.js';
+export * from './userActions.js';
 const url = 'http://api.octopus.dev/api';
-
+const url1 = 'https://1a721138.ngrok.io'
 const ifError = (status, dispatch) => {
 	dispatch(globals.failedToFetch(false));
-	dispatch(globals.userFail(false));
+	dispatch(userActions.userFail(false));
 	status === '400' || status === '401' ?
-		dispatch(globals.userFail('Error de Autenticación'))
+		dispatch(userActions.userFail('Error de Autenticación'))
 		: status === '500' || status === '404' ?
 			dispatch(globals.failedToFetch('Error del servidor'))
 			: dispatch(globals.failedToFetch('Error del servidor'));
@@ -31,7 +32,7 @@ const krakenCreator = function (route, method, actionSuccess) {
 			dispatch(globals.isFetching(true));
 			return $.ajax({
 				type: method,
-				url: `${url}/${middleRoute}/${building_id}`,
+				url: `${url1}/${middleRoute}/${building_id}`,
 				xhrFields: {
 					withCredentials: true
 				},
@@ -94,7 +95,7 @@ const krakenCreator = function (route, method, actionSuccess) {
 
 //// Amenities
 export const fetchGetBookings = krakenCreator('GET', 'ver-reservas', 'getBookings');
-export const fetchGetMoreBookings = krakenCreator('GET', 'ver-reservas', 'getMoreBookings');
+export const fetchGetMoreBookings = krakenCreator('GET', 'ver-reserva', 'getMoreBookings');
 export const fetchCreateBooking = krakenCreator('POST', 'reservar-amenities', 'createBooking');
 export const fetchDeleteBooking = krakenCreator('DELETE', 'eliminar-reserva','deleteBooking');//cambie por delete
 export const fetchEditBooking = krakenCreator('PUT', 'editar-reserva','editBooking'); //cambie por put

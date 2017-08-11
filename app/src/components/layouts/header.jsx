@@ -4,9 +4,12 @@ import { bubble as Menu } from 'react-burger-menu';
 import Dropdown from 'react-dropdown'
 const logo = require('Static/logo_octopus_footer.png');
 import './header.css';
-var Select = require('react-select');
 import 'react-select/dist/react-select.css';
-
+var Select = require('react-menu/dist/react-menu');
+var MenuTrigger = Select.MenuTrigger;
+var MenuOptions = Select.MenuOptions;
+var MenuOption = Select.MenuOption;
+//Select.injectCSS();
 class Header extends React.Component {
 	constructor(props) {
 		super(props);
@@ -31,12 +34,11 @@ class Header extends React.Component {
 
 	render() {
 		console.log('ceci', this.props.userStuff.user.buildings);
-		const options = this.props.userStuff.user.buildings.map((building, i) =>  {
-				return {
-					value: building.building_id,
-					label: building.buildingName,
-				}
-			});
+		const options = this.props.userStuff.user.buildings.map((building, i) =>  (
+			<MenuOption className='MenuOption' onSelect={this.logChange.bind(this, building.building_id)}>
+				{building.buildingName}
+			</MenuOption>
+		));
 
     if (false) {
       return (
@@ -63,9 +65,17 @@ class Header extends React.Component {
 	          <Link onClick={this.toggleMenu } id="cerrar-sesion" className="menu-item" to="/logout">Cerrar Sesión</Link>
 	        </Menu>
 	        <div>{this.props.view}</div>
+						<Select className='myMenu'>
+							<MenuTrigger className='MenuTrigger'>
+							<i className="fa fa-chevron-down" aria-hidden="true"></i>
+							</MenuTrigger>
+								<MenuOptions className='MenuOptions' >
+									{options}
+								</MenuOptions>
+						</Select>
 	        <div className="divdellink"><Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link>
 	        </div>
-					<Select className="select" name="form-field-name" options={options} onChange={this.logChange} />
+
 			</div>
 		)
 
