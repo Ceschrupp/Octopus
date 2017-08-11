@@ -51,6 +51,7 @@ class Header extends React.Component {
 		return (
 
 			<div className="header">
+
 	        <Menu isOpen={ this.state.isOpen }>
 	          <Link onClick={this.toggleMenu } id="home" className="menu-item" to="/" >Inicio</Link>
 	          <Link onClick={this.toggleMenu } id="informar-pagos" className="menu-item" to='/informar-pagos' >Informar Pagos</Link>
@@ -75,6 +76,10 @@ class Header extends React.Component {
 						</Select>
 	        <div className="divdellink"><Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link>
 	        </div>
+<<<<<<< HEAD
+					<Select className="select" name="form-field-name" options={options} onChange={this.logChange} />
+=======
+>>>>>>> 9bc8fa85758abdf68f3e860714bbfb5962896acf
 
 			</div>
 		)

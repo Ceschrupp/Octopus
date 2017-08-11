@@ -2,6 +2,9 @@
 import * as globals from './globalActions.js';
 export * from './globalActions.js';
 import Store from '../store.js';
+
+// :${Store.InitialState.building.building_id}
+
 import * as  $ from 'jquery';
 import * as userActions from './userActions.js';
 export * from './userActions.js';
@@ -19,7 +22,6 @@ const ifError = (status, dispatch) => {
 
 
 
-
 const krakenCreator = function (route, method, actionSuccess) {
 	return function(contentName, finalRoute) {
 		console.log('Stores', Store.getState());
@@ -30,6 +32,7 @@ const krakenCreator = function (route, method, actionSuccess) {
 		}
 		return (dispatch) => {
 			dispatch(globals.isFetching(true));
+
 			return $.ajax({
 				type: method,
 				url: `${url1}/${middleRoute}/${building_id}`,
@@ -74,6 +77,7 @@ const krakenCreator = function (route, method, actionSuccess) {
 =======
 			return fetch(`/api/${middleRoute}/${building_id}`, {
 >>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4
+>>>>>>> 08ed928178747a512c0aed79b3cd86fd2d3548c7
 				headers: { 'Content-Type' : 'application/JSON' },
 				method: method,
 				credentials: 'include',s

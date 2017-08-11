@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import ComplaintCreateForm from './ComplaintCreateForm';
+import ComplaintsCreateForm from './ComplaintCreateForm';
 import ComplaintsList from './ComplaintsList';
-import Fetching from '../elements/Fetching';
 import * as actionCreators from '../../redux/actions/actionCreators.js';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -19,6 +17,7 @@ function mapStateToProps(state) {
 			user: state.user,
 			isLogged: state.isLogged,
 			logErr: state.logErr,
+			buildings: state.buildings
 		},
 		complaints: state.complaints,
 		other: {
@@ -29,108 +28,65 @@ function mapStateToProps(state) {
 	};
 }
 
-class ComplaintsContainer extends React.Component {
+export default class ComplaintsContainer extends React.Component {
 	constructor(props) {
 		super(props);
-		this.viewList = this.viewList.bind(this);
-		this.viewForm = this.viewForm.bind(this);
+		this.state = {
+			view:'complaintsList'
+		}
+	this.changeView = this.changeView.bind(this);
 	}
 
 	componentWillMount() {
+		console.log('###########COMPLAINTSSSSS', this.props.complaints)
 		this.props.fetchGetComplaints();
-
 	}
-	componentDidMount() {
-		ReactDOM.findDOMNode(this.refs.formView).style.display='none';
+//function para que cambie el state de la vista:
+	changeView(event) {
+		event.preventDefault();
+		const view = event.target.className;
+		this.setState({
+			view: view
+		})
 	}
-
-	viewList() {
-		if(!this.props.complaints.length) {
-			ReactDOM.findDOMNode(this.refs.message).style.display='inline-block';
-			ReactDOM.findDOMNode(this.refs.formView).style.display='none';
-			ReactDOM.findDOMNode(this.refs.listView).style.display='none';
-			ReactDOM.findDOMNode(this.refs.formButton).classList.toggle(s.linkButton, true);
-			ReactDOM.findDOMNode(this.refs.formButton).classList.toggle(s.titleButton, false);
-			ReactDOM.findDOMNode(this.refs.listButton).classList.toggle(s.titleButton, true);
-			ReactDOM.findDOMNode(this.refs.listButton).classList.toggle(s.linkButton, false);
-		};
-		ReactDOM.findDOMNode(this.refs.message).style.display='none';
-		ReactDOM.findDOMNode(this.refs.formView).style.display='none';
-		ReactDOM.findDOMNode(this.refs.listView).style.display='inline-block';
-		ReactDOM.findDOMNode(this.refs.formButton).classList.toggle(s.linkButton, true);
-		ReactDOM.findDOMNode(this.refs.formButton).classList.toggle(s.titleButton, false);
-		ReactDOM.findDOMNode(this.refs.listButton).classList.toggle(s.titleButton, true);
-		ReactDOM.findDOMNode(this.refs.listButton).classList.toggle(s.linkButton, false);
-	}
-
-	viewForm() {
-		ReactDOM.findDOMNode(this.refs.message).style.display='none';
-		ReactDOM.findDOMNode(this.refs.formView).style.display='inline-block';
-		ReactDOM.findDOMNode(this.refs.listView).style.display='none';
-		ReactDOM.findDOMNode(this.refs.formButton).classList.toggle(s.titleButton, true);
-		ReactDOM.findDOMNode(this.refs.formButton).classList.toggle(s.linkButton, false);
-		ReactDOM.findDOMNode(this.refs.listButton).classList.toggle(s.linkButton, true);
-		ReactDOM.findDOMNode(this.refs.listButton).classList.toggle(s.titleButton, false);
-	}
-
 	render() {
-		if(this.props.other.isFetching) {
+		const view = this.state.view;
+		if (view === 'complaintsForm') {
 			return (
 				<Row>
-					<Col md={2} lg={2}/>
+					<Col md={3} lg={3}/>
 					<Col md={6} lg={6}>
-						<div className={s.complaintsContainer}>
-							<div className={s.complaintsViewButtons}>
-								<button className={s.linkButton} ref='listButton'>Ver Todos</button>
-								<button className={s.linkButton} onClick={this.viewForm} ref='formButton'>Crear Reclamo</button>
-							</div>
-							<div>
-								<Fetching />
-							</div>
+						<div>
+							<button onClick={ this.changeView } className='complaintsList'>Ver Todos</button>
+							<button onClick={ this.changeView } className='complaintsForm'>Crear Reclamo</button>
 						</div>
+						<ComplaintsCreateForm {...this.props} />
 					</Col>
 				</Row>
 			)
 		} else if (!this.props.complaints.length) {
-			return(
-				<Row>
-					<Col md={2} lg={2}/>
-					<Col md={6} lg={6}>
-						<div className={s.complaintsContainer}>
-							<div className={s.complaintsViewButtons}>
-								<button className={s.titleButton} onClick={this.viewList} ref='listButton'>Ver Todos</button>
-								<button className={s.linkButton} onClick={this.viewForm} ref='formButton'>Crear Reclamo</button>
-							</div>
-							<div>
-								<p ref='message' className={s.message}>No hay reclamos para mostrar.</p>
-								<ComplaintsList {...this.props} className={s.hidden} ref='listView' />
-								<ComplaintCreateForm {...this.props} className={s.hidden} ref='formView'/>
-							</div>
-						</div>
-					</Col>
-				</Row>
-		)}
 		return (
-
 			<Row>
-				<Col md={2} lg={2}/>
+				<Col md={3} lg={3}/>
 				<Col md={6} lg={6}>
-					<div className={s.complaintsContainer}>
-						<div className={s.complaintsViewButtons}>
-							<button className={s.titleButton} onClick={this.viewList} ref='listButton'>Ver Todos</button>
-							<button className={s.linkButton} onClick={this.viewForm} ref='formButton'>Crear Reclamo</button>
-						</div>
-						<div className={s.complaintsViewsDiv}>
-							<ComplaintsList {...this.props} className={s.listView} ref='listView' />
-							<ComplaintCreateForm {...this.props} ref='formView'/>
-						</div>
+					<div>
+						<button onClick={ this.changeView } className='complaintsList'>Ver Todos</button>
+						<button onClick={ this.changeView } className='complaintsForm'>Crear Reclamo</button>
 					</div>
+					<p>No hay reclamos para mostrar.</p>
 				</Col>
 			</Row>
-
-			);
-		}
-	}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(ComplaintsContainer);
+		)} else if (view === 'complaintsList') {
+		return (
+			<Row>
+				<Col md={3} lg={3}/>
+				<Col md={6} lg={6}>
+					<div>
+						<button onClick={ this.changeView } className='complaintsList' >Ver Todos</button>
+						<button onClick={ this.changeView } className='complaintsForm' >Crear Reclamo</button>
+					</div>
+					{ this.props.complaints.map((complaint, i) => <ComplaintsList {...this.props} key={i} i={i} complaint={complaint} /> ) }
+				</Col>
+			</Row>
+	)}}
+}
