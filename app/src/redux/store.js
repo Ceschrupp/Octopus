@@ -1,5 +1,4 @@
 import thunkMiddleware from 'redux-thunk';
-import { hashHistory } from 'react-router';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers/rootReducer';
 
@@ -23,6 +22,7 @@ const InitialState = {
 	other: {
 		view: 'Home',
 		news: [],
+		expenses:[],
 		info: [],
 		isFetching: false,
 		failedToFetch: false,

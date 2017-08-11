@@ -1,7 +1,7 @@
 import { isFetching, failedToFetch } from './globalActions';
 import * as  $ from 'jquery';
 const url = 'http://api.octopus.dev/api';
-const url1 = 'http://localhost:3000/login';
+const url1 = 'https://1a721138.ngrok.io/login';
 
 //////////////////////////////////////////////////acciones para loguear user
 export const USER_LOGOUT = 'USER_LOGOUT';
@@ -45,7 +45,7 @@ export function fetchLogUser(user) {
 	return (dispatch) => {
 		dispatch(isFetching(true));
 		return $.ajax({
-			type: 'GET',
+			type: 'POST',
 			url: `${url1}`,
 			xhrFields: {
 				withCredentials: true
@@ -54,7 +54,6 @@ export function fetchLogUser(user) {
 			data: user
 		})
 			.done( res => {
-				res.json();
 				console.log('SUCCESS:', res);
 				dispatch(userSuccess(res));
 				dispatch(failedToFetch(false));
@@ -135,8 +134,7 @@ export function fetchLogOutUser(user) {
 			});
 	};
 }
-/*
-	return (dispatch) => {
+/*return (dispatch) => {
 		dispatch(isFetching(true)) /////////el fetch lo mando con toda esta bola?
 		return fetch('/logout', {
 			headers: { "Content-Type" : "application/JSON" },

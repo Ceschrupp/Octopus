@@ -90,7 +90,7 @@ class ComplaintsContainer extends React.Component {
 						</div>
 					</Col>
 				</Row>
-			)
+			);
 		} else if (!this.props.complaints.length) {
 			return(
 				<Row>
@@ -109,7 +109,8 @@ class ComplaintsContainer extends React.Component {
 						</div>
 					</Col>
 				</Row>
-		)} 
+			);
+		} 
 		return (
 			
 			<Row>
@@ -127,10 +128,9 @@ class ComplaintsContainer extends React.Component {
 					</div>
 				</Col>
 			</Row>
-
-			);
-		}
+		);
 	}
+}
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(ComplaintsContainer);

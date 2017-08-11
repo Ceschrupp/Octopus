@@ -15,10 +15,29 @@ function mapStateToProps(state) {
 }
 
 class ComplaintsList extends React.Component {
+
+	getMore(e) {
+		e.preventDefault();
+		const pag = (this.props.complaints.length / 10) + 1;
+		this.props.fetchGetMoreComplaints('/reclamos');/*/${pag}*/
+	}
+
+	getMoreButton() {
+		if (this.props.complaints[this.props.complaints.length-1] !== 'end') {
+			return (
+				<div>
+					<button onClick={this.getMore}>
+						Ver más
+					</button>
+				</div>
+			);
+		}
+	}
+
 	constructor(props) {
 		super(props);
 	}
-	//HACER LA ACCION DE SCROLL
+
 	render() {
 		return (
 			<div className="lista-complaints">
@@ -27,6 +46,7 @@ class ComplaintsList extends React.Component {
 						<ComplaintsItemList {...this.props} key={i} i={i} complaint={complaint} /> 
 					); } 
 				)}
+				{this.getMoreButton()}
 			</div>
 		);
 	}

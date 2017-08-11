@@ -1,43 +1,88 @@
 //IMPORT PARA EL MEGA CREATOR
-export * from './userActions.js';
+import * as userActions from './userActions.js';
 import * as globals from './globalActions.js';
+export * from './userActions.js';
 export * from './globalActions.js';
 import * as  $ from 'jquery';
-const url = 'http://api.octopus.dev/api';
 import Store from '../store.js';
+import axios from 'axios';
+
+//URLs
+const url = 'http://api.octopus.dev/api';
+const url1 = 'https://eb0ad47f.ngrok.io';
 
 const ifError = (status, dispatch) => {
 	dispatch(globals.failedToFetch(false));
-	dispatch(globals.userFail(false));
+	dispatch(userActions.userFail(false));
 	status === '400' || status === '401' ?
-		dispatch(globals.userFail('Error de Autenticación')) 
+		dispatch(userActions.userFail('Error de Autenticación')) 
 		: status === '500' || status === '404' ?
 			dispatch(globals.failedToFetch('Error del servidor'))
 			: dispatch(globals.failedToFetch('Error del servidor'));
 };
 
-const krakenCreator = function (route, method, actionSuccess) {
-	return function(contentName, finalRoute) {
+const krakenCreator = function (type, route, actionSuccess) {
+	return function(finalRoute, content) {
 		console.log('Stores', Store.getState());
-		let building_id= Store.getState().other.buildingNow;
-		let middleRoute=route;
+		let building_id = Store.getState().other.buildingNow;
+		let middleRoute = '/' + route;
 		if (finalRoute) {
-			middleRoute=finalRoute;
+			middleRoute = '/' + finalRoute;
 		}
 		return (dispatch) => {
 			dispatch(globals.isFetching(true));
+			console.log('Stores', Store.getState());
+			console.log(`${url1}${middleRoute}`);
+			return axios({
+/*				headers: {
+					'Access-Control-Allow-Origin': '*',
+				},*/
+				crossDomain: true,
+				url: `${url1}${middleRoute}`,
+				method: type,
+				withCredentials: true,
+				responseType: 'json',
+				data: content? JSON.stringify(content) : null
+			})
+				.then( res => {
+					console.log(res.data);
+					/*res.json();*/
+					dispatch(globals.actionSuccess(res.data));
+					dispatch(globals.isFetching(false));
+				})
+				.catch( error => {
+					console.log('ERROR:',error.response.status, ': ',error.response.data);
+					ifError(error.response.status, dispatch);
+					dispatch(globals.isFetching(false));
+				});
+		};
+	};
+};
+
+/*
+const krakenCreator = function (method, route, actionSuccess) {
+	return function(finalRoute, content) {
+		console.log('Stores', Store.getState());
+		let building_id = Store.getState().other.buildingNow;
+		let middleRoute = '/' + route;
+		if (finalRoute) {
+			middleRoute = '/' + finalRoute;
+		}
+		return (dispatch) => {
+			dispatch(globals.isFetching(true));
+			console.log('Stores', Store.getState());
+			console.log(`${url1}${middleRoute}`);
 			return $.ajax({
 				type: method, 
-				url: `${url}/${middleRoute}`,
+				url: `${url1}${middleRoute}`,
 				xhrFields: {
 					withCredentials: true
 				},
 				dataType: 'jsonp',
-				data: contentName? JSON.stringify(contentName) : undefined
+				data: content? JSON.stringify(content) : null
 			})
 				.done( res => {
 					res.json();
-					console.log('SUCCESS:', res);
 					dispatch(globals.actionSuccess(res));
 				})
 				.fail( (jqXHR, textStatus, errorThrown) => {
@@ -49,7 +94,8 @@ const krakenCreator = function (route, method, actionSuccess) {
 				});
 		};
 	};
-};
+};*/
+
 
 /*
 400 (bad request) : error de validación (mail escrito el email, o algún campo no enviado, p.ej)
@@ -57,7 +103,7 @@ const krakenCreator = function (route, method, actionSuccess) {
 500 (internal server error): ocurrió un error del lado del server
 */
 /*const krakenCreator = function (route, method, actionSuccess) {
-	return function(contentName, finalRoute) {
+	return function(content, finalRoute) {
 		let middleRoute=route;
 		if (finalRoute) {
 			middleRoute=finalRoute;
@@ -65,13 +111,11 @@ const krakenCreator = function (route, method, actionSuccess) {
 		return (dispatch) => {
 			dispatch(globals.isFetching(true));
 			return fetch(`/${middleRoute}`, {
-=======
 			return fetch(`/api/${middleRoute}/${building_id}`, {
->>>>>>> 694f47ee0b323365867dadb3b0416e8bc2faeab4
 				headers: { 'Content-Type' : 'application/JSON' },
 				method: method,
 				credentials: 'include',s
-				body: contentName? JSON.stringify(contentName) : undefined
+				body: content? JSON.stringify(content) : undefined
 			})
 				.then(response => {
 					response.statusCode;
@@ -88,41 +132,43 @@ const krakenCreator = function (route, method, actionSuccess) {
 
 
 //// Amenities
-export const fetchGetBookings = krakenCreator('GET', 'ver-reservas', 'getBookings');
-export const fetchGetMoreBookings = krakenCreator('GET', 'ver-reservas', 'getMoreBookings');
-export const fetchCreateBooking = krakenCreator('POST', 'reservar-amenities', 'createBooking');
-//export const fetchGetBuilding = krakenCreator('GET', 'reservar-amenities', 'createBooking');
-export const fetchDeleteBooking = krakenCreator('DELETE', 'eliminar-reserva','deleteBooking');//cambie por delete
-export const fetchEditBooking = krakenCreator('PUT', 'editar-reserva','editBooking'); //cambie por put
+export const fetchGetBookings = krakenCreator('get', 'reservas', 'getBookings');
+export const fetchGetMoreBookings = krakenCreator('get', 'reservas', 'getMoreBookings');
+export const fetchCreateBooking = krakenCreator('post', 'reservar-amenities', 'createBooking');
+//export const fetchGetBuilding = krakenCreator('get', 'reservar-amenities', 'createBooking');
+export const fetchDeleteBooking = krakenCreator('delete', 'eliminar-reserva','deleteBooking');
+export const fetchEditBooking = krakenCreator('put', 'editar-reserva','editBooking'); 
 
 //// Complaints
-export const fetchSendComplaint = krakenCreator('POST', 'crear-reclamo', 'createComplaint');
-export const fetchGetComplaints = krakenCreator('GET', 'reclamos', 'getComplaints');
-export const fetchGetMoreComplaints = krakenCreator('GET', 'reclamos', 'getMoreComplaints');
+export const fetchSendComplaint = krakenCreator('post', 'crear-reclamo', 'createComplaint');
+export const fetchGetComplaints = krakenCreator('get', 'reclamos', 'getComplaints');
+export const fetchGetMoreComplaints = krakenCreator('get', 'reclamos', 'getMoreComplaints');
 
 //// Comments
-export const fetchSendComment = krakenCreator('POST', 'crear-comentario', 'createComment');
-export const fetchDeleteComment = krakenCreator('DELETE', 'eliminar-comentario', 'deleteComment');
-export const fetchEditComment = krakenCreator('POST', 'editar-comentario','editComment');
-export const fetchGetComments = krakenCreator('GET', 'comentarios', 'getComments');
-export const fetchGetMoreComments = krakenCreator('GET', 'comentarios', 'getMoreComments');
+export const fetchSendComment = krakenCreator('post', 'crear-comentario', 'createComment');
+export const fetchDeleteComment = krakenCreator('delete', 'eliminar-comentario', 'deleteComment');
+export const fetchEditComment = krakenCreator('post', 'editar-comentario','editComment');
+export const fetchGetComments = krakenCreator('get', 'comentarios', 'getComments');
+export const fetchGetMoreComments = krakenCreator('get', 'comentarios', 'getMoreComments');
 
-//// Other
-export const fetchGetNews = krakenCreator('GET', 'novedades', 'getNews');
-export const fetchGetMoreNews= krakenCreator('GET', 'novedades', 'getMoreNews');
+////////// OTHER
+//// Novedades
+export const fetchGetNews = krakenCreator('get', 'novedades', 'getNews');
+export const fetchGetMoreNews= krakenCreator('get', 'novedades', 'getMoreNews');
 
-export const fetchGetInfo = krakenCreator('GET', 'datos-utiles', 'getInfo');
-export const fetchGetMoreInfo = krakenCreator('GET', 'datos-utiles', 'getMoreInfo');
+//// Info
+export const fetchGetInfo = krakenCreator('get', 'datos-utiles', 'getInfo');
+export const fetchGetMoreInfo = krakenCreator('get', 'datos-utiles', 'getMoreInfo');
 
 //// Expenses
-export const fetchGetExpenses = krakenCreator('GET', 'expensas', 'getExpenses');
-export const fetchGetMoreExpenses = krakenCreator('GET', 'expenses', 'getMoreExpenses');
+export const fetchGetExpenses = krakenCreator('get', 'expensas', 'getExpenses');
+export const fetchGetMoreExpenses = krakenCreator('get', 'expensas', 'getMoreExpenses');
 
 //// Documents
-export const fetchGetDocuments = krakenCreator('GET', 'ver-documentos', 'getDocuments');
-export const fetchGetMoreDocuments = krakenCreator('GET', 'ver-documentos', 'getMoreDocuments');
+export const fetchGetDocuments = krakenCreator('get', 'documentos', 'getDocuments');
+export const fetchGetMoreDocuments = krakenCreator('get', 'documentos', 'getMoreDocuments');
 
 //// Payments
-export const fetchPaymentNotice = krakenCreator('POST', 'notificar-pago', 'paymentNotice');
-export const fetchGetPayments = krakenCreator('GET', 'ver-pagos', 'getPayments');
-export const fetchGetMorePayments = krakenCreator('GET', 'ver-pagos', 'getMorePayments');
+export const fetchPaymentNotice = krakenCreator('post', 'notificar-pago', 'paymentNotice');
+export const fetchGetPayments = krakenCreator('get', 'ver-pagos', 'getPayments');
+export const fetchGetMorePayments = krakenCreator('get', 'ver-pagos', 'getMorePayments');

@@ -133,9 +133,9 @@ export const BUILDING_NOW = 'BUILDING_NOW';
 
 export function buildingNow(id){
 	return{
-	type: BUILDING_NOW,
-	id
-	}
+		type: BUILDING_NOW,
+		id
+	};
 }
 
 export const IS_FETCHING = 'IS_FETCHING';

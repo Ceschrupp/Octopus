@@ -33,7 +33,6 @@ class Header extends React.Component {
 
 
 	render() {
-		console.log('ceci', this.props.userStuff.user.buildings);
 		const options = this.props.userStuff.user.buildings.map((building, i) =>  {
 			return {
 				value: building.building_id,

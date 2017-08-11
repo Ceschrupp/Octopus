@@ -39,7 +39,7 @@ export default class ComplaintCreateForm extends React.Component {
 			dictDefaultMessage: 'Arrastre archivos aquí o haga click para elegir uno.',
 			dictFileTooBig: 'Ël archivo es demasiado grande ({{filesize}}MiB), el máximo permitido es:{{maxFilesize}}MiB.',
 			dictInvalidFileType: 'El archivo debe tener extensión JPG o PNG.'
-		}
+		};
 	}
 	handleChange(e) {
 		this.setState({
@@ -56,7 +56,7 @@ export default class ComplaintCreateForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.fetchSendComplaint(this.state);
-		console.log(this.state)
+		console.log(this.state);
 	}
 
 	render() {
@@ -65,7 +65,6 @@ export default class ComplaintCreateForm extends React.Component {
 				<Col md={3} lg={3}/>
 				<Col md={6} lg={6}>
 					<div className={s.ComplaintsFormDiv}>
-	
 						<form id='complaintForm' className={s.ComplaintForm, 'dropzone'} onSubmit={this.handleSubmit} id='dropzoneId' action='/file-upload'>
 							<label htmlFor="title"></label>
 							<input 
@@ -83,10 +82,8 @@ export default class ComplaintCreateForm extends React.Component {
 								id='complaintTextArea'
 								className={s.ComplaintTextArea}
 							/>
-
-
 						</form>
-							<input className={s.SendButton} disabled={!this.state.title || !this.state.body} type='submit' />
+						<input className={s.SendButton} disabled={!this.state.title || !this.state.body} type='submit' />
 					</div>
 				</Col>
 			</Row>
