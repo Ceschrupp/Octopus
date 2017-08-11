@@ -79,7 +79,7 @@ class Header extends React.Component {
 
 					<Select className="select" name="form-field-name" options={options} onChange={this.logChange} />
 
-
+					<Select className="select" name="form-field-name" options={options} onChange={this.logChange} />
 			</div>
 		)
 
