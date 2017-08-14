@@ -43,7 +43,7 @@ export default class ComplaintCreateForm extends React.Component {
 			files: [],
 			isPrivate:'',
 			state: 'Abierto',
-		}
+		};
 	}
 
 	handleChange(event) {

@@ -27,6 +27,7 @@ const commonConfig = {
   },
   resolve: {
     alias: {
+     'react': path.join(__dirname, 'node_modules', 'react'),
       Components: path.resolve(__dirname, 'src/components/'),
       Containers: path.resolve(__dirname, 'src/containers/'),
       Styles: path.resolve(__dirname, 'src/styles/'),

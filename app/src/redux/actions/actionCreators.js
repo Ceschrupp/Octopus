@@ -3,13 +3,13 @@ import * as userActions from './userActions.js';
 import * as globals from './globalActions.js';
 export * from './userActions.js';
 export * from './globalActions.js';
-import * as  $ from 'jquery';
+//import * as  $ from 'jquery';
 import Store from '../store.js';
 import axios from 'axios';
 
 //URLs
 const url = 'http://api.octopus.dev/api';
-const url1 = 'https://eb0ad47f.ngrok.io';
+const url1 = 'https://a3489b8f.ngrok.io';
 
 const ifError = (status, dispatch) => {
 	dispatch(globals.failedToFetch(false));
@@ -34,9 +34,9 @@ const krakenCreator = function (type, route, actionSuccess) {
 			console.log('Stores', Store.getState());
 			console.log(`${url1}${middleRoute}`);
 			return axios({
-/*				headers: {
+				headers: {
 					'Access-Control-Allow-Origin': '*',
-				},*/
+				},
 				crossDomain: true,
 				url: `${url1}${middleRoute}`,
 				method: type,
@@ -51,7 +51,7 @@ const krakenCreator = function (type, route, actionSuccess) {
 					dispatch(globals.isFetching(false));
 				})
 				.catch( error => {
-					console.log('ERROR:',error.response.status, ': ',error.response.data);
+					console.log('ERROR:',error.status, ': ',error.response.data);
 					ifError(error.response.status, dispatch);
 					dispatch(globals.isFetching(false));
 				});
