@@ -1,9 +1,10 @@
 import { isFetching, failedToFetch } from './globalActions';
 import * as  $ from 'jquery';
 const url = 'http://api.octopus.dev/api';
-const localUrl = "http://localhost:3000/login"
+const localUrl = 'http://localhost:3000/login';
 const url1 = 'https://38107125.ngrok.io/login';
 import axios from 'axios';
+import Store from '../store.js';
 
 //////////////////////////////////////////////////acciones para loguear user
 export const USER_LOGOUT = 'USER_LOGOUT';
@@ -59,15 +60,16 @@ export function fetchLogUser(user) {
 		})
 			.then( res => {
 				console.log('SUCCESS:', res);
-				dispatch(userSuccess(res));
+				dispatch(userSuccess(res.data));
 				dispatch(failedToFetch(false));
 				dispatch(isFetching(false));
+				console.log('Stores', Store.getState());
 			})
 			.catch( error => {
 				console.log('ERROR:',error );
 				ifError(error, dispatch);
 				dispatch(isFetching(false));
-			})
+			});
 	};
 }
 

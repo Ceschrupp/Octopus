@@ -9,7 +9,7 @@ import axios from 'axios';
 
 //URLs
 const url = 'http://api.octopus.dev/api';
-const url1 = 'https://a3489b8f.ngrok.io';
+const url1 = 'https://fe40be9c.ngrok.io';
 
 const ifError = (status, dispatch) => {
 	dispatch(globals.failedToFetch(false));
@@ -22,8 +22,7 @@ const ifError = (status, dispatch) => {
 };
 
 const krakenCreator = function (type, route, actionSuccess) {
-	return function(finalRoute, content) {
-		console.log('Stores', Store.getState());
+	return function(content, finalRoute) {
 		let building_id = Store.getState().other.buildingNow;
 		let middleRoute = '/' + route;
 		if (finalRoute) {
@@ -45,13 +44,13 @@ const krakenCreator = function (type, route, actionSuccess) {
 				data: content? JSON.stringify(content) : null
 			})
 				.then( res => {
-					console.log(res.data);
-					/*res.json();*/
-					dispatch(globals.actionSuccess(res.data));
+					console.log('RESPONSE.data:', res.data);
+					dispatch(globals[actionSuccess](res.data));
+					console.log('Stores', Store.getState());
 					dispatch(globals.isFetching(false));
 				})
 				.catch( error => {
-					console.log('ERROR:',error.status, ': ',error.response.data);
+					console.log('ERROR:',error);
 					ifError(error.response.status, dispatch);
 					dispatch(globals.isFetching(false));
 				});
