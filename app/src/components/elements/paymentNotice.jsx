@@ -19,17 +19,16 @@ export default class paymentNotice extends React.Component {
 	render () {
 		return (
 			<Row>
-				<Col md={3} lg={3}/>
+			<Col md={3} lg={3}/>
 				<Col md={6} lg={6}>
-				<div className={s.paymentNotice}>
-					<form className='paymentNoticeForm' onSubmit={(ref) => this.handleSubmit = ref}>
-						<h3>Informar un pago:</h3>
-						<input className= {s.fileInput} placeholder='Mensaje de aviso' type='text' ref='paymentNoticeMessage' />
+					<div className={s.paymentNotice}>
+						<form className='paymentNoticeForm' onSubmit={(ref) => this.handleSubmit = ref}>
+							<h3>Informar un pago:</h3>
+							<input className= {s.fileInput} placeholder='Mensaje de aviso' type='text' ref='paymentNoticeMessage' />
 							<label className={s.fileContainer}>
-							Elige un archivo
+								Elige un archivo
 							<input className={s.chooseFile}type="file" id="paymentNoticeFile" accept=".jpg, .jpeg, .png" multiple ref='paymentNoticeFile' />
 							</label>
-
 						<button className={s.sendButton}type='submit'>Enviar</button>
 					</form>
 				</div>

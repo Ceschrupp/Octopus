@@ -7,8 +7,9 @@ import Fetching from './Fetching';
 export default class Login extends React.Component {
 	constructor(props) {
 		super(props);
-		this.handleSubmit=this.handleSubmit.bind(this);
+		this.handle=this.handle.bind(this);
 	}
+
 
 	handleSubmit(e) {
 		console.log('HOLAAAAAAA');
