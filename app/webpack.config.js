@@ -52,6 +52,7 @@ const commonConfig = {
         loader: 'babel-loader',
         options: {
           presets: ['env', 'es2015', 'react'],
+          plugins: ['transform-object-rest-spread'],
         },
       },
     }, {
@@ -61,6 +62,7 @@ const commonConfig = {
       ],
     }],
   },
+  devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Octopus',
@@ -74,6 +76,8 @@ const commonConfig = {
         "https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400",
         "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
         "https://fonts.googleapis.com/css?family=Lato",
+        "https://fonts.googleapis.com/css?family=Lato:100",
+        "https://fonts.googleapis.com/css?family=Roboto:100",
       ]
     }),
     new FriendlyErrorsWebpackPlugin(),
