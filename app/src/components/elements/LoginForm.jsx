@@ -7,10 +7,11 @@ import Fetching from './Fetching';
 export default class Login extends React.Component {
 	constructor(props) {
 		super(props);
-		this.handleSubmit=this.handleSubmit.bind(this);
+		this.handle=this.handle.bind(this);
 	}
 
-	handleSubmit(e) {
+	handle(e) {
+		console.log('hola')
 		e.preventDefault();
 		this.props.fetchLogUser({
 			email:e.target.loginEmail.value,
@@ -49,11 +50,11 @@ export default class Login extends React.Component {
 				<Col md={6} lg={4}>
 					<div className={s.LoginForm}>
 						{this.renderAlert()}
-						<form ref='loginForm' className='loginForm' onSubmit={this.handleSubmit}>
+						<form ref='loginForm' className='loginForm' onSubmit={this.handle}>
 							<span ref='errorMessage' className='errorMessage'></span>
 							<input ref='loginEmail'  className={['loginEmail',s.loginEmail].join(' ')}  name='loginEmail' placeholder='E-Mail' required />
 							<input ref='loginPassword' type='password'className={['loginPassword',s.loginPassword].join(' ')}name='loginPassword' placeholder='Clave' required />
-							<button className={['loginButton',s.loginButton].join(' ')} type='submit' onClick={this.onSubmit}>Iniciar Sesión</button>
+							<button className={['loginButton',s.loginButton].join(' ')} type='submit'>Iniciar Sesión</button>
 							<Link to='/olvide-clave'><p className={['loginForgot',s.loginForgot].join(' ')}>¿Olvidaste tu Clave?</p></Link>
 						</form>
 					</div>

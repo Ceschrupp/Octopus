@@ -19,6 +19,7 @@ export default class Amenities extends React.Component {
 				</div>
 			)
 		} else if (this.props.location.pathname==='/ver-reservas') {
+			console.log('amenitisList', this.props)
 			return (
 				<div className='AmenitiesListDiv'>
 					{this.props.bookings.map((booking, i) => <AmenitiesList {...this.props} key={i} i={i} booking={booking} /> )}
