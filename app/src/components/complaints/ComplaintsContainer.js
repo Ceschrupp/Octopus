@@ -5,7 +5,7 @@ import * as actionCreators from '../../redux/actions/actionCreators.js';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'react-grid-system';
-
+import SingleComplaintWithComments from './SingleComplaintWithComments';
 const s = require('./styles/ComplaintsContainer.scss');
 
 function mapDispatchToProps(dispatch) {
@@ -34,17 +34,24 @@ export default class ComplaintsContainer extends React.Component {
 		super(props);
 		this.state = {
 			view:'complaintsList'
+<<<<<<< HEAD
 
 		}
 
+=======
+		}
+>>>>>>> f06b597b773eec9b43f39100aaf5861652105e79
 		this.changeView = this.changeView.bind(this);
 	}
 
 	componentWillMount() {
+<<<<<<< HEAD
 
+=======
+>>>>>>> f06b597b773eec9b43f39100aaf5861652105e79
 		this.props.fetchGetComplaints();
 	}
-	
+
 	changeView(event) {
 		event.preventDefault();
 		let view = event.target.className;
@@ -68,7 +75,6 @@ export default class ComplaintsContainer extends React.Component {
 						</div>
 					</Col>
 				</Row>
-
 			)
 		} else if ( view === 'complaintsList' && !this.props.complaints.length ) {
 		return (

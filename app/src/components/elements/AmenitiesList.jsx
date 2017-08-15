@@ -35,7 +35,8 @@ export default class AmenitiesList extends React.Component {
 				<Col md={6} lg={6}>
 				<div className={s.panel}>
 					<div className={s.heading} >
-						<div className={s.cross}><i className="fa fa-plus" ref='bookingAmenities' onClick={this.toggle} /></div>
+						<div className={s.cross}><i className="fa fa-plus" ref='bookingAmenities' onClick={this.toggle} />
+						</div>
 							<div className={s.trash} onClick={this.deleteBooking}><i className="fa fa-trash" aria-hidden="true"/></div>
 								<h4 className={s.title}>
 									{this.props.amenitie.amenitie}

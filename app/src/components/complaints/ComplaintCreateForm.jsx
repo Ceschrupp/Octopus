@@ -67,7 +67,6 @@ export default class ComplaintCreateForm extends React.Component {
 	}
 
 	onDrop(files) {
-		submitted = 1;
 		let filesToUpload = Object.assign([], files)
 		this.setState({
 			files: filesToUpload
