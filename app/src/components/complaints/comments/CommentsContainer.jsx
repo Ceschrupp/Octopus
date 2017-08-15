@@ -31,7 +31,7 @@ class CommentsContainer extends React.Component {
 	componenerWillMount() {
 		this.props.fetchGetComments();
 	}
-	///PASARLE SOLO LOS PROPS de acciones QUE NECESITAN
+
 	render() {
 		return (
 			<div>

@@ -1,4 +1,65 @@
-.complaintsContainer {	
+
+
+#createButtonBar {
+
+    font-family: 'Lato', sans-serif;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white; 
+    border-radius: 16px;
+    width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: block;
+}
+
+#createButton {
+
+    font-size:13pt;
+    color: white; 
+    background-color: #0095C6;
+    border: solid;
+    border-color: #0095C6;
+    border-radius: 30px;
+    width: 25%;
+    height:34px;
+    margin:0 auto;
+    display: block;
+    outline: 0;
+}
+
+.noComplaints {
+
+    font-family: 'Lato', sans-serif;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white; 
+    border-radius: 16px;
+    width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+#form {
+
+    font-family: 'Lato', sans-serif;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white; 
+    border-radius: 16px;
+    width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+    margin-top: 40px; 
+    display: inline-block; 
+}
+
+
+
+
+
+
+
+/*.complaintsContainer {	
  	font-family: 'Lato', sans-serif;
   color: white;
   background-color: rgba(0, 0, 0, 0.75);
@@ -64,4 +125,4 @@
 
 .visible {
 	display: block;
-}
+}*/
