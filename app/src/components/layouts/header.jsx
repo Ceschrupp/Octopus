@@ -13,7 +13,7 @@ class Header extends React.Component {
 		super(props);
 	}
 	render() {
-		if (false) {
+		if (!this.props.userStuff.isLogged) {
 			return (
 				<div className="header">
 					<img className="logoHeader" src={logo}/>
@@ -21,13 +21,13 @@ class Header extends React.Component {
 			);
 		} else {
 			return (
-			<div className="header">
-			<BurgerMenu user={this.props.userStuff.user}/>
-	        <div>{this.props.view}</div>
-			<Dropdown options={this.props.userStuff.user.buildings}/>
-	        <div className="divdellink"><Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link></div>
-			</div>
-			)
+				<div className="header">
+					<BurgerMenu user={this.props.userStuff.user}/>
+					<div>{this.props.view}</div>
+					<Dropdown options={this.props.userStuff.user.buildings}/>
+					<div className="divdellink"><Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link></div>
+				</div>
+			);
 
 		}
 	}

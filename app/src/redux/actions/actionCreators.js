@@ -3,7 +3,6 @@ import * as userActions from './userActions.js';
 import * as globals from './globalActions.js';
 export * from './userActions.js';
 export * from './globalActions.js';
-//import * as  $ from 'jquery';
 import Store from '../store.js';
 import axios from 'axios';
 
@@ -163,11 +162,11 @@ export const fetchGetMoreInfo = krakenCreator('get', 'datos-utiles', 'getMoreInf
 export const fetchGetExpenses = krakenCreator('get', 'expensas', 'getExpenses');
 export const fetchGetMoreExpenses = krakenCreator('get', 'expensas', 'getMoreExpenses');
 
-//// Documents
+//// Documents ??? a que se refiere con documents? tendra que ver con Payments?
 export const fetchGetDocuments = krakenCreator('get', 'documentos', 'getDocuments');
 export const fetchGetMoreDocuments = krakenCreator('get', 'documentos', 'getMoreDocuments');
 
 //// Payments
-export const fetchPaymentNotice = krakenCreator('post', 'notificar-pago', 'paymentNotice');
+export const fetchCreatePayment = krakenCreator('post', 'notificar-pago', 'createPayment');
 export const fetchGetPayments = krakenCreator('get', 'ver-pagos', 'getPayments');
 export const fetchGetMorePayments = krakenCreator('get', 'ver-pagos', 'getMorePayments');

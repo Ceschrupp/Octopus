@@ -14,6 +14,277 @@ exports.user = {
 	]
 };
 
+exports.datosUtiles = [
+
+	{
+		Title: 'Policia',
+		Body: 911
+	}, 
+	{
+		Title: 'Marcos',
+		Body: 1131368835
+	},
+	{
+		Title: 'Bomberos',
+		Body: 576
+	},
+	{
+		Title: 'Hospital',
+		Body: 107
+	},
+	{
+		Title: 'Morgue',
+		Body: 48220179
+	}
+];
+
+exports.novedades = [ 
+
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	}
+];
+
+exports.masNovedades = [ 
+
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	},
+
+	{	Title: 'Hola',
+		Body: 'En esta noticia le avisamos que habrán muchas más noticias como esta! estese atento...',
+		Date: '13 de Julio de 1962'
+	}
+];
+
+exports.pagos = [ 
+
+	{	File: 'archivo JPEG o algo parecido',
+		Comment: 'aqui esta su pago, o lo que pareciese ser...',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo JPEG o algo parecido',
+		Comment: 'aqui esta su pago, o lo que pareciese ser...',
+		Date: '13 de Julio de 1962'
+	},
+
+	{	File: 'archivo JPEG o algo parecido',
+		Comment: 'aqui esta su pago, o lo que pareciese ser...',
+		Date: '13 de Julio de 1962'
+	},
+
+	{	File: 'archivo JPEG o algo parecido',
+		Comment: 'aqui esta su pago, o lo que pareciese ser...',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo JPEG o algo parecido',
+		Comment: 'aqui esta su pago, o lo que pareciese ser...',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo JPEG o algo parecido',
+		Comment: 'aqui esta su pago, o lo que pareciese ser...',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo JPEG o algo parecido',
+		Comment: 'aqui esta su pago, o lo que pareciese ser...',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo JPEG o algo parecido',
+		Comment: 'aqui esta su pago, o lo que pareciese ser...',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo JPEG o algo parecido',
+		Comment: 'aqui esta su pago, o lo que pareciese ser...',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo JPEG o algo parecido',
+		Comment: 'aqui esta su pago, o lo que pareciese ser...',
+		Date: '13 de Julio de 1962'
+	}
+];
+
+exports.expensas = [ 
+
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	}
+	
+];
+
+exports.masExpensas = [ 
+
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	},
+	
+	{	File: 'archivo PDF',
+		Date: '13 de Julio de 1962'
+	}
+	
+];
+
 exports.reservas = [
 
 	{ initiateBookingDate: '13/02/1995 23pm', 
@@ -241,103 +512,105 @@ exports.masReservas = [
 ];
 
 exports.reclamos = 	[ { 
-	initiateComplaintDate: '13/02/1995 23pm', 
-	title: 'hola',
-	body: 'me robaron la cerradura', 
-	state: 'pending',
-	building_id: 22, 
-	complaint_id: 44,
-	userNmae: 'Juan',
-	user_id: 98474 },
-{ initiateComplaintDate: '13/02/1995 23pm', 
-	title: 'chau LOAYV1RyRXwU2YOD',
-	body: 'HOLa muchachos como anda todo x ahi?', 
-	files: [], 
-	state: 'pending',
-	building_id: 22,
-	complaint_id: 44,
-	userNmae: 'Marcos',
-	user_id: 98471 },
 
-{ initiateComplaintDate: '13/02/1995 23pm', 
-	title: 'hola',
-	body: 'me robaron la cerradura', 
-	files: [], 
-	state: 'pending',
-	building_id: 22, 
-	complaint_id: 44,
-	userNmae: 'Juan',
-	user_id: 98474 },
+		initiateComplaintDate: '13/02/1995 23pm', 
+		title: 'hola',
+		body: 'me robaron la cerradura', 
+		state: 'pending',
+		building_id: 22, 
+		complaint_id: 44,
+		userNmae: 'Juan',
+		user_id: 98474 },
 
-{ initiateComplaintDate: '13/02/1995 23pm', 
-	title: 'hola',
-	body: 'me robaron la cerradura', 
-	files: [], 
-	state: 'pending',
-	building_id: 22, 
-	complaint_id: 44,
-	userNmae: 'Juan',
-	user_id: 98474 },
+	{ initiateComplaintDate: '13/02/1995 23pm', 
+		title: 'chau LOAYV1RyRXwU2YOD',
+		body: 'HOLa muchachos como anda todo x ahi?', 
+		files: '', 
+		state: 'pending',
+		building_id: 22,
+		complaint_id: 44,
+		userNmae: 'Marcos',
+		user_id: 98471 },
 
-{ initiateComplaintDate: '13/02/1995 23pm', 
-	title: 'hola',
-	body: 'me robaron la cerradura', 
-	files: [], 
-	state: 'pending',
-	building_id: 22, 
-	complaint_id: 44,
-	userNmae: 'Juan',
-	user_id: 98474 },
+	{ initiateComplaintDate: '13/02/1995 23pm', 
+		title: 'hola',
+		body: 'me robaron la cerradura', 
+		files: '', 
+		state: 'pending',
+		building_id: 22, 
+		complaint_id: 44,
+		userNmae: 'Juan',
+		user_id: 98474 },
 
-{ initiateComplaintDate: '13/02/1995 23pm', 
-	title: 'hola',
-	body: 'me robaron la cerradura', 
-	files: [], 
-	state: 'pending',
-	building_id: 22, 
-	complaint_id: 44,
-	userNmae: 'Juan',
-	user_id: 98474 },
+	{ initiateComplaintDate: '13/02/1995 23pm', 
+		title: 'hola',
+		body: 'me robaron la cerradura', 
+		files: '', 
+		state: 'pending',
+		building_id: 22, 
+		complaint_id: 44,
+		userNmae: 'Juan',
+		user_id: 98474 },
 
-{ initiateComplaintDate: '13/02/1995 23pm', 
-	title: 'hola',
-	body: 'me robaron la cerradura', 
-	files: [], 
-	state: 'pending',
-	building_id: 22, 
-	complaint_id: 44,
-	userNmae: 'Juan',
-	user_id: 98474 },
+	{ initiateComplaintDate: '13/02/1995 23pm', 
+		title: 'hola',
+		body: 'me robaron la cerradura', 
+		files: '', 
+		state: 'pending',
+		building_id: 22, 
+		complaint_id: 44,
+		userNmae: 'Juan',
+		user_id: 98474 },
 
-{ initiateComplaintDate: '13/02/1995 23pm', 
-	title: 'hola',
-	body: 'me robaron la cerradura', 
-	files: [], 
-	state: 'pending',
-	building_id: 22, 
-	complaint_id: 44,
-	userNmae: 'Juan',
-	user_id: 98474 },
+	{ initiateComplaintDate: '13/02/1995 23pm', 
+		title: 'hola',
+		body: 'me robaron la cerradura', 
+		files: '', 
+		state: 'pending',
+		building_id: 22, 
+		complaint_id: 44,
+		userNmae: 'Juan',
+		user_id: 98474 },
 
-{ initiateComplaintDate: '13/02/1995 23pm', 
-	title: 'hola',
-	body: 'me robaron la cerradura', 
-	files: [], 
-	state: 'pending',
-	building_id: 22, 
-	complaint_id: 44,
-	userNmae: 'Juan',
-	user_id: 98474 },
+	{ initiateComplaintDate: '13/02/1995 23pm', 
+		title: 'hola',
+		body: 'me robaron la cerradura', 
+		files: '', 
+		state: 'pending',
+		building_id: 22, 
+		complaint_id: 44,
+		userNmae: 'Juan',
+		user_id: 98474 },
 
-{ initiateComplaintDate: '13/02/1995 23pm', 
-	title: 'hola',
-	body: 'me robaron la cerradura', 
-	files: [], 
-	state: 'pending',
-	building_id: 22, 
-	complaint_id: 44,
-	userNmae: 'Juan',
-	user_id: 98474 }
+	{ initiateComplaintDate: '13/02/1995 23pm', 
+		title: 'hola',
+		body: 'me robaron la cerradura', 
+		files: '', 
+		state: 'pending',
+		building_id: 22, 
+		complaint_id: 44,
+		userNmae: 'Juan',
+		user_id: 98474 },
+
+	{ initiateComplaintDate: '13/02/1995 23pm', 
+		title: 'hola',
+		body: 'me robaron la cerradura', 
+		files: '', 
+		state: 'pending',
+		building_id: 22, 
+		complaint_id: 44,
+		userNmae: 'Juan',
+		user_id: 98474 },
+
+	{ initiateComplaintDate: '13/02/1995 23pm', 
+		title: 'hola',
+		body: 'me robaron la cerradura', 
+		files: '', 
+		state: 'pending',
+		building_id: 22, 
+		complaint_id: 44,
+		userNmae: 'Juan',
+		user_id: 98474 }
 ];
 
 exports.masReclamos = [

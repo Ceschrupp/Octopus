@@ -21,7 +21,7 @@ router.get('/reservas', function(req, res, next) {
 
 router.get('/reservas/:numero', function(req, res, next) {
 	//TE TRAE 20 RESERVAS mas
-	res.send(JSON.stringify(objects.masReservas));
+	res.send(objects.masReservas);
 });
 
 /////////////////////////////////RECLAMOS
@@ -32,8 +32,7 @@ router.get('/reclamos', function(req, res, next) {
 
 router.get('/reclamos/:numero', function(req, res, next) {
 //TE TRAE 20 RECLAMOS mas
-	/*res.send(JSON.stringify(objects.masReclamos));*/
-	res.send(JSON.stringify(objects.masReclamos));
+	res.send(objects.masReclamos);
 });
 
 /////////////////////////////////COMENTARIOS
@@ -49,38 +48,40 @@ router.get('/comentarios/:numero', function(req, res, next) {
 /////////////////////////////////NOVEDADES
 router.get('/novedades', function(req, res, next) {
 //TE TRAE 10 NOVEDADES
-	res.send('HOLA');
+	res.send(objects.novedades);
 });
 
 router.get('/novedades/:numero', function(req, res, next) {
 //TE TRAE 20 NOVEDADES mas
-	res.send('index', { title: 'Express' });
+	res.send(objects.masNovedades);
 });
 
 /////////////////////////////////INFO
 router.get('/datos-utiles', function(req, res, next) {
 //TE TRAE 10 INFO
-	res.send('index', { title: 'Express' });
+	res.send(objects.datosUtiles);
 });
 
 /////////////////////////////////EXPENSAS
 router.get('/expensas', function(req, res, next) {
 //TE TRAE 10 EXPENSAS
-	res.send('index', { title: 'Express' });
+	res.send(objects.expensas);
 });
 
 router.get('/expensas/:numero', function(req, res, next) {
 //TE TRAE 20 EXPENSAS mas
-	res.send('index', { title: 'Express' });
+	res.send(objects.masExpensas);
 });
 
 /////////////////////////////////DOCUMENTOS
-router.get('/ver-documentos', function(req, res, next) {
+router.get('/ver-pagos', function(req, res, next) {
 //TE TRAE 10 DOCUMENTOS
-	res.send('index', { title: 'Express' });
+	res.send(objects.pagos);
 });
-router.get('/ver-documentos/:numero', function(req, res, next) {
+
+router.get('/ver-pagos/:numero', function(req, res, next) {
 //TE TRAE 20 DOCUMENTOS mas
-	res.send('index', { title: 'Express' });
+	res.send(objects.pagos);
 });
+
 module.exports = router;
