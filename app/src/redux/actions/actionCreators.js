@@ -8,11 +8,16 @@ import axios from 'axios';
 
 //URLs
 const url = 'http://api.octopus.dev/api';
+<<<<<<< HEAD
 
 const localUrl = 'http://localhost:3000';
 
 const url1 = 'https://b47f8aae.ngrok.io';
 
+=======
+const url1 = 'https://e0893c1f.ngrok.io';
+const localUrl = 'http://localhost:3000';
+>>>>>>> edce88d0e53502f8b6559c65dd29b63bbfabf408
 
 const ifError = (status, dispatch) => {
 	dispatch(globals.failedToFetch(false));

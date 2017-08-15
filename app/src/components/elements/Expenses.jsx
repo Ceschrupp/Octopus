@@ -7,11 +7,10 @@ export default class Expenses extends React.Component {
 	}
 
 	render () {
-		console.log('EXPENSES:',this.props.expenses, 'I:', this.props.i );
 		return (
-			<div className='expenses'>
-				<h4 className='newsTitle' id={this.props.i} >{this.props.expenses.date}</h4>
-				<Link className='expenses'>{this.props.expenses.file}</Link>
+			<div>
+				<h4 className='newsTitle' id={this.props.i} >{this.props.expenses.Date}</h4>
+				<Link className='expenses'>{this.props.expenses.File}</Link>
 			</div>
 		);
 	}

@@ -27,6 +27,7 @@ export default class Home extends React.Component {
 					{this.props.other.news.map((news, i) => <LatestNews {...this.props} key={i} i={i} news={news} />)}
 				</div>
 				<div className='homeUsefulInfoDiv'>
+					<h2>Datos Útiles</h2>
 					{this.props.other.info.map((info, i) => <UsefulInfo {...this.props} key={i} i={i} usefulInfo={info} />)}
 				</div>
 			</div>

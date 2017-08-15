@@ -35,9 +35,7 @@ export default class ComplaintsContainer extends React.Component {
 		super(props);
 		this.state = {
 			view:'complaintsList'
-
-		}
-
+		};
 		this.changeView = this.changeView.bind(this);
 	}
 
