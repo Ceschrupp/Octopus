@@ -5,8 +5,8 @@ import { Container, Row, Col } from 'react-grid-system';
 export default class Footer extends React.Component {
 	constructor (props) {
 		super(props);
-		console.log('footer',props);
 	}
+
 	render () {
 		return (
 			<Row>

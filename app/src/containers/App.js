@@ -10,7 +10,6 @@ function mapStateToProps(state) {
 			user: state.userStuff.user,
 			isLogged: state.userStuff.isLogged,
 			logErr: state.userStuff.logErr,
-			buildingNow: state.userStuff.buildingNow,
 		},
 		other: {
 			view: state.other.view,
@@ -18,7 +17,8 @@ function mapStateToProps(state) {
 			info: [state.other.info],
 			expenses: state.other.expenses,
 			isFetching: state.other.isFetching,
-			failedToFetch: state.other.failedToFetch
+			failedToFetch: state.other.failedToFetch,
+			buildingNow: state.userStuff.buildingNow
 		},
 		amenities: state.amenities,
 		complaints: state.complaints,

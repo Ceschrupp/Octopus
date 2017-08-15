@@ -1,7 +1,10 @@
 import { isFetching, failedToFetch } from './globalActions';
 import * as  $ from 'jquery';
 const url = 'http://api.octopus.dev/api';
-const url1 = 'http://localhost:3000/login';
+const localUrl = 'http://localhost:3000/login';
+const url1 = 'https://38107125.ngrok.io/login';
+import axios from 'axios';
+import Store from '../store.js';
 
 //////////////////////////////////////////////////acciones para loguear user
 export const USER_LOGOUT = 'USER_LOGOUT';
@@ -44,26 +47,27 @@ export function fetchLogUser(user) {
 
 	return (dispatch) => {
 		dispatch(isFetching(true));
-		return $.ajax({
-			type: 'GET',
-			url: `${url1}`,
-			xhrFields: {
-				withCredentials: true
+		return axios({
+			headers: {
+				'Access-Control-Allow-Origin': '*',
 			},
-			dataType: 'jsonp',
+			crossDomain: true,
+			url: `${localUrl}`,
+			method: 'POST',
+			withCredentials: true,
+			responseType: 'json',
 			data: user
 		})
-			.done( res => {
-				res.json();
+			.then( res => {
 				console.log('SUCCESS:', res);
-				dispatch(userSuccess(res));
+				dispatch(userSuccess(res.data));
 				dispatch(failedToFetch(false));
+				dispatch(isFetching(false));
+				console.log('Stores', Store.getState());
 			})
-			.fail( (jqXHR, textStatus, errorThrown) => {
-				console.log('ERROR:',jqXHR.status, ': ',textStatus);
-				ifError(jqXHR.status, dispatch);
-			})
-			.always( f => {
+			.catch( error => {
+				console.log('ERROR:',error );
+				ifError(error, dispatch);
 				dispatch(isFetching(false));
 			});
 	};
@@ -135,8 +139,7 @@ export function fetchLogOutUser(user) {
 			});
 	};
 }
-/*
-	return (dispatch) => {
+/*return (dispatch) => {
 		dispatch(isFetching(true)) /////////el fetch lo mando con toda esta bola?
 		return fetch('/logout', {
 			headers: { "Content-Type" : "application/JSON" },
