@@ -5,7 +5,7 @@ import * as actionCreators from '../../redux/actions/actionCreators.js';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'react-grid-system';
-
+import SingleComplaintWithComments from './SingleComplaintWithComments';
 const s = require('./styles/ComplaintsContainer.scss');
 
 function mapDispatchToProps(dispatch) {

@@ -74,7 +74,7 @@ export default class Complaint extends React.Component {
 								{ this.props.complaint.files.map((image, i) => <a href={ image } key={i}><img key={i} i={i} src={ image } className={s.preview} onClick={ this.changeView }/></a> ) }
 							</div>
 							<div onClick={ this.changeView } className={s.comments} id='expandedComplaint'>
-								<p id='expandedComplaint'>{ 'this.props.comments.length' } Comentarios</p>
+								<p id='expandedComplaint'>{ this.props.comments.length } Comentarios</p>
 								{ this.props.comments.map((comment, i) => <Comments {...this.props} key={i} i={i} comment={comment} /> ) }
 							</div>
 							<div className={s.userNameLine}>Iniciado por <p className={s.userName}>{ this.props.complaint.complaintName }</p></div>
