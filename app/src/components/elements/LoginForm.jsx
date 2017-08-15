@@ -7,7 +7,7 @@ import Fetching from './Fetching';
 export default class Login extends React.Component {
 	constructor(props) {
 		super(props);
-		this.handle=this.handle.bind(this);
+		this.handleSubmit=this.handleSubmit.bind(this);
 	}
 
 
@@ -20,7 +20,8 @@ export default class Login extends React.Component {
 		});
 	}
 
-	componentDidMount() {
+	componentDidMount() { 	//////////////////////////////MMMMM ESTO NO SIrve AMeo
+		console.log('MMMM')
 		if (this.props.userStuff.isLogged) {
 			this.props.location.pathname = '/dashboard';
 		}

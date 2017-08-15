@@ -1,5 +1,5 @@
 const allowCrossOrigin = function(req, res, next) {
-		// intercept OPTIONS method
+	// intercept OPTIONS method
 	if ('OPTIONS' == req.method) {
 		res.set({
 			'Access-Control-Allow-Origin': 'http://localhost:8080',
