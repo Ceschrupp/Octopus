@@ -8,9 +8,22 @@ import axios from 'axios';
 
 //URLs
 const url = 'http://api.octopus.dev/api';
+<<<<<<< HEAD
 
 const url1 = ' https://98b24bfb.ngrok.io';
 
+=======
+<<<<<<< HEAD
+
+const localUrl = 'http://localhost:3000';
+
+const url1 = 'https://b47f8aae.ngrok.io';
+
+=======
+const url1 = 'https://e0893c1f.ngrok.io';
+const localUrl = 'http://localhost:3000';
+>>>>>>> edce88d0e53502f8b6559c65dd29b63bbfabf408
+>>>>>>> 175d096741833b7099dadff1b845862603235e02
 
 const ifError = (status, dispatch) => {
 	dispatch(globals.failedToFetch(false));
@@ -32,13 +45,13 @@ const krakenCreator = function (type, route, actionSuccess) {
 		return (dispatch) => {
 			dispatch(globals.isFetching(true));
 			console.log('Stores', Store.getState());
-			console.log(`${url1}${middleRoute}`);
+			console.log(`${localUrl}${middleRoute}`);
 			return axios({
 				headers: {
 					'Access-Control-Allow-Origin': '*',
 				},
 				crossDomain: true,
-				url: `${url1}${middleRoute}`,
+				url: `${localUrl}${middleRoute}`,
 				method: type,
 				withCredentials: true,
 				responseType: 'json',

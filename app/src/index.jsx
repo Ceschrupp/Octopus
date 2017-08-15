@@ -11,12 +11,13 @@ import Home from './containers/Home';
 import PaymentNotice from './components/elements/paymentNotice';
 import LatestExpenses from './components/elements/latestExpenses';
 import MyAccount from './containers/MyAccount';
-import LatestNews from './components/elements/latestNews';
+import News from './components/elements/News';
 import UsefulInfo from './components/elements/usefulInfo';
 import AmenitiesContainer from './containers/AmenitiesContainer';
 import ComplaintsContainer from './components/complaints/ComplaintsContainer';
 import Balance from './containers/Balance';
 import AmenitiesEditContainer from './containers/AmenitiesEditContainer';
+import Info from './components/elements/Info';
 
 //import components
 import LoginForm from './components/elements/LoginForm';
@@ -37,20 +38,19 @@ const router = (
 		<Router history={hashHistory}>
 			<Route path='/' component={App}>
 				<IndexRoute component={Home}></IndexRoute>
-
 				<Route path='/informar-pagos' component={PaymentNotice}></Route>
 				<Route path='/expensas' component={LatestExpenses}></Route>
 				<Route path='/cuenta-corriente' component={Balance}></Route>
-				<Route path='/novedades' component={LatestNews}></Route>
+				<Route path='/novedades' component={News}></Route>
 				<Route path='/registro' component={SignupForm}></Route>
 				<Route path='/cuenta/:username' component={MyAccount}></Route>
-				<Route path='/datos-utiles' component={UsefulInfo}></Route>
+				<Route path='/datos-utiles' component={Info}></Route>
 				<Route path='/reservar-amenities/new' component={AmenitiesForm}></Route>
 				<Route path='/reservar-amenities/edit/:bookingId' component={AmenitiesEditContainer}></Route>
 				<Route path='/ver-reservas' component={AmenitiesContainer}></Route>
 				<Route path='/amenities' component={AmenitiesContainer}></Route>
 				<Route path='/reclamos' component={ComplaintsContainer}></Route>
-				<Route path='/crear-reclamo' component={ComplaintCreateForm}></Route>
+				<Route path='/crear-reclamo' component={ComplaintCreateForm}></Route> 
 				<Route path='/login' component={LoginForm}></Route>
 				<Route path='/logout' component={Logout}></Route>
 				<Route path='/olvide-clave' component={ForgotPassword}></Route>

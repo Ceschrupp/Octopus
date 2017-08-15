@@ -1,24 +1,27 @@
 .complaintBox {
 
-	font-family: 'Lato', sans-serif;
-	background-color: rgba(0, 0, 0, 0.75);
-	color: white;
-  	border-radius: 16px;
-  	width: 100%;
-  	padding: 15px;
-  	margin: 0 auto;
-  	margin-top: 40px;
+    font-family: 'Lato', sans-serif;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white; 
+    border-radius: 16px;
+    width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: block;
 }
 
 .minus, .plus {
 
 	display: inline-block;
+	text-align: center;
 	width: 10%;
 	color: #0095c6;
 }
 .title {
 
 	font-weight: bold;
+	font-size: 15pt;
 	display: inline-block;
 	width: 45%;
 }
@@ -26,7 +29,19 @@
 .complaintState {
 
 	display: inline-block;
-	width: 45%;
+	font-size: 15pt;
+	width: 40%;
+	text-align: right;
+}
+
+.stateItself {
+
+	color: #0095c6;
+}
+
+.body {
+
+	padding-left: 10%;
 }
 
 .images {
@@ -46,8 +61,9 @@
 .userNameLine {
 
 	display: inline-block;
-	width: 100%;
+	width: 95%;
 	text-align: right;
+	/*padding-right: 10%;*/
 }
 
 .userName {
@@ -58,7 +74,7 @@
 
 .complaintDate {
 
-	width: 100%;
+	width: 95%;
 	text-align: right;
 	margin-top: 0;
 	padding-top: 0;
@@ -66,5 +82,12 @@
 
 .comments {
 
-	color: #8191aa;
+	color: #0095c6;
+}
+
+.private {
+
+	color: #0095c6;
+	background-color: red;
+	size: 200%;
 }
