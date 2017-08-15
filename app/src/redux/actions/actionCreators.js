@@ -9,7 +9,7 @@ import axios from 'axios';
 
 //URLs
 const url = 'http://api.octopus.dev/api';
-const url1 = 'https://4fad3741.ngrok.io';
+const url1 = 'https://6c6c8f2a.ngrok.io';
 
 const ifError = (status, dispatch) => {
 	dispatch(globals.failedToFetch(false));
