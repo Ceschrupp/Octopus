@@ -34,21 +34,11 @@ export default class ComplaintsContainer extends React.Component {
 		super(props);
 		this.state = {
 			view:'complaintsList'
-<<<<<<< HEAD
-
 		}
-
-=======
-		}
->>>>>>> f06b597b773eec9b43f39100aaf5861652105e79
 		this.changeView = this.changeView.bind(this);
 	}
 
 	componentWillMount() {
-<<<<<<< HEAD
-
-=======
->>>>>>> f06b597b773eec9b43f39100aaf5861652105e79
 		this.props.fetchGetComplaints();
 	}
 

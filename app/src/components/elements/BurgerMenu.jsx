@@ -32,7 +32,7 @@ class BurgerMenu extends React.Component {
 	          <Link onClick={this.toggleMenu } id="cuenta-corriente" className="menu-item" to="/cuenta-corriente" >Cuenta Corriente</Link>
 	          <Link onClick={this.toggleMenu } id="novedades" className="menu-item" to="/novedades" >Novedades</Link>
 	          <Link onClick={this.toggleMenu } id="datos-utiles" className="menu-item" to="/datos-utiles" >Datos Útiles</Link>
-	          <Link onClick={this.toggleMenu } id="amenities" className="menu-item" to="/amenities" >Amenities</Link>
+	          <Link onClick={this.toggleMenu } id="amenities" className="menu-item" to="/ver-reservas" >Amenities</Link>
 	          <Link onClick={this.toggleMenu } id="reclamos" className="menu-item" to="/reclamos" >Reclamos</Link>
 	          <div className='hr'></div>
 	          <Link  onClick={this.toggleMenu } id="mi-cuenta" className="menu-item" to={this.props.user} >Mi Cuenta</Link>

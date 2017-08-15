@@ -37,7 +37,6 @@ const router = (
 		<Router history={hashHistory}>
 			<Route path='/' component={App}>
 				<IndexRoute component={Home}></IndexRoute>
-
 				<Route path='/informar-pagos' component={PaymentNotice}></Route>
 				<Route path='/expensas' component={LatestExpenses}></Route>
 				<Route path='/cuenta-corriente' component={Balance}></Route>

@@ -15,13 +15,14 @@ class Dropdown extends React.Component {
 	}
 
 	logChange(val) {
-		this.props.buildingNow(val.value);
+		console.log('vaaaaaaal', val)
+		this.props.buildingNow(val);
 	}
 
 	render() {
-    const options = this.props.options.map((building, i) =>  (
-      <MenuOption key={building.building_id} className='MenuOption' onSelect={this.logChange.bind(this, building.building_id)}>
-        {building.buildingName}
+    const Options = this.props.options.map((building, i) =>  (
+      <MenuOption key={building.building_id} className='MenuOption' onSelect={this.logChange.bind(this, 	  building.building_id)}>
+        {building.building_name}
       </MenuOption>
     ));
     return(
@@ -31,7 +32,7 @@ class Dropdown extends React.Component {
 							  <i className="fa fa-chevron-down" aria-hidden="true"></i>
 							</MenuTrigger>
 							<MenuOptions className='MenuOptions' >
-								{options}
+								{Options}
 							</MenuOptions>
 						</Select>
 			</div>
