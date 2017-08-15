@@ -13,8 +13,8 @@ export default class AmenitiesList extends React.Component {
 		this.deleteBooking = this.deleteBooking.bind(this);
 	}
 
-	deleteBooking(){
-
+	deleteBooking(e){
+		e.preventDefault();
 		this.props.fetchDeleteBooking(booking);
 	}
 

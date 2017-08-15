@@ -1,4 +1,5 @@
 import React from 'react';
+const s = require('../styles/CommentsItemList.scss')
 
 export default class CommentsItemList extends React.Component {
 	constructor(props) {
@@ -13,27 +14,24 @@ export default class CommentsItemList extends React.Component {
 
 		const deleteCommentButton = function() {
 			if(this.props.comment.user_id === this.props.userStuff.user.user_id) {
-				return <button onClick={this.handleSubmit}>Eliminar</button>;
+				return <div onClick={this.handleSubmit} id={s.deleteComment}><i className='fa fa-cross' /></div>;
 			} else { 
 				return '';
 			} 
 		};
 
 		return (
-			<div>
+			<div className={s.comment}>
+				<div>
+					{this.props.comment.body}
+				</div>
+				{deleteCommentButton()}
 				<div>
 					{this.props.comment.userName}
 				</div>
 				<div>
 					{this.props.comment.initiateCommentDate}
 				</div>
-				<div>
-					{this.props.comment.userName}
-				</div>
-				<div>
-					{this.props.comment.body}
-				</div>
-				{deleteCommentButton()}
 			</div>
 		);
 	}

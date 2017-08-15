@@ -17,14 +17,21 @@ export default class Amenities extends React.Component {
 				<div>
 					<AmenitiesForm {...this.props}/>
 				</div>
-			)
+			);
 		} else if (this.props.location.pathname==='/ver-reservas') {
-			console.log('amenitisList', this.props)
-			return (
-				<div className='AmenitiesListDiv'>
-					{this.props.bookings.map((booking, i) => <AmenitiesList {...this.props} key={i} i={i} booking={booking} /> )}
-				</div>
-			)
+			if(this.props.amenities.length !== 0) {
+				return (
+					<div className='AmenitiesListDiv'>
+						{this.props.amenities.map((booking, i) => <AmenitiesList {...this.props} key={i} i={i} booking={booking} /> )}
+					</div>
+				);
+
+			} else {
+				return (
+					<div className='AmenitiesListDiv'>No hay reservas para mostrar en este momento...</div>
+				);
+
+			}
 		}
-	};
+	}
 }

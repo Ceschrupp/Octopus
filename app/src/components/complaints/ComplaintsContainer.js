@@ -5,6 +5,7 @@ import * as actionCreators from '../../redux/actions/actionCreators.js';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'react-grid-system';
+
 const s = require('./styles/ComplaintsContainer.scss');
 
 function mapDispatchToProps(dispatch) {
@@ -33,61 +34,93 @@ export default class ComplaintsContainer extends React.Component {
 		super(props);
 		this.state = {
 			view:'complaintsList'
+<<<<<<< HEAD
 		}
-	this.changeView = this.changeView.bind(this);
+=======
+		};
+>>>>>>> 24865f64e2e9dfa854510cce2d30ba63ab389e3f
+		this.changeView = this.changeView.bind(this);
 	}
 
 	componentWillMount() {
-		console.log('###########COMPLAINTSSSSS', this.props.complaints)
+<<<<<<< HEAD
 		this.props.fetchGetComplaints();
 	}
-//function para que cambie el state de la vista:
+	
+=======
+		console.log('######COMPLAINTS', this.props.complaints);
+		this.props.fetchGetComplaints();
+	}
+	//function para que cambie el state de la vista:
+>>>>>>> 24865f64e2e9dfa854510cce2d30ba63ab389e3f
 	changeView(event) {
 		event.preventDefault();
-		const view = event.target.className;
+		let view = event.target.className;
 		this.setState({
 			view: view
 		})
 	}
 	render() {
-		const view = this.state.view;
+		let view = this.state.view;
 		if (view === 'complaintsForm') {
 			return (
 				<Row>
-					<Col md={3} lg={3}/>
-					<Col md={6} lg={6}>
-						<div>
-							<button onClick={ this.changeView } className='complaintsList'>Ver Todos</button>
-							<button onClick={ this.changeView } className='complaintsForm'>Crear Reclamo</button>
+					<Col md={3} lg={2}/>
+					<Col md={8} lg={8}>
+						<div id={s.createButtonBar}>
+							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Volver</button>
 						</div>
-						<ComplaintsCreateForm {...this.props} />
+							<ComplaintsCreateForm  />
+						<div>
+							{ this.props.complaints.map((complaint, i) => <SingleComplaintWithComments {...this.props} key={i} i={i} complaint={complaint} /> ) }
+						</div>
 					</Col>
 				</Row>
+<<<<<<< HEAD
+			)
+		} else if ( view === 'complaintsList' && !this.props.complaints.length ) {
+=======
 			);
 		} else if (!this.props.complaints.length) {
 
+>>>>>>> 24865f64e2e9dfa854510cce2d30ba63ab389e3f
 		return (
 			<Row>
-				<Col md={3} lg={3}/>
-				<Col md={6} lg={6}>
-					<div>
-						<button onClick={ this.changeView } className='complaintsList'>Ver Todos</button>
-						<button onClick={ this.changeView } className='complaintsForm'>Crear Reclamo</button>
+				<Col md={3} lg={2}/>
+				<Col md={8} lg={8}>
+					<div id={s.createButtonBar}>
+						<button onClick={ this.changeView } className='complaintsForm' id={s.createButton}>Crear Reclamo</button>
 					</div>
-					<p>No hay reclamos para mostrar.</p>
+					<div className={s.noComplaints}><p>No hay reclamos para mostrar.</p></div>
 				</Col>
 			</Row>
-		)} else if (view === 'complaintsList') {
+		)} else if ( view === 'complaintsForm' && !this.props.complaints.length ) {
+			return (
+				<Row>
+					<Col md={3} lg={2}/>
+					<Col md={8} lg={8}>
+						<div id={s.createButtonBar}>
+							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Volver</button>
+						</div>
+						<ComplaintsCreateForm id={s.form}  />
+						<div className={s.noComplaints}><p>No hay reclamos para mostrar.</p></div>
+					</Col>
+				</Row>
+			)
+		}
 		return (
 			<Row>
-				<Col md={3} lg={3}/>
-				<Col md={6} lg={6}>
-					<div>
-						<button onClick={ this.changeView } className='complaintsList' >Ver Todos</button>
-						<button onClick={ this.changeView } className='complaintsForm' >Crear Reclamo</button>
-					</div>
-					{ this.props.complaints.map((complaint, i) => <ComplaintsList {...this.props} key={i} i={i} complaint={complaint} /> ) }
+				<Col md={3} lg={2}/>
+				<Col md={8} lg={8}>
+						<div id={s.createButtonBar}>
+							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Crear Reclamo</button>
+						</div>
+						<div>
+							{ this.props.complaints.map((complaint, i) => <SingleComplaintWithComments {...this.props} key={i} i={i} complaint={complaint} /> ) }
+						</div>
 				</Col>
 			</Row>
-	)}}
+
+			)
+	}
 }

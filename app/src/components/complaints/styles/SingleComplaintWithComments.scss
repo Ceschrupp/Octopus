@@ -1,0 +1,70 @@
+.complaintBox {
+
+	font-family: 'Lato', sans-serif;
+	background-color: rgba(0, 0, 0, 0.75);
+	color: white;
+  	border-radius: 16px;
+  	width: 100%;
+  	padding: 15px;
+  	margin: 0 auto;
+  	margin-top: 40px;
+}
+
+.minus, .plus {
+
+	display: inline-block;
+	width: 10%;
+	color: #0095c6;
+}
+.title {
+
+	font-weight: bold;
+	display: inline-block;
+	width: 45%;
+}
+
+.complaintState {
+
+	display: inline-block;
+	width: 45%;
+}
+
+.images {
+
+	width:100%;
+
+}
+
+.preview {
+
+	display: inline-block;
+	width:40px;
+	height: 40px;
+	padding-left: 5px;
+}
+
+.userNameLine {
+
+	display: inline-block;
+	width: 100%;
+	text-align: right;
+}
+
+.userName {
+
+	display: inline-block;
+	font-weight: bold;
+}
+
+.complaintDate {
+
+	width: 100%;
+	text-align: right;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.comments {
+
+	color: #8191aa;
+}

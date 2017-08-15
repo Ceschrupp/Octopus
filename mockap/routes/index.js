@@ -7,19 +7,19 @@ router.get('/', function(req, res, next) {
 	res.render('index', { title: 'Express' });
 });
 
-router.get('/login', function(req, res, next){
+router.post('/login', function(req, res, next){
 	console.log('someone is loging, ', 'STRINGED:', JSON.stringify(objects.user));
-	res.jsonp(objects.user);
+	res.send(objects.user);
 });
 
 /////////////////////////////////AMENITIES
 
-router.get('/ver-reservas', function(req, res, next) {
+router.get('/reservas', function(req, res, next) {
 	//TE TRAE 10 RESERVAS
-	res.send(JSON.stringify(objects.reservas));
+	res.send(objects.reservas);
 });
 
-router.get('/ver-reservas/:numero', function(req, res, next) {
+router.get('/reservas/:numero', function(req, res, next) {
 	//TE TRAE 20 RESERVAS mas
 	res.send(JSON.stringify(objects.masReservas));
 });
@@ -27,8 +27,9 @@ router.get('/ver-reservas/:numero', function(req, res, next) {
 /////////////////////////////////RECLAMOS
 router.get('/reclamos', function(req, res, next) {
 //TE TRAE 10 RECLAMOS
-	res.send(JSON.stringify(objects.reclamos));
+	res.send(objects.reclamos);
 });
+
 router.get('/reclamos/:numero', function(req, res, next) {
 //TE TRAE 20 RECLAMOS mas
 	/*res.send(JSON.stringify(objects.masReclamos));*/
@@ -48,8 +49,9 @@ router.get('/comentarios/:numero', function(req, res, next) {
 /////////////////////////////////NOVEDADES
 router.get('/novedades', function(req, res, next) {
 //TE TRAE 10 NOVEDADES
-	res.send('index', { title: 'Express' });
+	res.send('HOLA');
 });
+
 router.get('/novedades/:numero', function(req, res, next) {
 //TE TRAE 20 NOVEDADES mas
 	res.send('index', { title: 'Express' });
@@ -66,6 +68,7 @@ router.get('/expensas', function(req, res, next) {
 //TE TRAE 10 EXPENSAS
 	res.send('index', { title: 'Express' });
 });
+
 router.get('/expensas/:numero', function(req, res, next) {
 //TE TRAE 20 EXPENSAS mas
 	res.send('index', { title: 'Express' });

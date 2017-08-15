@@ -29,6 +29,7 @@ import ComplaintCreateForm from './components/complaints/ComplaintCreateForm';
 
 //import react router deps
 
+import Complaint from './components/complaints/SingleComplaintWithComments';
 
 //routes
 const router = (

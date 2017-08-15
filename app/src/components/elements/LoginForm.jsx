@@ -10,8 +10,9 @@ export default class Login extends React.Component {
 		this.handle=this.handle.bind(this);
 	}
 
-	handle(e) {
-		console.log('hola')
+
+	handleSubmit(e) {
+		console.log('HOLAAAAAAA');
 		e.preventDefault();
 		this.props.fetchLogUser({
 			email:e.target.loginEmail.value,
@@ -49,14 +50,25 @@ export default class Login extends React.Component {
 				<Col md={3} lg={4}/>
 				<Col md={6} lg={4}>
 					<div className={s.LoginForm}>
-						{this.renderAlert()}
-						<form ref='loginForm' className='loginForm' onSubmit={this.handle}>
-							<span ref='errorMessage' className='errorMessage'></span>
-							<input ref='loginEmail'  className={['loginEmail',s.loginEmail].join(' ')}  name='loginEmail' placeholder='E-Mail' required />
-							<input ref='loginPassword' type='password'className={['loginPassword',s.loginPassword].join(' ')}name='loginPassword' placeholder='Clave' required />
-							<button className={['loginButton',s.loginButton].join(' ')} type='submit'>Iniciar Sesión</button>
-							<Link to='/olvide-clave'><p className={['loginForgot',s.loginForgot].join(' ')}>¿Olvidaste tu Clave?</p></Link>
+						<div>{this.renderAlert()}</div>
+						<form className='loginForm' onSubmit={this.handleSubmit} >
+							<input
+								ref='loginEmail'
+								className={['loginEmail',s.loginEmail].join(' ')}  
+								name='loginEmail' placeholder='E-Mail' 
+								required 
+							/>
+							<input
+								ref='loginPassword'
+								type='password'
+								className={['loginPassword',s.loginPassword].join(' ')} 
+								name='loginPassword' 
+								placeholder='Clave' 
+								required 
+							/>
+							<input className={['loginButton',s.loginButton].join(' ')} type='submit' value='Iniciar Sesión'/>
 						</form>
+						<Link to='/olvide-clave'><p className={['loginForgot',s.loginForgot].join(' ')}>¿Olvidaste tu Clave?</p></Link>
 					</div>
 				</Col>
 			</Row>

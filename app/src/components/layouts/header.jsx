@@ -22,9 +22,9 @@ class Header extends React.Component {
 		} else {
 			return (
 			<div className="header">
-					<BurgerMenu user={this.props.userStuff.user}/>
+			<BurgerMenu user={this.props.userStuff.user}/>
 	        <div>{this.props.view}</div>
-					<Dropdown options={this.props.userStuff.user.buildings}/>
+			<Dropdown options={this.props.userStuff.user.buildings}/>
 	        <div className="divdellink"><Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link></div>
 			</div>
 			)
