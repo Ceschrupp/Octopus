@@ -34,14 +34,17 @@ export default class ComplaintsContainer extends React.Component {
 		super(props);
 		this.state = {
 			view:'complaintsList'
+
 		}
+
 		this.changeView = this.changeView.bind(this);
 	}
 
 	componentWillMount() {
+
 		this.props.fetchGetComplaints();
 	}
-	
+
 	changeView(event) {
 		event.preventDefault();
 		let view = event.target.className;

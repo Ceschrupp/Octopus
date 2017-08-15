@@ -7,6 +7,10 @@ export default class latestExpenses extends React.Component {
 		super(props);
 	}
 
+	componentWillMount() {
+		if(this.props.other.expenses.length === 0) {this.props.fetchGetExpenses();}
+	}
+
 	getMore(e) {
 		e.preventDefault();
 		const pag = (this.props.other.expenses.length / 10) + 1;
@@ -27,18 +31,22 @@ export default class latestExpenses extends React.Component {
 
 	render() {
 		if (this.props.location.pathname === '/expensas'){
-			
 			return (
 				<div>
 					{this.props.other.expenses.map((expenses, i) => <Expenses {...this.props} key={i} i={i} expenses={expenses} />)}
 					{this.getMoreButton()}
 				</div>
 			);
+
+		} else if (!this.props.other.expenses[0]){
+			return (
+				<div>Is Fetching</div>
+			);	
+
 		} else {
-			
 			return (
 				<div className='lastExpenses'>
-					<Link to='file'>{this.props.other.expenses[0]}</Link>
+					<Link to='file'>{this.props.other.expenses[0].file}</Link>
 					<Link to='file'></Link>
 					<Link to='/expensas'>Ver Todos</Link>
 				</div>

@@ -22,7 +22,7 @@ export default class Amenities extends React.Component {
 			if(this.props.amenities.length !== 0) {
 				return (
 					<div className='AmenitiesListDiv'>
-						{this.props.amenities.map((booking, i) => <AmenitiesList {...this.props} key={i} i={i} booking={booking} /> )}
+						{this.props.amenities.map((amenitie, i) => <AmenitiesList {...this.props} key={i} i={i} amenitie={amenitie} /> )}
 					</div>
 				);
 

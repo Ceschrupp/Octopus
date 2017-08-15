@@ -13,10 +13,11 @@ function mapStateToProps(state) {
 		},
 		other: {
 			view: state.other.view,
-			news: [state.other.news],
-			info: [state.other.info],
+			news: state.other.news,
+			info: state.other.info,
 			expenses: state.other.expenses,
 			isFetching: state.other.isFetching,
+			payments: state.other.payments,
 			failedToFetch: state.other.failedToFetch,
 			buildingNow: state.userStuff.buildingNow
 		},

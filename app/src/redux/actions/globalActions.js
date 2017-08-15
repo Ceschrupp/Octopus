@@ -72,16 +72,6 @@ export function getMoreComplaints(complaints) {
 	};
 }
 
-//////////////////////////////////////////////////////PAYMENTS ACTIONS
-export const GET_PAYMENTS = 'GET_PAYMENTS';
-
-export function getPayments(payments) {
-	return {
-		type: GET_PAYMENTS,
-		payments
-	};
-}
-
 //////////////////////////////////////////////////////COMMENTS ACTIONS
 export const GET_COMMENTS = 'GET_COMMENTS';
 
@@ -174,11 +164,74 @@ export function getNews(news) {
 	};
 }
 
+export const GET_MORE_NEWS = 'GET_MORE_NEWS';
+
+export function getMoreNews(news) {
+	return {
+		type: GET_MORE_NEWS,
+		news
+	};
+}
+
 export const GET_INFO = 'GET_INFO';
 
 export function getInfo(info) {
 	return {
 		type: GET_INFO,
 		info
+	};
+}
+
+export const GET_MORE_INFO = 'GET_MORE_INFO';
+
+export function getMoreInfo(info) {
+	return {
+		type: GET_MORE_INFO,
+		info
+	};
+}
+
+export const GET_EXPENSES = 'GET_EXPENSES';
+
+export function getExpenses(expenses) {
+	return {
+		type: GET_EXPENSES,
+		expenses
+	};
+}
+
+export const GET_MORE_EXPENSES = 'GET_MORE_EXPENSES';
+
+export function getMoreExpenses(expenses) {
+	return {
+		type: GET_MORE_EXPENSES,
+		expenses
+	};
+}
+
+export const GET_PAYMENTS = 'GET_PAYMENTS';
+
+export function getPayments(payments) {
+	return {
+		type: GET_PAYMENTS,
+		payments
+	};
+}
+
+export const CREATE_PAYMENT = 'CREATE_PAYMENT';
+
+export function createPayment(payment) {
+	return {
+		type: CREATE_PAYMENT,
+		payment
+	};
+}
+
+export const GET_MORE_PAYMENTS = 'GET_MORE_PAYMENTS';
+
+export function getMorePayments(payments) {
+	return {
+		type: GET_MORE_PAYMENTS,
+		payments
 	};
 }

@@ -1,5 +1,4 @@
-
-import { BUILDING_NOW, IS_FETCHING, FAILED_TO_FETCH, CHANGE_VIEW, GET_NEWS, GET_MORE_NEWS, GET_INFO, GET_MORE_INFO, GET_EXPENSES, GET_MORE_EXPENSES, GET_PAYMENTS, GET_MORE_PAYMENTS, PAYMENT_NOTICE } from '../actions/globalActions';
+import { BUILDING_NOW, IS_FETCHING, FAILED_TO_FETCH, CHANGE_VIEW, GET_NEWS, GET_MORE_NEWS, GET_INFO, GET_MORE_INFO, GET_EXPENSES, GET_MORE_EXPENSES, GET_PAYMENTS, CREATE_PAYMENT, GET_MORE_PAYMENTS } from '../actions/globalActions';
 
 function otherReducer(state = {
 	view: 'Menú',
@@ -7,7 +6,6 @@ function otherReducer(state = {
 	info: [],
 	expenses: [],
 	payments: [],
-	paymentNotice: [],
 	isFetching: false,
 	failedToFetch: false,
 	buildingNow: null
@@ -34,7 +32,7 @@ function otherReducer(state = {
 		return Object.assign({}, state, {
 			view: action.view
 		});
-
+	///////////////////////////////NEWS
 	case GET_NEWS:
 		return Object.assign({}, state, {
 			news: action.news
@@ -42,9 +40,9 @@ function otherReducer(state = {
 
 	case GET_MORE_NEWS:
 		return Object.assign({}, state, {
-			news: action.news
+			news: [...state.news, action.news]
 		});
-
+	///////////////////////////////DATOS UTILES
 	case GET_INFO:
 		return Object.assign({}, state, {
 			info: action.info
@@ -52,9 +50,9 @@ function otherReducer(state = {
 
 	case GET_MORE_INFO:
 		return Object.assign({}, state, {
-			info: action.info
+			info: [...state.info, action.info]
 		});
-
+	///////////////////////////////PAGOS
 	case GET_PAYMENTS:
 		return Object.assign({}, state, {
 			payments: action.payments
@@ -62,14 +60,14 @@ function otherReducer(state = {
 
 	case GET_MORE_PAYMENTS:
 		return Object.assign({}, state, {
-			payments:action.payments
+			payments: [...state.payments, action.payments]
 		});
 
-	case PAYMENT_NOTICE:
+	case CREATE_PAYMENT:
 		return Object.assign({}, state, {
-			paymentNotice: action.paymentNotice
+			payments: [...state.payments, action.payment]
 		});
-
+	///////////////////////////////EXPENSAS
 	case GET_EXPENSES:
 		return Object.assign({}, state, {
 			expenses: action.expenses
@@ -77,7 +75,7 @@ function otherReducer(state = {
 
 	case GET_MORE_EXPENSES:
 		return Object.assign({}, state, {
-			expenses:action.expenses
+			expenses: [...state.expenses, action.expenses]
 		});
 
 	default:

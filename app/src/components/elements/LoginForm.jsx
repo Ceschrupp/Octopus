@@ -12,7 +12,6 @@ export default class Login extends React.Component {
 
 
 	handleSubmit(e) {
-		console.log('HOLAAAAAAA');
 		e.preventDefault();
 		this.props.fetchLogUser({
 			email:e.target.loginEmail.value,
@@ -20,7 +19,7 @@ export default class Login extends React.Component {
 		});
 	}
 
-	componentDidMount() {
+	componentDidMount() { 	//////////////////////////////MMMMM ESTO NO SIrve AMeo
 		if (this.props.userStuff.isLogged) {
 			this.props.location.pathname = '/dashboard';
 		}
