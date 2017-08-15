@@ -33,6 +33,7 @@ font-size: 20pt;
   right: 30px;
   padding: 10px;
   margin: 0;
+  z-index: 999999999999;
 
 }
 .MenuOption{
@@ -50,9 +51,6 @@ font-size: 20pt;
   transition: all 0.2s ease;
 }
 
-.MenuOption:focus{
-  background-color: #0095C6;
-}
 
 .header{
   width: 100%;
