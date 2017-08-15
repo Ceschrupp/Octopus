@@ -19,7 +19,7 @@ export default class Complaint extends React.Component {
 		})
 	}
 	componentWillMount () {
-		console.log('RRRRRRRRR', this.props.userStuff)
+		console.log('RRRRRRRRR', this.props.userStuff.user)
 	}
 	render () {
 		if (this.state.view === 'allCollapsed') {
@@ -99,7 +99,7 @@ export default class Complaint extends React.Component {
 					</Col>
 				</Row>
 				)
-			} else if (this.state.view === 'allExpanded' && (this.props.complaint.isPrivate === 1 && this.props.complaint.user_id === this.props.user.user_id)) {
+			} else if (this.state.view === 'allExpanded' && (this.props.complaint.isPrivate === 1 && this.props.complaint.user_id === this.props.userStuff.user.user_id)) {
 				return (
 				<Row>
 					<Col md={1} lg={1}/>

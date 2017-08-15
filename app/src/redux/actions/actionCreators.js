@@ -11,7 +11,7 @@ const url = 'http://api.octopus.dev/api';
 
 const localUrl = 'http://localhost:3000';
 
-const url1 = 'https://98b24bfb.ngrok.io';
+const url1 = 'https://b47f8aae.ngrok.io';
 
 
 const ifError = (status, dispatch) => {
