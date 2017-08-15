@@ -12,6 +12,7 @@ export default class Home extends React.Component {
 	componentWillMount() {
 		this.props.fetchGetNews();
 		this.props.fetchGetInfo();
+		this.props.fetchGetExpenses();
 	}
 	render() {
 		return (

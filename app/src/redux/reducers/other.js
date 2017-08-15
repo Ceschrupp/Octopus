@@ -1,34 +1,34 @@
 
-import { BUILDING_NOW, IS_FETCHING, FAILED_TO_FETCH, ERROR, CHANGE_VIEW, GET_NEWS, GET_MORE_NEWS, GET_INFO, GET_MORE_INFO, GET_EXPENSES, GET_MORE_EXPENSES, GET_PAYMENTS, GET_MORE_PAYMENTS, PAYMENT_NOTICE } from '../actions/globalActions';
+import { BUILDING_NOW, IS_FETCHING, FAILED_TO_FETCH, CHANGE_VIEW, GET_NEWS, GET_MORE_NEWS, GET_INFO, GET_MORE_INFO, GET_EXPENSES, GET_MORE_EXPENSES, GET_PAYMENTS, GET_MORE_PAYMENTS, PAYMENT_NOTICE } from '../actions/globalActions';
 
 function otherReducer(state = {
-		view: "Menú",
-		news: [],
-		info: [],
-		expenses: [],
-		payments: [],
-		paymentNotice: [],
-		isFetching: false,
-		failedToFetch: false,
-		error: null,
-		buildingNow: null
-	} , action) {
+	view: 'Menú',
+	news: [],
+	info: [],
+	expenses: [],
+	payments: [],
+	paymentNotice: [],
+	isFetching: false,
+	failedToFetch: false,
+	buildingNow: null
+} , action) {
 
 	switch (action.type) {
 
-		case BUILDING_NOW:
-			return Object.assign({}, state, {
-					buildingNow: action.id
-			});
+	case BUILDING_NOW:
+		return Object.assign({}, state, {
+			buildingNow: action.id
+		});
 
-		case IS_FETCHING:
-			return Object.assign({}, state, {
-					isFetching: action.boolean
-			});
-		case FAILED_TO_FETCH:
-			return Object.assign({}, state, {
-				logErr: action.err
-			});
+	case IS_FETCHING:
+		return Object.assign({}, state, {
+			isFetching: action.boolean
+		});
+
+	case FAILED_TO_FETCH:
+		return Object.assign({}, state, {
+			failedToFetch: action.err
+		});
 
 	case CHANGE_VIEW:
 		return Object.assign({}, state, {

@@ -133,9 +133,9 @@ export const BUILDING_NOW = 'BUILDING_NOW';
 
 export function buildingNow(id){
 	return{
-	type: BUILDING_NOW,
-	id
-	}
+		type: BUILDING_NOW,
+		id
+	};
 }
 
 export const IS_FETCHING = 'IS_FETCHING';
@@ -180,14 +180,5 @@ export function getInfo(info) {
 	return {
 		type: GET_INFO,
 		info
-	};
-}
-
-export const ERROR = 'ERROR';
-
-export function error(err) {
-	return {
-		type: ERROR,
-		err
 	};
 }

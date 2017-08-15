@@ -45,7 +45,7 @@ export default class ComplaintCreateForm extends React.Component {
 			submitted: 0,
 			isPrivate:'',
 			state: 'Abierto',
-		}
+		};
 	}
 
 	handleChange(event) {
@@ -73,6 +73,7 @@ export default class ComplaintCreateForm extends React.Component {
 			files: filesToUpload
 		});
 	}
+
 
 	remove(event) {
 		event.preventDefault();
