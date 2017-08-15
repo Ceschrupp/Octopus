@@ -6,10 +6,10 @@ export default class usefulInfo extends React.Component {
 	}
 	render () {
 		return (
-				<div className='usefulInfo'>
-					<h4 className='usefulInfoTitle' id={this.props.other.info.i}>{this.props.other.info}</h4>
-					<p className='usefulInfoBody'>{this.props.other.info}</p>
-				</div>
-			)
+			<div className='usefulInfo'>
+				<h4 className='usefulInfoTitle' id={this.props.i}>{this.props.usefulInfo.Title}</h4>
+				<p className='usefulInfoBody'>{this.props.usefulInfo.Body}</p>
+			</div>
+		);
 	}
 }
