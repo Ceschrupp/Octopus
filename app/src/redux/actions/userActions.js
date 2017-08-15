@@ -2,7 +2,7 @@ import { isFetching, failedToFetch } from './globalActions';
 import * as  $ from 'jquery';
 const url = 'http://api.octopus.dev/api';
 const localUrl = 'http://localhost:3000/login';
-const url1 = 'https://6c6c8f2a.ngrok.io/login';
+const url1 = 'https://9e212217.ngrok.io/login';
 
 import axios from 'axios';
 import Store from '../store.js';
