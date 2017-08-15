@@ -2,7 +2,7 @@ import { isFetching, failedToFetch } from './globalActions';
 import * as  $ from 'jquery';
 const url = 'http://api.octopus.dev/api';
 const localUrl = 'http://localhost:3000/login';
-const url1 = 'https://9e212217.ngrok.io/login';
+const url1 = 'https://e0893c1f.ngrok.io/login';
 
 import axios from 'axios';
 import Store from '../store.js';
@@ -53,7 +53,7 @@ export function fetchLogUser(user) {
 				'Access-Control-Allow-Origin': '*',
 			},
 			crossDomain: true,
-			url: `${url1}`,
+			url: `${localUrl}`,
 			method: 'POST',
 			withCredentials: true,
 			responseType: 'json',
