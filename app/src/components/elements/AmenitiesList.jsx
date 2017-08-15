@@ -15,7 +15,7 @@ export default class AmenitiesList extends React.Component {
 
 	deleteBooking(e){
 		e.preventDefault();
-		this.props.fetchDeleteBooking(booking);
+		this.props.fetchDeleteBooking(this.props.amenitie.id);
 	}
 
 	toggle() {
@@ -38,8 +38,7 @@ export default class AmenitiesList extends React.Component {
 						<div className={s.cross}><i className="fa fa-plus" ref='bookingAmenities' onClick={this.toggle} /></div>
 							<div className={s.trash} onClick={this.deleteBooking}><i className="fa fa-trash" aria-hidden="true"/></div>
 								<h4 className={s.title}>
-									{this.props.amenities}
-									<p>piscina</p>
+									{this.props.amenitie.amenitie}
 								</h4>
 						{/*<Link to={`reservar-amenities/edit/${this.props.booking._id}`}>
 							<i class="fa fa-pencil" aria-hidden="true"></i>
@@ -48,13 +47,11 @@ export default class AmenitiesList extends React.Component {
 					</div>
 					<div ref='oculto' className={s.hidden}>
 							<p className={s.body}>
-							{this.props.amenities.bookingName}
-							lolita
+							{this.props.amenitie.bookingName}
 							</p>
 							<p className={s.body}>
-							{this.props.amenities.bookingDate}
-							08/56/2567
-							tyyb</p>
+							{this.props.amenitie.bookingDate}
+							</p>
 					</div>
 				</div>
 			</Col>
