@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
 
 //import reducers
 import other from './other';
@@ -21,7 +20,6 @@ const InitialState = {
 		info: [],
 		expenses: [],
 		payments: [],
-		paymentNotice: [],
 		isFetching: false,
 		failedToFetch: false
 	},
@@ -29,7 +27,7 @@ const InitialState = {
 	complaints: [],
 	comments: []
 };
-const appReducer = combineReducers({other, amenities, complaints, comments, userStuff, routing: routerReducer});
+const appReducer = combineReducers({other, amenities, complaints, comments, userStuff});
 
 const rootReducer = (state, action) => {
 	if (action.type === 'LOG_OUT') {

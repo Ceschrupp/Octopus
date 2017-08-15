@@ -34,5 +34,5 @@ export default class paymentNotice extends React.Component {
 				</div>
 			</Col>
 		</Row>
-			)}
+		)}
 }
