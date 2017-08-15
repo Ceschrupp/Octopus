@@ -35,12 +35,14 @@ export default class ComplaintCreateForm extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.onDrop = this.onDrop.bind(this);
 		this.remove = this.remove.bind(this);
+		let submitted = 0;
 
 		this.state= {
 			title: '',
 			body: '',
 			initiateComplaintDate: moment().locale('es').format('D MMMM YYYY, ha'),
 			files: [],
+			submitted: 0,
 			isPrivate:'',
 			state: 'Abierto',
 		};
@@ -57,7 +59,9 @@ export default class ComplaintCreateForm extends React.Component {
 		
 	handleSubmit(event) {
 		event.preventDefault();
-		console.log('SUBMITTTT', this.state);
+		this.setState({
+			submitted: 1
+		})
 		this.props.fetchSendComplaint(this.state);
 
 	}
@@ -79,29 +83,44 @@ export default class ComplaintCreateForm extends React.Component {
 		})
 	}
 
-
 	render() {
+		if ( this.state.submitted === 1 ) {
+			return (
+				<Row>
+					<Col md={3} lg={0}/>
+					<Col md={8} lg={8}>
+						<div className={s.sent}>
+							<p>Su reclamo ha sido enviado.</p>
+						</div>
+					</Col>
+				</Row>
+			)
+		}
 		return (
 			<Row>
-				<Col md={3} lg={3}/>
-				<Col md={6} lg={6}>
-					<form onSubmit={ this.handleSubmit } encType='multipart/form-data' id='dropzoneFormId'>
-						<input form='dropzoneFormId' placeholder='Asunto' name='title' onChange={ this.handleChange } value={ this.state.value } onSubmit={ this.handleSubmit } required />
-						<textarea form='dropzoneFormId'	placeholder='Comentarios' name='body'	onChange={ this.handleChange } value={ this.state.value } required />
-						<section>
-							<Dropzone form='dropzoneFormId' id='dropzoneId' onDrop={ this.onDrop } ref='dropzoneId' accept='image/jpg,image/jpeg,image/png' multiple={true}>
+				<Col md={3} lg={0}/>
+				<Col md={8} lg={8}>
+				<div className={s.ComplaintsFormDiv}>
+					<form onSubmit={ this.handleSubmit } encType='multipart/form-data' id='dropzoneFormId' className={s.ComplaintForm} >
+						<input form='dropzoneFormId' placeholder='Asunto' name='title' onChange={ this.handleChange } value={ this.state.value } onSubmit={ this.handleSubmit } className={s.ComplaintSubject} required />
+						<textarea className={s.ComplaintTextArea} form='dropzoneFormId'	placeholder='Comentarios' name='body'	onChange={ this.handleChange } value={ this.state.value } required />
+						<section className={s.DropzoneSection} >
+							<Dropzone form='dropzoneFormId' id='dropzoneId' onDrop={ this.onDrop } ref='dropzoneId' accept='image/jpg,image/jpeg,image/png' className={s.Dropzone} multiple={true}>
 								<label htmlFor='dropzoneId'>Arrastrá un archivo JPG/PNG aquí o hacé click para elegir uno.</label>
 							</Dropzone>
-							<aside>
-	         					<ol>
-	            				{ this.state.files.map(f => <li key={f.name}><img src={f.preview} height='40' width='40'/><a href='' onClick={ this.remove } id={f.name}>Eliminar</a></li>) }
-	          					</ol>
+							<aside className={s.SelectedFilesAside} >
+	         					<ul className={s.List}>
+	            				{ this.state.files.map(f => <li key={f.name} ><img src={f.preview} height='80' width='80'/><a href='' onClick={ this.remove } id={f.name}>Eliminar</a></li>) }
+	          					</ul>
 	          				</aside>
+	          				<div className={s.PrivateComplaint}>
 							<input form='dropzoneFormId' type='checkbox' id='privateCheckbox' onChange={ this.handleChange } ref='checkbox' />
 							<label htmlFor='privateCheckbox'>Este reclamo es privado.</label>
-							<input type='submit' value='Enviar' />
+							</div>
+							<input type='submit' value='Enviar' className={s.SendButton} />
 						</section>
 					</form>
+				</div>
 				</Col>
 			</Row>
 

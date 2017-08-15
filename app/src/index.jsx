@@ -29,6 +29,7 @@ import ComplaintCreateForm from './components/complaints/ComplaintCreateForm';
 
 //import react router deps
 
+import Complaint from './components/complaints/SingleComplaintWithComments';
 
 //routes
 const router = (
@@ -48,7 +49,6 @@ const router = (
 				<Route path='/reservar-amenities/edit/:bookingId' component={AmenitiesEditContainer}></Route>
 				<Route path='/ver-reservas' component={AmenitiesContainer}></Route>
 				<Route path='/amenities' component={AmenitiesContainer}></Route>
-
 				<Route path='/reclamos' component={ComplaintsContainer}></Route>
 				<Route path='/crear-reclamo' component={ComplaintCreateForm}></Route>
 				<Route path='/login' component={LoginForm}></Route>

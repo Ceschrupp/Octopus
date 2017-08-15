@@ -54,10 +54,6 @@ var MenuOption = module.exports = React.createClass({
     this.onSelect();
   },
 
-  handleHover: function() {
-    this.props._internalFocus(this.props.index);
-  },
-
   buildName: function() {
     var name = this.buildClassName('Menu__MenuOption');
     if (this.props.active){
@@ -77,9 +73,6 @@ var MenuOption = module.exports = React.createClass({
       <div
         {...otherProps}
         onClick={this.handleClick}
-        onKeyUp={this.handleKeyUp}
-        onKeyDown={this.handleKeyDown}
-        onMouseOver={this.handleHover}
         className={this.buildName()}
         role={role}
         tabIndex="-1"

@@ -14,7 +14,7 @@ const ifError = (status, dispatch) => {
 	dispatch(globals.failedToFetch(false));
 	dispatch(userActions.userFail(false));
 	status === '400' || status === '401' ?
-		dispatch(userActions.userFail('Error de Autenticación')) 
+		dispatch(userActions.userFail('Error de Autenticación'))
 		: status === '500' || status === '404' ?
 			dispatch(globals.failedToFetch('Error del servidor'))
 			: dispatch(globals.failedToFetch('Error del servidor'));
@@ -71,7 +71,7 @@ const krakenCreator = function (method, route, actionSuccess) {
 			console.log('Stores', Store.getState());
 			console.log(`${url1}${middleRoute}`);
 			return $.ajax({
-				type: method, 
+				type: method,
 				url: `${url1}${middleRoute}`,
 				xhrFields: {
 					withCredentials: true
@@ -135,7 +135,7 @@ export const fetchGetMoreBookings = krakenCreator('get', 'reservas', 'getMoreBoo
 export const fetchCreateBooking = krakenCreator('post', 'reservar-amenities', 'createBooking');
 //export const fetchGetBuilding = krakenCreator('get', 'reservar-amenities', 'createBooking');
 export const fetchDeleteBooking = krakenCreator('delete', 'eliminar-reserva','deleteBooking');
-export const fetchEditBooking = krakenCreator('put', 'editar-reserva','editBooking'); 
+export const fetchEditBooking = krakenCreator('put', 'editar-reserva','editBooking');
 
 //// Complaints
 export const fetchSendComplaint = krakenCreator('post', 'crear-reclamo', 'createComplaint');

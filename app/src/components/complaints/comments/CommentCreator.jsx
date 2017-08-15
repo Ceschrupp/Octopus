@@ -16,29 +16,31 @@ export default class CommentCreator extends React.Component {
 	}
 
 	handleChange(e) {
+		e.preventDefault();
 		this.setState({
 			[e.target.name]: e.target.value,
 		});
 	}
 
 	handleSubmit(e) {
-		this.props.fetchSendComment(this.state);
 		e.preventDefault();
+		this.props.fetchSendComment(this.state);
 	}
 	
 	render() {
 		return (
-			<div>
-				<form ref='CommentForm' onSubmit={this.handleSubmit} className='CommentForm'>
+			<div className={s.creator}>
+				<form ref='CommentForm' onSubmit={this.handleSubmit} className={s.form}>
 					<input 
 						onChange={this.handleChange} 
 						name='body'
 						id="body"
 						value={this.state.body}
-						placeholder='Escribe un comentario...' 
+						placeholder='Comentario'
+						className={s.input} 
 						required
 					/>
-					<input disabled={!this.state.body} type="submit" />
+					<input disabled={!this.state.body} type="submit" className={s.button} value='Comentar'/>
 				</form>
 			</div>
 		);

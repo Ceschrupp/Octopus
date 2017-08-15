@@ -37,7 +37,7 @@ const ifError = (status, dispatch) => {
 	dispatch(failedToFetch(false));
 	dispatch(userFail(false));
 	status === '400' || status === '401' ?
-		dispatch(userFail('Email y/o password incorrectos')) 
+		dispatch(userFail('Email y/o password incorrectos'))
 		: status === '500' || status === '404' ?
 			dispatch(failedToFetch('Error del servidor'))
 			: dispatch(failedToFetch('Error del servidor'));
@@ -114,11 +114,11 @@ export function fetchLogUser(user) {
 
 export function fetchLogOutUser(user) {
 
-	return (dispatch) => {	
+	return (dispatch) => {
 		dispatch(isFetching(true));
 		return $.ajax({
-			type: 'GET', 
-			url: `${url}/logout`, 
+			type: 'GET',
+			url: `${url}/logout`,
 			dataType: 'jsonp',
 			xhrFields: {
 				withCredentials: true
@@ -161,10 +161,10 @@ export function fetchLogOutUser(user) {
 
 export function fetchForgotPass(email) {
 
-	return (dispatch) => {	
+	return (dispatch) => {
 		dispatch(isFetching(true));
 		return $.ajax({
-			type: 'POST', 
+			type: 'POST',
 			url: `${url}/olvide-clave`,
 			dataType: 'jsonp',
 			xhrFields: {
@@ -206,11 +206,11 @@ export function fetchForgotPass(email) {
 //////////////////////////////////////ENVIAR NUEVA CLAVE PARA CAMBIAR CLAVE
 export function fetchChangePass(newPass) {
 
-	return (dispatch) => {	
+	return (dispatch) => {
 		dispatch(isFetching(true));
 		return $.ajax({
-			type: 'GET', 
-			url: `${url}/reiniciar-clave`, 
+			type: 'GET',
+			url: `${url}/reiniciar-clave`,
 			dataType: 'jsonp',
 			xhrFields: {
 				withCredentials: true
@@ -260,10 +260,10 @@ export function fetchChangePass(newPass) {
 
 export function fetchRegisterUser(newUser) {
 
-	return (dispatch) => {	
+	return (dispatch) => {
 		dispatch(isFetching(true));
 		return $.ajax({
-			type: 'POST', 
+			type: 'POST',
 			url: `${url}/registro`,
 			dataType: 'jsonp',
 			xhrFields: {
