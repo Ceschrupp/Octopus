@@ -1,24 +1,28 @@
+
+
 .ComplaintsFormDiv {
 
   font-family: 'Lato', sans-serif;
-  /*background-color: rgba(0, 0, 0, 0.75);*/
+  background-color: rgba(0, 0, 0, 0.75);
   color: white;
   border-radius: 16px;
   padding: 15px;
   padding-top: 10px;
   margin: 0px auto;
-  width: 100%;
-  display: inline-block;
-  float: left;
+  margin-top: 40px;
+  width: 152%;
+  margin-left: -24px !important;
+  float: left !important;
 
 }
 
 .ComplaintForm{
 
   padding: 0;
+/*  float: left !important;*/
+  margin: 20px;
   display: block;
-  float: left;
-  margin: 0 auto;
+  text-align: center;
 
 }
 
@@ -34,17 +38,56 @@
   
 }
 /*label*/
-.CreateComplaintTitle{
+/*.CreateComplaintTitle{
 
   width: 100%;	
   text-align: center;
 
+}*/
+
+.sent {
+
+  font-family: 'Lato', sans-serif;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  border-radius: 16px;
+  padding: 15px;
+  padding-top: 10px;
+  margin: 0px auto;
+  margin-top: 40px;
+  width: 152%;
+  margin-left: -24px !important;
+  float: left !important;
 }
 
-.dropzone{
+.Dropzone{
 
 	width: 100%;
+  outline: 0;
+  border-width: 0;
+  border-style: none;
+}
 
+.List {
+
+  list-style: none;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.SelectedFilesAside > img {
+
+  border-style: solid;
+  border-width: 2px;
+  border-color: #8191aa;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.FilePreview {
+
+  text-align: center;
 }
 
 .ComplaintTextArea{
@@ -53,12 +96,15 @@
   height:90px;
   text-align: center;
   margin:10px auto;
+  display: block;
   width: 100%;
+  border: none;
   border-radius: 30px;
   border-style: inset;
   border-width: 2px;
   resize: none;
   outline: 0;
+  margin-right: 20px;
 
 }
 
@@ -66,6 +112,11 @@
 
 	border-style: none;
 	width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #8191aa;
+  margin-right: 20px;
 
 }
 
@@ -76,12 +127,17 @@
   color: #0095c6;
 	height: 50%;
 	width: 40px;
+  margin-top: 20px auto;
 
 }
 
-.privateComplaint {
+.PrivateComplaint {
 
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  padding-right: 15px;
+  text-align: right;
+  color: white;
 }
 
 h4 {
@@ -91,7 +147,7 @@ h4 {
 
 .SendButton{
 
-  margin:10px auto;
+  margin:20px auto;
   display: block;
   width: 100%;
   border-radius: 30px;
@@ -101,5 +157,11 @@ h4 {
   border: solid;
   border-color: #0095C6;
   color: white;
+  outline: 0;
 
+}
+
+label {
+
+  margin-right: 20px;
 }

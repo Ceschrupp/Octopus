@@ -66,18 +66,14 @@ class Header extends React.Component {
 	          <Link onClick={this.toggleMenu } id="cerrar-sesion" className="menu-item" to="/logout">Cerrar Sesión</Link>
 	        </Menu>
 	        <div>{this.props.view}</div>
-						<Select className='myMenu'>
-							<MenuTrigger className='MenuTrigger'>
-							<i className="fa fa-chevron-down" aria-hidden="true"></i>
-							</MenuTrigger>
-								<MenuOptions className='MenuOptions' >
-									{options}
-								</MenuOptions>
-						</Select>
+				
 	        <div className="divdellink"><Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link>
 	        </div>
 
+<<<<<<< HEAD
 					<Select className="select" name="form-field-name" options={options} onChange={this.logChange} />
+=======
+>>>>>>> sol
 
 					<Select className="select" name="form-field-name" options={options} onChange={this.logChange} />
 			</div>
@@ -88,3 +84,12 @@ class Header extends React.Component {
 }
 
 export default Header;
+		// <Select className='myMenu'>
+		// 					<MenuTrigger className='MenuTrigger'>
+
+		// 					<i className="fa fa-chevron-down" aria-hidden="true"></i>
+		// 					</MenuTrigger>
+		// 						<MenuOptions className='MenuOptions' >
+		// 							{options}
+		// 						</MenuOptions>
+		// 				</Select>
