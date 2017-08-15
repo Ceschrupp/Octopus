@@ -15,6 +15,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
 	return {
 		userStuff: {
+			user_id: state.user_id,
 			user: state.user,
 			isLogged: state.isLogged,
 			logErr: state.logErr,
@@ -34,11 +35,12 @@ export default class ComplaintsContainer extends React.Component {
 		super(props);
 		this.state = {
 			view:'complaintsList'
-		}
+		};
 		this.changeView = this.changeView.bind(this);
 	}
 
 	componentWillMount() {
+		console.log('HHHH', this.props.userStuff);
 		this.props.fetchGetComplaints();
 	}
 
@@ -53,21 +55,24 @@ export default class ComplaintsContainer extends React.Component {
 		let view = this.state.view;
 		if (view === 'complaintsForm') {
 			return (
+				<div id={s.toRuleThemAll}>
 				<Row>
 					<Col md={3} lg={2}/>
 					<Col md={8} lg={8}>
 						<div id={s.createButtonBar}>
-							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Volver</button>
+							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Cancelar</button>
 						</div>
 							<ComplaintsCreateForm  />
 						<div>
-							{ this.props.complaints.map((complaint, i) => <SingleComplaintWithComments {...this.props} key={i} i={i} complaint={complaint} /> ) }
+							{ this.props.complaints.map((complaint, i) => <SingleComplaintWithComments {...this.props} user={this.props.userStuff.user} key={i} i={i} complaint={complaint} /> ) }
 						</div>
 					</Col>
 				</Row>
+				</div>
 			)
 		} else if ( view === 'complaintsList' && !this.props.complaints.length ) {
 		return (
+			<div id={s.toRuleThemAll}>
 			<Row>
 				<Col md={3} lg={2}/>
 				<Col md={8} lg={8}>
@@ -77,32 +82,37 @@ export default class ComplaintsContainer extends React.Component {
 					<div className={s.noComplaints}><p>No hay reclamos para mostrar.</p></div>
 				</Col>
 			</Row>
+			</div>
 		)} else if ( view === 'complaintsForm' && !this.props.complaints.length ) {
 			return (
+				<div id={s.toRuleThemAll}>
 				<Row>
 					<Col md={3} lg={2}/>
 					<Col md={8} lg={8}>
 						<div id={s.createButtonBar}>
-							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Volver</button>
+							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Cancelar</button>
 						</div>
 						<ComplaintsCreateForm id={s.form}  />
 						<div className={s.noComplaints}><p>No hay reclamos para mostrar.</p></div>
 					</Col>
 				</Row>
+				</div>
 			)
 		}
 		return (
+			<div id={s.toRuleThemAll}>
 			<Row>
 				<Col md={3} lg={2}/>
 				<Col md={8} lg={8}>
 						<div id={s.createButtonBar}>
-							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Crear Reclamo</button>
+							<button onClick={ this.changeView } className='complaintsForm' id={s.createButton}>Crear Reclamo</button>
 						</div>
 						<div>
-							{ this.props.complaints.map((complaint, i) => <SingleComplaintWithComments {...this.props} key={i} i={i} complaint={complaint} /> ) }
+							{ this.props.complaints.map((complaint, i) => <SingleComplaintWithComments user={this.props.userStuff.user} {...this.props} key={i} i={i} complaint={complaint} /> ) }
 						</div>
 				</Col>
 			</Row>
+			</div>
 
 			)
 	}

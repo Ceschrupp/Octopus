@@ -33,7 +33,7 @@ export default class latestExpenses extends React.Component {
 		if (this.props.location.pathname === '/expensas'){
 			return (
 				<div>
-					{this.props.other.expenses.map((expenses, i) => <Expenses {...this.props} key={i} i={i} expenses={expenses} />)}
+					{this.props.other.expenses.map((Expense, i) => <Expenses key={i} i={i} expenses={Expense} />)}
 					{this.getMoreButton()}
 				</div>
 			);
@@ -46,8 +46,9 @@ export default class latestExpenses extends React.Component {
 		} else {
 			return (
 				<div className='lastExpenses'>
-					<Link to='file'>{this.props.other.expenses[0].file}</Link>
-					<Link to='file'></Link>
+					<h2>Expensas de este Mes</h2>
+					<h4 to='file'>{this.props.other.expenses[0].Date}</h4>
+					<Link to='file'>{this.props.other.expenses[0].File}</Link>
 					<Link to='/expensas'>Ver Todos</Link>
 				</div>
 			);

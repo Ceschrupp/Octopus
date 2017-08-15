@@ -30,7 +30,6 @@ class Header extends React.Component {
 					</div>
 				</div>
 			);
-
 		}
 			return (
 				<div className="header">

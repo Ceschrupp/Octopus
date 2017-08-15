@@ -238,7 +238,6 @@ exports.expensas = [
 	{	File: 'archivo PDF',
 		Date: '13 de Julio de 1962'
 	}
-	
 ];
 
 exports.masExpensas = [ 
@@ -282,7 +281,6 @@ exports.masExpensas = [
 	{	File: 'archivo PDF',
 		Date: '13 de Julio de 1962'
 	}
-	
 ];
 
 exports.reservas = [
@@ -511,15 +509,16 @@ exports.masReservas = [
 		user_id: 98452 }
 ];
 
-exports.reclamos = 	[ { 
-	initiateComplaintDate: '13/02/1995 23pm', 
-	title: 'hola',
-	body: 'me robaron la cerradura', 
-	state: 'pending',
-	building_id: 22, 
-	complaint_id: 44,
-	userNmae: 'Juan',
-	user_id: 98474 },
+exports.reclamos = 	[ 
+	{
+		initiateComplaintDate: '13/02/1995 23pm', 
+		title: 'hola',
+		body: 'me robaron la cerradura', 
+		state: 'pending',
+		building_id: 22, 
+		complaint_id: 44,
+		userNmae: 'Juan',
+		user_id: 98474 },
 
 	{ initiateComplaintDate: '13/02/1995 23pm', 
 		title: 'chau LOAYV1RyRXwU2YOD',
@@ -617,7 +616,7 @@ exports.masReclamos = [
 	{ initiateComplaintDate: '13/02/1995 23pm', 
 		title: 'hola',
 		body: 'me robaron la cerradura', 
-		files: '', 
+		files: [], 
 		state: 'pending',
 		building_id: 22, 
 		complaint_id: 44,
@@ -627,7 +626,7 @@ exports.masReclamos = [
 	{ initiateComplaintDate: '13/02/1995 23pm', 
 		title: 'hola',
 		body: 'me robaron la cerradura', 
-		files: '', 
+		files: [], 
 		state: 'pending',
 		building_id: 22, 
 		complaint_id: 44,
@@ -637,7 +636,7 @@ exports.masReclamos = [
 	{ initiateComplaintDate: '13/02/1995 23pm', 
 		title: 'hola',
 		body: 'me robaron la cerradura', 
-		files: '', 
+		files: [], 
 		state: 'pending',
 		building_id: 22, 
 		complaint_id: 44,
@@ -647,7 +646,7 @@ exports.masReclamos = [
 	{ initiateComplaintDate: '13/02/1995 23pm', 
 		title: 'hola',
 		body: 'me robaron la cerradura', 
-		files: '', 
+		files: [], 
 		state: 'pending',
 		building_id: 22, 
 		complaint_id: 44,
@@ -657,7 +656,7 @@ exports.masReclamos = [
 	{ initiateComplaintDate: '13/02/1995 23pm', 
 		title: 'hola',
 		body: 'me robaron la cerradura', 
-		files: '', 
+		files: [], 
 		state: 'pending',
 		building_id: 22, 
 		complaint_id: 44,
@@ -667,7 +666,7 @@ exports.masReclamos = [
 	{ initiateComplaintDate: '13/02/1995 23pm', 
 		title: 'hola',
 		body: 'me robaron la cerradura', 
-		files: '', 
+		files: [], 
 		state: 'pending',
 		building_id: 22, 
 		complaint_id: 44,
@@ -677,7 +676,7 @@ exports.masReclamos = [
 	{ initiateComplaintDate: '13/02/1995 23pm', 
 		title: 'hola',
 		body: 'me robaron la cerradura', 
-		files: '', 
+		files: [], 
 		state: 'pending',
 		building_id: 22, 
 		complaint_id: 44,
@@ -687,7 +686,7 @@ exports.masReclamos = [
 	{ initiateComplaintDate: '13/02/1995 23pm', 
 		title: 'hola',
 		body: 'me robaron la cerradura', 
-		files: '', 
+		files: [], 
 		state: 'pending',
 		building_id: 22, 
 		complaint_id: 44,
@@ -697,7 +696,7 @@ exports.masReclamos = [
 	{ initiateComplaintDate: '13/02/1995 23pm', 
 		title: 'hola',
 		body: 'me robaron la cerradura', 
-		files: '', 
+		files: [], 
 		state: 'pending',
 		building_id: 22, 
 		complaint_id: 44,
@@ -707,13 +706,12 @@ exports.masReclamos = [
 	{ initiateComplaintDate: '13/02/1995 23pm', 
 		title: 'hola',
 		body: 'me robaron la cerradura', 
-		files: '', 
+		files: [], 
 		state: 'pending',
 		building_id: 22, 
 		complaint_id: 44,
 		userNmae: 'Juan',
 		user_id: 98474 },
-
 ];
 
 exports.comentarios = [
@@ -777,7 +775,6 @@ exports.comentarios = [
 		complaint_id: 44,
 		userNmae: 'Juan',
 		user_id: 98474 },
-
 ];
 
 exports.mascomentarios = [
