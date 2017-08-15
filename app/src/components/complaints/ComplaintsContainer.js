@@ -57,7 +57,7 @@ export default class ComplaintsContainer extends React.Component {
 					<Col md={3} lg={2}/>
 					<Col md={8} lg={8}>
 						<div id={s.createButtonBar}>
-							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Volver</button>
+							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Cancelar</button>
 						</div>
 							<ComplaintsCreateForm  />
 						<div>
@@ -83,7 +83,7 @@ export default class ComplaintsContainer extends React.Component {
 					<Col md={3} lg={2}/>
 					<Col md={8} lg={8}>
 						<div id={s.createButtonBar}>
-							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Volver</button>
+							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Cancelar</button>
 						</div>
 						<ComplaintsCreateForm id={s.form}  />
 						<div className={s.noComplaints}><p>No hay reclamos para mostrar.</p></div>
@@ -96,7 +96,7 @@ export default class ComplaintsContainer extends React.Component {
 				<Col md={3} lg={2}/>
 				<Col md={8} lg={8}>
 						<div id={s.createButtonBar}>
-							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Crear Reclamo</button>
+							<button onClick={ this.changeView } className='complaintsForm' id={s.createButton}>Crear Reclamo</button>
 						</div>
 						<div>
 							{ this.props.complaints.map((complaint, i) => <SingleComplaintWithComments {...this.props} key={i} i={i} complaint={complaint} /> ) }
