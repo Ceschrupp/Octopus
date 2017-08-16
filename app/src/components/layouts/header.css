@@ -1,5 +1,7 @@
 body{
+  position: relative;
   margin: 0;
+  min-height: 100vh;
 }
 
 .myMenu{
@@ -51,9 +53,18 @@ font-size: 20pt;
   background-color: #0095C6;
   transition: all 0.2s ease;
 }
+
 .view{
   margin-top: 15px;
   float: left;
+  color: white;
+  font-size: 1.35em;
+  font-family: 'Lato', sans-serif;
+}
+
+.buildingNow{
+  margin-top: 15px;
+  float: right;
   color: white;
   font-size: 1.35em;
   font-family: 'Lato', sans-serif;
@@ -63,7 +74,8 @@ font-size: 20pt;
   height: 60 px;
   right: 0;
   background-color: #333;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .header{
@@ -169,24 +181,27 @@ font-size: 20pt;
 .footerDiv{
     height: 40px;
     background-color: #333;
-    position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%
+    width: 100%;
+    position: absolute;
+
 
 }
-
+.footerDiv p {
+  margin-bottom: 0;
+}
 .copyright{
-  font-family: 'Lato', sans-serif;
-  display: inline-block;
-  padding: 10px;
-  font-size: 90%;
-  margin: 0 auto;
+  margin-top: 15px;
+  float: left;
   color: white;
+  font-size: 90%;
+  font-family: 'Lato', sans-serif;
+  padding-left: 15px;
 }
 
 .termsAndPrivacy{
-  font-family: 'Lato', sans-serif;
+  /*font-family: 'Lato', sans-serif;
   color: #71d5f7;
   display: inline-block;
   padding: 10px;
@@ -196,7 +211,12 @@ font-size: 20pt;
   bottom: -14px;
   right: 0;
   z-index: 10;
-  text-decoration: none;
+  text-decoration: none;*/
+  float: right;
+  color: white;
+  font-size: 90%;
+  font-family: 'Lato', sans-serif;
+  padding-right: 15px;
 }
 
 .termsAndPrivacy a, .termsAndPrivacy p {

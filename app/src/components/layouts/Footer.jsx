@@ -8,9 +8,7 @@ export default class Footer extends React.Component {
 	}
 
 	render () {
-		return (
-			<Row>
-				<Col md={3} lg={4}/>
+		return (	
 				<div className='footerDiv'>
 					<div className='copyrightDiv'>
 						<p className='copyright'>© 2017 Octopus - Todos los derechos reservados</p>
@@ -21,7 +19,6 @@ export default class Footer extends React.Component {
 						<Link to='/politicas-de-privacidad' className='privacyPolicy'>Políticas de Privacidad</Link>
 					</div>
 				</div>
-			</Row>
 		);
 	}
 }

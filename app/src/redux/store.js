@@ -17,7 +17,7 @@ const InitialState = {
 		isFetching: false,
 		payments: [],
 		failedToFetch: false,
-		buildingNow: null
+		buildingNow: {}
 	},
 	amenities: [],
 	complaints: [],

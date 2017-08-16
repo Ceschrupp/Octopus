@@ -37,7 +37,7 @@ class Header extends React.Component {
 					<Dropdown {...this.props} options={this.props.userStuff.user.buildings}/>
 					<div className="divdellink">
 						<div className="view">{this.props.other.view}</div>
-						<div className="buildingNow">{this.props.other.buildingNow}</div>
+						<div className="buildingNow">{this.props.other.buildingNow.building_name}</div>
 						<Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link>
 					</div>
 				</div>

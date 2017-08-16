@@ -8,14 +8,14 @@ function otherReducer(state = {
 	payments: [],
 	isFetching: false,
 	failedToFetch: false,
-	buildingNow: null
+	buildingNow: {}
 } , action) {
 
 	switch (action.type) {
 
 	case BUILDING_NOW:
 		return Object.assign({}, state, {
-			buildingNow: action.id
+			buildingNow: action.buildingNow
 		});
 
 	case IS_FETCHING:

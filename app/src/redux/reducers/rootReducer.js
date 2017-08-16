@@ -21,7 +21,8 @@ const InitialState = {
 		expenses: [],
 		payments: [],
 		isFetching: false,
-		failedToFetch: false
+		failedToFetch: false,
+		buildingNow:{}
 	},
 	amenities: [],
 	complaints: [],

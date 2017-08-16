@@ -24,7 +24,7 @@ const ifError = (status, dispatch) => {
 
 const krakenCreator = function (type, route, actionSuccess) {
 	return function(content, finalRoute) {
-		let building_id = Store.getState().other.buildingNow;
+		let building_id = Store.getState().other.buildingNow.building_id;
 		let middleRoute = '/' + route;
 		if (finalRoute) {
 			middleRoute = '/' + finalRoute;
