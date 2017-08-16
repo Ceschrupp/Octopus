@@ -19,7 +19,7 @@ function mapStateToProps(state) {
 			isFetching: state.other.isFetching,
 			payments: state.other.payments,
 			failedToFetch: state.other.failedToFetch,
-			buildingNow: state.userStuff.buildingNow
+			buildingNow: state.other.buildingNow
 		},
 		amenities: state.amenities,
 		complaints: state.complaints,

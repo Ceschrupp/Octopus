@@ -36,11 +36,11 @@ router.get('/reclamos/:numero', function(req, res, next) {
 });
 
 /////////////////////////////////COMENTARIOS
-router.get('/comentarios', function(req, res, next) {
+router.post('/comentarios', function(req, res, next) {
 //TE TRAE 10 COMENTARIOS
 	res.send(objects.comentarios);
 });
-router.get('/comentarios/:numero', function(req, res, next) {
+router.post('/comentarios/:numero', function(req, res, next) {
 //TE TRAE 20 COMENTARIOS mas
 	res.send(objects.masComentarios);
 });

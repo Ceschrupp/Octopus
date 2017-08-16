@@ -24,7 +24,7 @@ const ifError = (status, dispatch) => {
 
 const krakenCreator = function (type, route, actionSuccess) {
 	return function(content, finalRoute) {
-		let building_id = Store.getState().other.buildingNow;
+		let building_id = Store.getState().other.buildingNow.building_id;
 		let middleRoute = '/' + route;
 		if (finalRoute) {
 			middleRoute = '/' + finalRoute;
@@ -32,7 +32,7 @@ const krakenCreator = function (type, route, actionSuccess) {
 		return (dispatch) => {
 			dispatch(globals.isFetching(true));
 			console.log('Stores', Store.getState());
-			console.log(`${localUrl}${middleRoute}`);
+			console.log(`${localUrl}${middleRoute}`);//poner aca el building_id al dejar de usar el Mockapp
 			return axios({
 				headers: {
 					'Access-Control-Allow-Origin': '*',
@@ -148,8 +148,8 @@ export const fetchGetMoreComplaints = krakenCreator('get', 'reclamos', 'getMoreC
 export const fetchSendComment = krakenCreator('post', 'crear-comentario', 'createComment');
 export const fetchDeleteComment = krakenCreator('delete', 'eliminar-comentario', 'deleteComment');
 export const fetchEditComment = krakenCreator('post', 'editar-comentario','editComment');
-export const fetchGetComments = krakenCreator('get', 'comentarios', 'getComments');
-export const fetchGetMoreComments = krakenCreator('get', 'comentarios', 'getMoreComments');
+export const fetchGetComments = krakenCreator('post', 'comentarios', 'getComments');
+export const fetchGetMoreComments = krakenCreator('post', 'comentarios', 'getMoreComments');
 
 ////////// OTHER
 //// Novedades

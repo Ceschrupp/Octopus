@@ -18,9 +18,6 @@ export default class Complaint extends React.Component {
 			view: view
 		})
 	}
-	componentWillMount () {
-		console.log('RRRRRRRRR', this.props.userStuff.user)
-	}
 	render () {
 		if (this.state.view === 'allCollapsed') {
 			return (

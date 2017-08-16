@@ -9,11 +9,11 @@ function amenitiesReducer(state = [] , action) {
 	}
 	
 	case GET_MORE_BOOKINGS: {
-		return [...state, action.bookings];
+		return state.concat(action.bookings);
 	}
 	
 	case CREATE_BOOKING: {
-		return [...state, action.booking];
+		return state.concat(action.booking);
 	}
 	
 	case DELETE_BOOKING: {

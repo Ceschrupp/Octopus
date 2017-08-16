@@ -26,16 +26,37 @@ function mapStateToProps(state) {
 class CommentsContainer extends React.Component {
 	constructor(props) {
 		super(props);
+		this.getMore=this.getMore.bind(this);
+		this.getMoreButton=this.getMoreButton.bind(this);
 	}
 
 	componenerWillMount() {
 		this.props.fetchGetComments();
 	}
 
+	getMore(e) {
+		e.preventDefault();
+		const pag = (this.props.comments.length / 10) + 1;
+		this.props.fetchGetMoreComments(`/comentarios/${pag}`);
+	}
+
+	getMoreButton() {
+		if (this.props.comments[this.props.comments.length-1] !== 'end') {
+			return (
+				<div>
+					<button onClick={this.getMore} style={{'margin': '50px 0px'}}>
+						Ver más
+					</button>
+				</div>
+			);
+		}
+	}
+
 	render() {
 		return (
 			<div>
 				<CommentsList {...this.props}/>
+				{this.getMoreButton()}
 				<CommentCreator {...this.props}/>
 			</div>
 		);

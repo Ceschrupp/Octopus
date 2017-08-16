@@ -9,7 +9,7 @@ function complaintsReducer(state = [] , action) {
 	}
 
 	case CREATE_COMPLAINT: {
-		return [...state, action.complaint];
+		return state.concat(action.complaint);
 	}
 
 	case DELETE_COMPLAINT: {
@@ -28,7 +28,7 @@ function complaintsReducer(state = [] , action) {
 	}
 
 	case GET_MORE_COMPLAINTS: {
-		return [...state, action.complaints];
+		return state.concat(action.complaints);
 	}
 
 	default:

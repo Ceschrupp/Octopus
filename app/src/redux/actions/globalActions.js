@@ -121,10 +121,10 @@ export function getMoreComments(comments) {
 //////////////////////////////////////////////////////OTHER ACTIONS
 export const BUILDING_NOW = 'BUILDING_NOW';
 
-export function buildingNow(id){
+export function buildingNow(buildingNow){
 	return{
 		type: BUILDING_NOW,
-		id
+		buildingNow
 	};
 }
 
