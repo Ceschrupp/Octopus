@@ -15,9 +15,7 @@ class Main extends React.Component {
 				<Container>
 					{React.cloneElement(this.props.children, this.props)}
 				</Container>
-				<Container>
-					<Footer {...this.props}/>
-				</Container>
+				<Footer {...this.props}/>
 			</div>
 		);
 	}

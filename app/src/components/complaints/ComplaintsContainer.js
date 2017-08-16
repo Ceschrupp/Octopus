@@ -15,11 +15,9 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
 	return {
 		userStuff: {
-			user_id: state.user_id,
 			user: state.user,
 			isLogged: state.isLogged,
 			logErr: state.logErr,
-			buildings: state.buildings
 		},
 		complaints: state.complaints,
 		other: {
@@ -37,10 +35,11 @@ export default class ComplaintsContainer extends React.Component {
 			view:'complaintsList'
 		};
 		this.changeView = this.changeView.bind(this);
+		this.getMore=this.getMore.bind(this);
+		this.getMoreButton=this.getMoreButton.bind(this);
 	}
 
 	componentWillMount() {
-		console.log('HHHH', this.props.userStuff);
 		this.props.fetchGetComplaints();
 	}
 
@@ -51,6 +50,25 @@ export default class ComplaintsContainer extends React.Component {
 			view: view
 		})
 	}
+
+	getMore(e) {
+		e.preventDefault();
+		const pag = (this.props.complaints.length / 10) + 1;
+		this.props.fetchGetMoreComplaints(`/reclamos/${pag}`);
+	}
+
+	getMoreButton() {
+		if (this.props.complaints[this.props.complaints.length-1] !== 'end') {
+			return (
+				<div>
+					<button onClick={this.getMore} style={{'margin': '50px 0px'}}>
+						Ver más
+					</button>
+				</div>
+			);
+		}
+	}
+
 	render() {
 		let view = this.state.view;
 		if (view === 'complaintsForm') {
@@ -65,6 +83,7 @@ export default class ComplaintsContainer extends React.Component {
 							<ComplaintsCreateForm  />
 						<div>
 							{ this.props.complaints.map((complaint, i) => <SingleComplaintWithComments {...this.props} user={this.props.userStuff.user} key={i} i={i} complaint={complaint} /> ) }
+							{this.getMoreButton()}
 						</div>
 					</Col>
 				</Row>
@@ -109,6 +128,7 @@ export default class ComplaintsContainer extends React.Component {
 						</div>
 						<div>
 							{ this.props.complaints.map((complaint, i) => <SingleComplaintWithComments user={this.props.userStuff.user} {...this.props} key={i} i={i} complaint={complaint} /> ) }
+							{this.getMoreButton()}
 						</div>
 				</Col>
 			</Row>

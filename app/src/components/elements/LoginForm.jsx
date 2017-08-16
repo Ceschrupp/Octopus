@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 const s = require('./LoginForm.scss');
 import { Container, Row, Col } from 'react-grid-system';
 import Fetching from './Fetching';
@@ -24,6 +24,12 @@ export default class Login extends React.Component {
 			this.props.location.pathname = '/dashboard';
 		}
 		this.forceUpdate();
+	}
+
+	componentWillReceiveProps(){
+		if (this.props.userStuff.isLogged) {
+			hashHistory.push('/');
+		}
 	}
 
 	renderAlert() {

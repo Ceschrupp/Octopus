@@ -8,14 +8,14 @@ function otherReducer(state = {
 	payments: [],
 	isFetching: false,
 	failedToFetch: false,
-	buildingNow: null
+	buildingNow: {}
 } , action) {
 
 	switch (action.type) {
 
 	case BUILDING_NOW:
 		return Object.assign({}, state, {
-			buildingNow: action.id
+			buildingNow: action.buildingNow
 		});
 
 	case IS_FETCHING:
@@ -40,7 +40,7 @@ function otherReducer(state = {
 
 	case GET_MORE_NEWS:
 		return Object.assign({}, state, {
-			news: [...state.news, action.news]
+			news: state.news.concat(action.news)
 		});
 	///////////////////////////////DATOS UTILES
 	case GET_INFO:
@@ -50,7 +50,7 @@ function otherReducer(state = {
 
 	case GET_MORE_INFO:
 		return Object.assign({}, state, {
-			info: [...state.info, action.info]
+			info: state.info.concat(action.info)
 		});
 	///////////////////////////////PAGOS
 	case GET_PAYMENTS:
@@ -60,12 +60,12 @@ function otherReducer(state = {
 
 	case GET_MORE_PAYMENTS:
 		return Object.assign({}, state, {
-			payments: [...state.payments, action.payments]
+			payments: state.payments.concat(action.payments)
 		});
 
 	case CREATE_PAYMENT:
 		return Object.assign({}, state, {
-			payments: [...state.payments, action.payment]
+			payments: state.payments.concat(action.payment)
 		});
 	///////////////////////////////EXPENSAS
 	case GET_EXPENSES:
@@ -75,7 +75,7 @@ function otherReducer(state = {
 
 	case GET_MORE_EXPENSES:
 		return Object.assign({}, state, {
-			expenses: [...state.expenses, action.expenses]
+			expenses: state.expenses.concat(action.expenses)
 		});
 
 	default:

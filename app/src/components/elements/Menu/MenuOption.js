@@ -34,7 +34,7 @@ var MenuOption = module.exports = React.createClass({
     if (this.props.onSelect) {
       this.props.onSelect();
     }
-    this.props._internalSelect();
+    // this.props._internalSelect();
   },
 
   handleKeyUp: function(e) {
