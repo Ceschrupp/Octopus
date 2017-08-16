@@ -83,11 +83,16 @@
 .comments {
 
 	color: #0095c6;
+	text-align: left;
+	margin-left: 40px !important;
+
 }
 
 .private {
 
 	color: #0095c6;
-	background-color: red;
+	color: red;
+	font-weight: bold;
 	size: 200%;
+	text-align: left;
 }

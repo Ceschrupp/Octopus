@@ -1,4 +1,5 @@
 import React from 'react';
+const s = require('../styles/CommentCreator.scss')
 const moment = require('moment');
 
 export default class CommentCreator extends React.Component {
@@ -24,6 +25,7 @@ export default class CommentCreator extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
+		console.log(this.state);
 		this.props.fetchSendComment(this.state);
 	}
 	

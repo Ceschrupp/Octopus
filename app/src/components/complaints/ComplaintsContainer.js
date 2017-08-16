@@ -8,6 +8,7 @@ import { Container, Row, Col } from 'react-grid-system';
 import SingleComplaintWithComments from './SingleComplaintWithComments';
 const s = require('./styles/ComplaintsContainer.scss');
 
+
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators(actionCreators, dispatch);
 }
@@ -15,9 +16,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
 	return {
 		userStuff: {
-			user_id: state.user_id,
-			user: state.user,
-			isLogged: state.isLogged,
+			user: state.userStuff.user,
 			logErr: state.logErr,
 			buildings: state.buildings
 		},
@@ -42,6 +41,7 @@ export default class ComplaintsContainer extends React.Component {
 	componentWillMount() {
 		console.log('HHHH', this.props.userStuff);
 		this.props.fetchGetComplaints();
+
 	}
 
 	changeView(event) {
@@ -60,11 +60,11 @@ export default class ComplaintsContainer extends React.Component {
 					<Col md={3} lg={2}/>
 					<Col md={8} lg={8}>
 						<div id={s.createButtonBar}>
-							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Cancelar</button>
+							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Cerrar</button>
 						</div>
 							<ComplaintsCreateForm  />
 						<div>
-							{ this.props.complaints.map((complaint, i) => <SingleComplaintWithComments {...this.props} user={this.props.userStuff.user} key={i} i={i} complaint={complaint} /> ) }
+							{ this.props.complaints.map((complaint, i) => <SingleComplaintWithComments {...this.props} key={i} i={i} complaint={complaint} /> ) }
 						</div>
 					</Col>
 				</Row>
@@ -90,7 +90,7 @@ export default class ComplaintsContainer extends React.Component {
 					<Col md={3} lg={2}/>
 					<Col md={8} lg={8}>
 						<div id={s.createButtonBar}>
-							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Cancelar</button>
+							<button onClick={ this.changeView } className='complaintsList' id={s.createButton}>Cerrar</button>
 						</div>
 						<ComplaintsCreateForm id={s.form}  />
 						<div className={s.noComplaints}><p>No hay reclamos para mostrar.</p></div>

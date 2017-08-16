@@ -1,11 +1,11 @@
 import { GET_COMMENTS, ADD_COMMENTS, DELETE_COMMENT, EDIT_COMMENT, GET_MORE_COMMENTS } from '../actions/globalActions';
 
-function commentsReducer(state = [] , action) {
+function commentsReducer(state=[], action) {
 
 	switch (action.type) {
 
 	case GET_COMMENTS: {
-		return [...state, action.comments];
+		return [action.comments];
 	}
 
 	case ADD_COMMENTS: {
