@@ -12,9 +12,9 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
 	return {
 		userStuff: {
-			user: state.user,
-			comments: state.comments
+			user: state.userStuff.user,
 		},
+		comments: state.comments,
 		other: {
 			isFetching: state.isFetching,
 			failedToFetch: state.failedToFetch,
@@ -32,6 +32,7 @@ class CommentsContainer extends React.Component {
 
 	componenerWillMount() {
 		this.props.fetchGetComments();
+		console.log('HHH', this.props.comments)
 	}
 
 	getMore(e) {

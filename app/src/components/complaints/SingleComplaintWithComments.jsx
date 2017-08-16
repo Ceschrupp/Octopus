@@ -1,7 +1,8 @@
 import React from 'react';
-import Comments from './comments/CommentsContainer';
+import CommentsContainer from './comments/CommentsContainer';
 import { Container, Row, Col } from 'react-grid-system';
 const s = require('./styles/SingleComplaintWithComments.scss');
+
 
 export default class Complaint extends React.Component {
 	constructor(props) {
@@ -18,6 +19,12 @@ export default class Complaint extends React.Component {
 			view: view
 		})
 	}
+
+	componentWillMount () {
+		this.props.fetchGetComments();
+	}
+
+
 	render () {
 		if (this.state.view === 'allCollapsed') {
 			return (
@@ -45,13 +52,15 @@ export default class Complaint extends React.Component {
 						</div>
 						<div ref='complaintBody' className={s.body}>
 							<p>{ this.props.complaint.body }</p>
+						</div>
 							<div className={s.images}>
 								{ this.props.complaint.files.map((image, i) => <a href={ image } key={i}><img key={i} i={i} src={ image } className={s.preview} /></a> ) }
 							</div>
-							<p onClick={ this.changeView } className={s.comments} id='allExpanded'>{ this.props.comments.length } Comentarios</p>
 							<div className={s.userNameLine}>Iniciado por <p className={s.userName}>{ this.props.complaint.userName }</p></div>
 							<p className={s.complaintDate}>{ this.props.complaint.initiateComplaintDate }</p>
-						</div>
+							<div onClick={ this.changeView } className={s.comments} id='allExpanded'>
+								<p id='allExpanded' className={s.comments}>Comentarios</p>
+							</div>
 					</div>
 					</Col>
 				</Row>
@@ -66,8 +75,8 @@ export default class Complaint extends React.Component {
 						<div className={s.plus} id='expandedComplaint'><i className='fa fa-plus'  /></div>
 						<p className={s.title} id='expandedComplaint'>{ this.props.complaint.title }</p>
 						<p className={s.complaintState} id='expandedComplaint'>Estado: <a className={s.stateItself}>{ this.props.complaint.state }</a></p>
-					</div>
 					<div className={s.private}>Este reclamo es privado.</div>
+					</div>
 				</Col>
 			</Row>
 			)
@@ -87,11 +96,13 @@ export default class Complaint extends React.Component {
 							<div className={s.images}>
 								{ this.props.complaint.files.map((image, i) => <a href={ image } key={i}><img key={i} i={i} src={ image } className={s.preview} /></a> ) }
 							</div>
-							<p onClick={ this.changeView } className={s.comments} id='allExpanded'>{ this.props.comments.length } Comentarios</p>
+						<div className={s.private}>Este reclamo es privado.</div>
 							<div className={s.userNameLine}>Iniciado por <p className={s.userName}>{ this.props.complaint.userName }</p></div>
 							<p className={s.complaintDate}>{ this.props.complaint.initiateComplaintDate }</p>
+						<div onClick={ this.changeView } className={s.comments} id='allExpanded'>
+						<p id='expandedComplaint' className={s.comments}>Comentarios</p>
 						</div>
-						<div className={s.private}>Este reclamo es privado.</div>
+						</div>
 					</div>
 					</Col>
 				</Row>
@@ -112,14 +123,14 @@ export default class Complaint extends React.Component {
 							<div className={s.images}>
 								{ this.props.complaint.files.map((image, i) => <a href={ image } key={i}><img key={i} i={i} src={ image } className={s.preview} onClick={ this.changeView }/></a> ) }
 							</div>
-							<div onClick={ this.changeView } className={s.comments} id='expandedComplaint'>
-								<p id='expandedComplaint'>{ this.props.comments.length } Comentarios</p>
-								{ this.props.comments.map((comment, i) => <Comments {...this.props} key={i} i={i} comment={comment} /> ) }
-							</div>
+						<div className={s.private}>Este reclamo es privado.</div>
 							<div className={s.userNameLine}>Iniciado por <p className={s.userName}>{ this.props.complaint.userName }</p></div>
 							<p className={s.complaintDate}>{ this.props.complaint.initiateComplaintDate }.</p>
+							<div onClick={ this.changeView } className={s.comments} id='expandedComplaint'>
+								<p id='expandedComplaint' className={s.comments} >Comentarios</p>
+								<CommentsContainer/>
+							</div>
 						</div>
-						<div className={s.private}>Este reclamo es privado.</div>
 					</div>
 					</Col>
 				</Row>
@@ -140,13 +151,13 @@ export default class Complaint extends React.Component {
 							<div className={s.images}>
 								{ this.props.complaint.files.map((image, i) => <a href={ image } key={i}><img key={i} i={i} src={ image } className={s.preview} onClick={ this.changeView }/></a> ) }
 							</div>
-							<div onClick={ this.changeView } className={s.comments} id='expandedComplaint'>
-								<p id='expandedComplaint'>{ this.props.comments.length } Comentarios</p>
-								{ this.props.comments.map((comment, i) => <Comments {...this.props} key={i} i={i} comment={comment} /> ) }
-							</div>
 							<div className={s.userNameLine}>Iniciado por <p className={s.userName}>{ this.props.complaint.userName }</p></div>
 							<p className={s.complaintDate}>{ this.props.complaint.initiateComplaintDate }.</p>
 						</div>
+							<div onClick={ this.changeView } className={s.comments} id='expandedComplaint'>
+								<p id='expandedComplaint' className={s.comments}>Comentarios</p>
+								{ this.props.comments.map((comment, i) => <CommentsContainer {...this.props} key={i} i={i} comment={comment} /> ) }
+							</div>
 					</div>
 					</Col>
 				</Row>
