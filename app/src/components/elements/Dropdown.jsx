@@ -15,20 +15,21 @@ class Dropdown extends React.Component {
 	}
 
 	logChange(val) {
-		console.log('vaaaaaaal', val)
-		const buildingNow={
+		console.log('buildingNow: ', val);
+		const buildingNow = {
 			building_name: val[1],
-			building_id: val[0],
-		}
+			building_id: val[0]
+		};
 		this.props.buildingNow(buildingNow);
 	}
 
 	render() {
     const Options = this.props.options.map((building, i) =>  (
-      <MenuOption
-				key={building.building_id}
-				className='MenuOption'
-				onSelect={this.logChange.bind(this, [building.building_id, building.building_name])}>
+      <MenuOption 
+      key={building.building_id}
+      className='MenuOption'
+      onSelect={this.logChange.bind(this, [building.building_id, building.building_name])}
+      >
         {building.building_name}
       </MenuOption>
     ));

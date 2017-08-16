@@ -5,11 +5,11 @@ function commentsReducer(state = [] , action) {
 	switch (action.type) {
 
 	case GET_COMMENTS: {
-		return [...state, action.comments];
+		return action.comments;
 	}
 
 	case ADD_COMMENTS: {
-		return [...state, action.comment];
+		return state.concat(action.comment);
 	}
 
 	case DELETE_COMMENT: {
@@ -28,7 +28,7 @@ function commentsReducer(state = [] , action) {
 	}
 
 	case GET_MORE_COMMENTS: {
-		return [...state, action.comments];
+		return state.concat(action.comments);
 	}
 
 	default:

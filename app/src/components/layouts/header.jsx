@@ -33,15 +33,15 @@ class Header extends React.Component {
 		}
 			return (
 				<div className="header">
-					<BurgerMenu user={this.props.userStuff.user}/>
+					<BurgerMenu {...this.props} user={this.props.userStuff.user}/>
 					<Dropdown {...this.props} options={this.props.userStuff.user.buildings}/>
 					<div className="divdellink">
 						<div className="view">{this.props.other.view}</div>
 						<div className="buildingNow">{this.props.other.buildingNow.building_name}</div>
 						<Link to='/' activeClassName='active'><img className='logoHeader' src={logo}/></Link>
 					</div>
-				</div>
-			);
+			</div>
+		);
 	}
 }
 

@@ -22,7 +22,7 @@ const InitialState = {
 		payments: [],
 		isFetching: false,
 		failedToFetch: false,
-		buildingNow:{}
+		buildingNow: {}
 	},
 	amenities: [],
 	complaints: [],

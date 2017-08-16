@@ -5,6 +5,8 @@ import Expenses from './Expenses';
 export default class latestExpenses extends React.Component {
 	constructor(props) {
 		super(props);
+		this.getMore=this.getMore.bind(this);
+		this.getMoreButton=this.getMoreButton.bind(this);
 	}
 
 	componentWillMount() {
@@ -21,7 +23,7 @@ export default class latestExpenses extends React.Component {
 		if (this.props.other.expenses[this.props.other.expenses.length-1] !== 'end') {
 			return (
 				<div>
-					<button onClick={this.getMore}>
+					<button onClick={this.getMore} style={{'margin': '50px 0px'}}>
 						Ver más
 					</button>
 				</div>
